@@ -1,0 +1,1777 @@
+2016-05-19 11:43:07 [-][-][-][error][yii\console\Exception] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: migrate/pu' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php:125
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('pu', Array)
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('pu', Array)
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/pu', Array)
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/pu', Array)
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#5 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#6 {main}
+
+Next exception 'yii\console\Exception' with message 'Unknown command "migrate/pu".' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php:179
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/pu', Array)
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#3 {main}
+2016-05-19 11:43:07 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463658187.3313
+    'REQUEST_TIME' => 1463658187
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/pu'
+    ]
+    'argc' => 2
+]
+2016-05-19 11:43:12 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1273 Unknown collation: 'utf8_general_cli'' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(260): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_114053_create_area.php(19): yii\db\Migration->createTable('{{%area}}', Array, 'CHARACTER SET u...')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_114053_create_area->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_114053_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1273 Unknown collation: 'utf8_general_cli'
+The SQL being executed was: CREATE TABLE `sg_area` (
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`area_name_en` varchar(255) NOT NULL,
+	`area_name_ar` varchar(255) NOT NULL
+) CHARACTER SET utf8 COLLATE utf8_general_cli ENGINE=InnoDB' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'CREATE TABLE `s...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(260): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_114053_create_area.php(19): yii\db\Migration->createTable('{{%area}}', Array, 'CHARACTER SET u...')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_114053_create_area->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_114053_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1273
+    [2] => Unknown collation: 'utf8_general_cli'
+)
+
+2016-05-19 11:43:10 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463658190.2551
+    'REQUEST_TIME' => 1463658190
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:15:58 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'utf8 COLLATE utf8_general_ci ENGINE = InnoDB' at line 6' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(260): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_121031_create_vendor_gallery.php(20): yii\db\Migration->createTable('{{%vendor_galle...', Array, 'CHARACTER utf8 ...')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_121031_create_vendor_gallery->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_121031_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'utf8 COLLATE utf8_general_ci ENGINE = InnoDB' at line 6
+The SQL being executed was: CREATE TABLE `sg_vendor_gallery` (
+	`gallery_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`vendor_id` bigint(20) NOT NULL,
+	`photo_url` varchar(255) NOT NULL,
+	`photo_added_datetime` datetime NOT NULL
+) CHARACTER utf8 COLLATE utf8_general_ci ENGINE = InnoDB' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'CREATE TABLE `s...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(260): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_121031_create_vendor_gallery.php(20): yii\db\Migration->createTable('{{%vendor_galle...', Array, 'CHARACTER utf8 ...')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_121031_create_vendor_gallery->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_121031_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42000
+    [1] => 1064
+    [2] => You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'utf8 COLLATE utf8_general_ci ENGINE = InnoDB' at line 6
+)
+
+2016-05-19 12:15:57 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463660157.0697
+    'REQUEST_TIME' => 1463660157
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:17:22 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_4011' (errno: 150)' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_121031_create_vendor_gallery.php(22): yii\db\Migration->addForeignKey('fk_vg_vendor_id', '{{%vendor_galle...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_121031_create_vendor_gallery->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_121031_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_4011' (errno: 150)
+The SQL being executed was: ALTER TABLE `sg_vendor_gallery` ADD CONSTRAINT `fk_vg_vendor_id` FOREIGN KEY (`vendor_id`) REFERENCES `sg_vendor` (`vendor_id`) ON DELETE CASCADE' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `sg...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_121031_create_vendor_gallery.php(22): yii\db\Migration->addForeignKey('fk_vg_vendor_id', '{{%vendor_galle...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_121031_create_vendor_gallery->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_121031_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1005
+    [2] => Can't create table 'student_guide.#sql-5e4_4011' (errno: 150)
+)
+
+2016-05-19 12:17:20 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463660240.3503
+    'REQUEST_TIME' => 1463660240
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:18:09 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_404b' (errno: 150)' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_121031_create_vendor_gallery.php(22): yii\db\Migration->addForeignKey('fk_vg_vendor_id', '{{%vendor_galle...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_121031_create_vendor_gallery->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_121031_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_404b' (errno: 150)
+The SQL being executed was: ALTER TABLE `sg_vendor_gallery` ADD CONSTRAINT `fk_vg_vendor_id` FOREIGN KEY (`vendor_id`) REFERENCES `sg_vendor` (`vendor_id`) ON DELETE CASCADE' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `sg...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_121031_create_vendor_gallery.php(22): yii\db\Migration->addForeignKey('fk_vg_vendor_id', '{{%vendor_galle...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_121031_create_vendor_gallery->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_121031_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1005
+    [2] => Can't create table 'student_guide.#sql-5e4_404b' (errno: 150)
+)
+
+2016-05-19 12:18:07 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463660287.6371
+    'REQUEST_TIME' => 1463660287
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:22:23 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_414a' (errno: 150)' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_121031_create_vendor_gallery.php(22): yii\db\Migration->addForeignKey('fk_vg_vendor_id', '{{%vendor_galle...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_121031_create_vendor_gallery->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_121031_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_414a' (errno: 150)
+The SQL being executed was: ALTER TABLE `sg_vendor_gallery` ADD CONSTRAINT `fk_vg_vendor_id` FOREIGN KEY (`vendor_id`) REFERENCES `sg_vendor` (`vendor_id`) ON DELETE CASCADE' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `sg...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_121031_create_vendor_gallery.php(22): yii\db\Migration->addForeignKey('fk_vg_vendor_id', '{{%vendor_galle...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_121031_create_vendor_gallery->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_121031_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1005
+    [2] => Can't create table 'student_guide.#sql-5e4_414a' (errno: 150)
+)
+
+2016-05-19 12:22:21 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463660541.6631
+    'REQUEST_TIME' => 1463660541
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:27:53 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'student_guide.sg_vendor_area' doesn't exist' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(21): yii\db\Migration->addForeignKey('fk_va_vendor_id', '{{%vendor_area}...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'student_guide.sg_vendor_area' doesn't exist
+The SQL being executed was: ALTER TABLE `sg_vendor_area` ADD CONSTRAINT `fk_va_vendor_id` FOREIGN KEY (`vendor_id`) REFERENCES `sg_vendor` (`vendor_id`) ON DELETE CASCADE' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `sg...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(21): yii\db\Migration->addForeignKey('fk_va_vendor_id', '{{%vendor_area}...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'student_guide.sg_vendor_area' doesn't exist
+)
+
+2016-05-19 12:27:50 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463660870.9264
+    'REQUEST_TIME' => 1463660870
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:28:15 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'sg_vendor_area_link' already exists' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(260): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(19): yii\db\Migration->createTable('{{%vendor_area_...', Array, 'CHARACTER SET u...')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'sg_vendor_area_link' already exists
+The SQL being executed was: CREATE TABLE `sg_vendor_area_link` (
+	`link_id` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`vendor_id` bigint(20) NOT NULL,
+	`area_id` int(11) NOT NULL
+) CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = InnoDB' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'CREATE TABLE `s...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(260): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(19): yii\db\Migration->createTable('{{%vendor_area_...', Array, 'CHARACTER SET u...')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S01
+    [1] => 1050
+    [2] => Table 'sg_vendor_area_link' already exists
+)
+
+2016-05-19 12:28:13 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463660893.1918
+    'REQUEST_TIME' => 1463660893
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:28:28 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'student_guide.sg_vendor_area' doesn't exist' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(21): yii\db\Migration->addForeignKey('fk_va_vendor_id', '{{%vendor_area}...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'student_guide.sg_vendor_area' doesn't exist
+The SQL being executed was: ALTER TABLE `sg_vendor_area` ADD CONSTRAINT `fk_va_vendor_id` FOREIGN KEY (`vendor_id`) REFERENCES `sg_vendor` (`vendor_id`) ON DELETE CASCADE' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `sg...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(21): yii\db\Migration->addForeignKey('fk_va_vendor_id', '{{%vendor_area}...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'student_guide.sg_vendor_area' doesn't exist
+)
+
+2016-05-19 12:28:27 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463660907.0102
+    'REQUEST_TIME' => 1463660907
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:28:55 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'sg_vendor_area_link' already exists' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(260): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(19): yii\db\Migration->createTable('{{%vendor_area_...', Array, 'CHARACTER SET u...')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'sg_vendor_area_link' already exists
+The SQL being executed was: CREATE TABLE `sg_vendor_area_link` (
+	`link_id` bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`vendor_id` bigint(20) NOT NULL,
+	`area_id` int(11) NOT NULL
+) CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = InnoDB' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'CREATE TABLE `s...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(260): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(19): yii\db\Migration->createTable('{{%vendor_area_...', Array, 'CHARACTER SET u...')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S01
+    [1] => 1050
+    [2] => Table 'sg_vendor_area_link' already exists
+)
+
+2016-05-19 12:28:53 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463660933.9245
+    'REQUEST_TIME' => 1463660933
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:29:16 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'student_guide.sg_vendor_area' doesn't exist' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(21): yii\db\Migration->addForeignKey('fk_va_vendor_id', '{{%vendor_area}...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'student_guide.sg_vendor_area' doesn't exist
+The SQL being executed was: ALTER TABLE `sg_vendor_area` ADD CONSTRAINT `fk_va_vendor_id` FOREIGN KEY (`vendor_id`) REFERENCES `sg_vendor` (`vendor_id`) ON DELETE CASCADE' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `sg...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122523_create_vendor_area_link.php(21): yii\db\Migration->addForeignKey('fk_va_vendor_id', '{{%vendor_area}...', 'vendor_id', '{{%vendor}}', 'vendor_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122523_create_vendor_area_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122523_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'student_guide.sg_vendor_area' doesn't exist
+)
+
+2016-05-19 12:29:14 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463660954.0007
+    'REQUEST_TIME' => 1463660954
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:32:56 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_4310' (errno: 150)' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122953_create_vendor_category_link.php(22): yii\db\Migration->addForeignKey('fk_vc_area_id', '{{%vendor_categ...', 'category_id', '{{%category}}', 'category_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122953_create_vendor_category_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122953_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_4310' (errno: 150)
+The SQL being executed was: ALTER TABLE `sg_vendor_category_link` ADD CONSTRAINT `fk_vc_area_id` FOREIGN KEY (`category_id`) REFERENCES `sg_category` (`category_id`) ON DELETE CASCADE' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `sg...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122953_create_vendor_category_link.php(22): yii\db\Migration->addForeignKey('fk_vc_area_id', '{{%vendor_categ...', 'category_id', '{{%category}}', 'category_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122953_create_vendor_category_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122953_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1005
+    [2] => Can't create table 'student_guide.#sql-5e4_4310' (errno: 150)
+)
+
+2016-05-19 12:32:54 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463661174.5248
+    'REQUEST_TIME' => 1463661174
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:35:48 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_4404' (errno: 150)' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122953_create_vendor_category_link.php(22): yii\db\Migration->addForeignKey('fk_vc_category_...', '{{%vendor_categ...', 'category_id', '{{%category}}', 'category_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122953_create_vendor_category_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122953_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1005 Can't create table 'student_guide.#sql-5e4_4404' (errno: 150)
+The SQL being executed was: ALTER TABLE `sg_vendor_category_link` ADD CONSTRAINT `fk_vc_category_id` FOREIGN KEY (`category_id`) REFERENCES `sg_category` (`category_id`) ON DELETE CASCADE' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'ALTER TABLE `sg...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(414): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_122953_create_vendor_category_link.php(22): yii\db\Migration->addForeignKey('fk_vc_category_...', '{{%vendor_categ...', 'category_id', '{{%category}}', 'category_id', 'CASCADE')
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_122953_create_vendor_category_link->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_122953_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1005
+    [2] => Can't create table 'student_guide.#sql-5e4_4404' (errno: 150)
+)
+
+2016-05-19 12:35:46 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463661346.1836
+    'REQUEST_TIME' => 1463661346
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 12:56:10 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'student_guide.user' doesn't exist' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(189): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_124839_insert_user.php(15): yii\db\Migration->insert('user', Array)
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_124839_insert_user->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_124839_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'student_guide.user' doesn't exist
+The SQL being executed was: INSERT INTO `user` (`username`, `auth_key`, `password_hash`, `email`, `status`) VALUES ('Admin', 'ssss', '$2y$13$a1CtIHXBJ9grdb6409uRvud3KBaeCRYfqIGC6Hn2LT9cxdRpu/rzm', 'sivabalan.s@technoduce.com', '10')' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/db/Migration.php(189): yii\db\Command->execute()
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/console/migrations/m160519_124839_insert_user.php(15): yii\db\Migration->insert('user', Array)
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_124839_insert_user->up()
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_124839_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('up', Array)
+#9 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('up', Array)
+#10 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate/up', Array)
+#11 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate/up', Array)
+#12 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'student_guide.user' doesn't exist
+)
+
+2016-05-19 12:56:08 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463662568.9115
+    'REQUEST_TIME' => 1463662568
+    'argv' => [
+        0 => 'yii'
+        1 => 'migrate/up'
+    ]
+    'argc' => 2
+]
+2016-05-19 13:10:28 [-][-][-][error][yii\console\Exception] exception 'yii\console\Exception' with message 'Languages cannot be empty.' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/MessageController.php:309
+Stack trace:
+#0 [internal function]: yii\console\controllers\MessageController->actionExtract(NULL)
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('', Array)
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('', Array)
+#5 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('message', Array)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('message', Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#9 {main}
+2016-05-19 13:10:28 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463663428.4868
+    'REQUEST_TIME' => 1463663428
+    'argv' => [
+        0 => 'yii'
+        1 => 'message'
+    ]
+    'argc' => 2
+]
+2016-05-19 13:10:34 [-][-][-][error][yii\console\Exception] exception 'yii\console\Exception' with message 'The configuration file does not exist: help' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/MessageController.php:278
+Stack trace:
+#0 [internal function]: yii\console\controllers\MessageController->actionExtract('help')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('', Array)
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('', Array)
+#5 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('message', Array)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('message', Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#9 {main}
+2016-05-19 13:10:34 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463663434.0524
+    'REQUEST_TIME' => 1463663434
+    'argv' => [
+        0 => 'yii'
+        1 => 'message'
+        2 => 'help'
+    ]
+    'argc' => 3
+]
+2016-05-19 13:12:30 [-][-][-][error][yii\console\Exception] exception 'yii\console\Exception' with message 'Missing required arguments: filePath' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php:157
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(49): yii\console\Controller->bindActionParams(Object(yii\base\InlineAction), Array)
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('config', Array)
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('config', Array)
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('message/config', Array)
+#5 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('message/config', Array)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#8 {main}
+2016-05-19 13:12:30 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463663550.4569
+    'REQUEST_TIME' => 1463663550
+    'argv' => [
+        0 => 'yii'
+        1 => 'message/config'
+    ]
+    'argc' => 2
+]
+2016-05-19 13:12:47 [-][-][-][error][yii\console\Exception] exception 'yii\console\Exception' with message 'Missing required arguments: filePath' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php:157
+Stack trace:
+#0 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(49): yii\console\Controller->bindActionParams(Object(yii\base\InlineAction), Array)
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('config-template', Array)
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('config-template', Array)
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('message/config-...', Array)
+#5 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('message/config-...', Array)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#8 {main}
+2016-05-19 13:12:47 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463663567.5942
+    'REQUEST_TIME' => 1463663567
+    'argv' => [
+        0 => 'yii'
+        1 => 'message/config-template'
+    ]
+    'argc' => 2
+]
+2016-05-19 13:15:41 [-][-][-][error][yii\console\Exception] exception 'yii\console\Exception' with message 'Languages cannot be empty.' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/MessageController.php:309
+Stack trace:
+#0 [internal function]: yii\console\controllers\MessageController->actionExtract(NULL)
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('extract', Array)
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('extract', Array)
+#5 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('message/extract', Array)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('message/extract', Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#9 {main}
+2016-05-19 13:15:41 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463663741.5357
+    'REQUEST_TIME' => 1463663741
+    'argv' => [
+        0 => 'yii'
+        1 => 'message/extract'
+    ]
+    'argc' => 2
+]
+2016-05-19 13:16:59 [-][-][-][error][yii\console\Exception] exception 'yii\console\Exception' with message 'The message path /home/developer/workspace/studentsguide/studentguide/trunk/console/config/message is not a valid directory.' in /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/controllers/MessageController.php:305
+Stack trace:
+#0 [internal function]: yii\console\controllers\MessageController->actionExtract('@app/config/i18...')
+#1 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#2 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#3 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('extract', Array)
+#4 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('extract', Array)
+#5 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('message/extract', Array)
+#6 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('message/extract', Array)
+#7 /home/developer/workspace/studentsguide/studentguide/trunk/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#8 /home/developer/workspace/studentsguide/studentguide/trunk/yii(27): yii\base\Application->run()
+#9 {main}
+2016-05-19 13:16:59 [-][-][-][info][application] $_SERVER = [
+    'SSH_AGENT_PID' => '3485'
+    'COMP_WORDBREAKS' => ' 	
+\"\'><;|&(:'
+    'GPG_AGENT_INFO' => '/tmp/keyring-9FsJGl/gpg:0:1'
+    'TERM' => 'xterm'
+    'SHELL' => '/bin/bash'
+    'XDG_SESSION_COOKIE' => 'f667c91f4af4dde4f8c7629500000006-1463629780.173535-518113636'
+    'WINDOWID' => '92274693'
+    'GNOME_KEYRING_CONTROL' => '/tmp/keyring-9FsJGl'
+    'USER' => 'developer'
+    'LS_COLORS' => 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lz=01;31:*.xz=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.jpg=01;35:*.jpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.axv=01;35:*.anx=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.axa=00;36:*.oga=00;36:*.spx=00;36:*.xspf=00;36:'
+    'SSH_AUTH_SOCK' => '/tmp/keyring-9FsJGl/ssh'
+    'SESSION_MANAGER' => 'local/tech-sivab:@/tmp/.ICE-unix/3438,unix/tech-sivab:/tmp/.ICE-unix/3438'
+    'USERNAME' => 'developer'
+    'DEFAULTS_PATH' => '/usr/share/gconf/gnome-fallback.default.path'
+    'XDG_CONFIG_DIRS' => '/etc/xdg/xdg-gnome-fallback:/etc/xdg'
+    'PATH' => '/home/developer/bin:/usr/local/bin:/usr/bin:/bin:/usr/games'
+    'DESKTOP_SESSION' => 'gnome-fallback'
+    'PWD' => '/home/developer/workspace/studentsguide/studentguide/trunk'
+    'GNOME_KEYRING_PID' => '3421'
+    'LANG' => 'en_US.UTF-8'
+    'GDM_LANG' => 'en_US'
+    'MANDATORY_PATH' => '/usr/share/gconf/gnome-fallback.mandatory.path'
+    'UBUNTU_MENUPROXY' => 'libappmenu.so'
+    'GDMSESSION' => 'gnome-fallback'
+    'SHLVL' => '1'
+    'HOME' => '/home/developer'
+    'LANGUAGE' => 'en_US:en'
+    'GNOME_DESKTOP_SESSION_ID' => 'this-is-deprecated'
+    'LOGNAME' => 'developer'
+    'XDG_DATA_DIRS' => '/usr/share/gnome-fallback:/usr/share/gnome:/usr/local/share/:/usr/share/'
+    'DBUS_SESSION_BUS_ADDRESS' => 'unix:abstract=/tmp/dbus-IPDltFJksT,guid=40b99201c2a75591ed30bd420000002b'
+    'LESSOPEN' => '| /usr/bin/lesspipe %s'
+    'WINDOWPATH' => '7'
+    'DISPLAY' => ':0.0'
+    'XDG_CURRENT_DESKTOP' => 'GNOME'
+    'LESSCLOSE' => '/usr/bin/lesspipe %s %s'
+    'COLORTERM' => 'gnome-terminal'
+    'XAUTHORITY' => '/var/run/gdm/auth-for-developer-g2R28D/database'
+    '_' => '/usr/bin/php'
+    'OLDPWD' => '/home/developer/workspace/studentsguide'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1463663819.665
+    'REQUEST_TIME' => 1463663819
+    'argv' => [
+        0 => 'yii'
+        1 => 'message/extract'
+        2 => '@app/config/i18n.php'
+    ]
+    'argc' => 3
+]
