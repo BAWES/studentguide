@@ -61,6 +61,20 @@ return [
                         'GET index'     =>  'index',
                     ],
                 ],
+                [
+                    'class'         =>  'yii\rest\UrlRule',
+                    'controller'    =>  ['v1/vendor'],
+                    'extraPatterns' =>  [
+                        'GET index'     =>  'index',
+                    ],
+                ],
+                [
+                    'class'         =>  'yii\rest\UrlRule',
+                    'controller'    =>  ['v1/vendor'],
+                    'extraPatterns' =>  [
+                        'GET arealist'     =>  'arealist',
+                    ],
+                ],
             ],
         ],
         'request' => [

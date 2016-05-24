@@ -60,6 +60,11 @@ class Category extends \yii\db\ActiveRecord
         ];
     }
 
+    public function getCategory($category)
+    {
+        return $sql = Category::find()->select('category_id')->where(['like','category_name_en',$category])->asArray()->all();
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */

@@ -26,9 +26,7 @@ class CategoryController extends BaseController
     */
     public function actionIndex($language = "en")
     {
-    	Yii::$app->language 	=	$language;
-        var_dump(Yii::$app->language);
-        die;
+    	Yii::$app->language    =	$language;
         $request                =   Yii::$app->request;
         $model                  =   new $this->modelClass;
         $query                  =   $model->find()

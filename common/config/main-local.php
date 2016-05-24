@@ -9,13 +9,18 @@ return [
             'charset'           =>  'utf8',
             'tablePrefix'       =>  'sg_',
         ],
-        'mailer'    => [
-            'class'             => 'yii\swiftmailer\Mailer',
-            'viewPath'          => '@common/mail',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport'  => true,
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+            'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'sivabalan.s@technoduce.com',
+                'password' => 'NattaGuru02323447!',
+                'port' => '465',
+                'encryption' => 'ssl',
+            ],
         ],
     ],
 ];
