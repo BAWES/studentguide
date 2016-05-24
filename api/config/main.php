@@ -18,6 +18,10 @@ return [
         ]
     ],
     'components'                =>  [
+        'user'                  =>  [
+            'identityClass'     =>  'common\models\User',
+            'enableAutoLogin'   =>  false,
+        ],
         'i18n'                  =>  [
             'translations'      =>      [
                 'api*'              =>  [
@@ -41,7 +45,28 @@ return [
         'urlManager'            =>  [
             'enablePrettyUrl'       =>  true,
             'showScriptName'        =>  true,
-            'rules'                 =>  [],
+            'rules'                 =>  [
+                [
+                    'class'         =>  'yii\rest\UrlRule',
+                    'controller'    =>  'v1/base',
+                    'pluralize'     =>  false,
+                    'extraPatterns' =>  [
+                        'GET index1'    =>  'index1',
+                    ],
+                ],
+                [
+                    'class'         =>  'yii\rest\UrlRule',
+                    'controller'    =>  ['v1/category'],
+                    'extraPatterns' =>  [
+                        'GET index'     =>  'index',
+                    ],
+                ],
+            ],
+        ],
+        'request' => [
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
     ],
     'params'                    =>  $params,
