@@ -20,7 +20,7 @@
 <tr>
 <td width="25"></td>
 <td style=" font:14px arial; color:#000;">
- <?= 'Mobile:' .$mobile; ?>
+ <?= 'User mobile number:' .$mobile; ?>
 
 </td>
 </tr>

@@ -27,69 +27,54 @@ class VendorController extends BaseController
     */
     public function actionIndex($language = "en")
     {
-
-        Yii::$app->language    = $language;
+       Yii::$app->language     =   $language;
         $request                =   Yii::$app->request;
         $model                  =   new $this->modelClass;
-        $query                  =   $model->find();
-
-        if($request->get('vendor'))
-         {
-           $query->where(['=','{{%vendor}}.vendor_id',$request->get('vendor')]);
-         }
-        
-         /* Main category search*/
-         if($request->get('category'))
-         {
-              $query->join('INNER JOIN','{{%vendor_category_link}}','{{%vendor_category_link}}.vendor_id = {{%vendor}}.vendor_id')
-             ->where(['{{%vendor_category_link}}.category_id' => $request->get('category')]);
-             /* When search inside main category */
-             if($request->get('search'))
-             $query->andWhere(['like','{{%vendor}}.vendor_name_en',$request->get('search')]);
-         }
-
-         /* Sub category search*/
-         if($request->get('subcategory'))
-         {
-              $query->join('INNER JOIN','{{%vendor_category_link}}','{{%vendor_category_link}}.vendor_id = {{%vendor}}.vendor_id')
-             ->leftjoin('{{%category}}','{{%category}}.parent_category_id = {{%vendor_category_link}}.category_id')
-             ->where(['{{%vendor_category_link}}.category_id' => $request->get('subcategory')]);
-             /* When search inside main category */
-             if($request->get('search'))
-             $query->andWhere(['like','{{%vendor}}.vendor_name_en',$request->get('search')]);
-         }
-
-         /* Area search*/
-         if($request->get('area'))
-         {
-              $query->join('INNER JOIN','{{%vendor_area_link}}','{{%vendor_area_link}}.vendor_id = {{%vendor}}.vendor_id')
-              ->leftjoin('{{%category}}','{{%category}}.parent_category_id = {{%vendor_category_link}}.category_id')
-             ->where(['{{%vendor_area_link}}.area_id' => $request->get('area')])
-             ->andWhere(['{{%category}}.category_vendors_filterable_by_area' => 1]);
-             /* When search inside main category */
-             if($request->get('search'))
-             $query->andWhere(['like','{{%vendor}}.vendor_name_en',$request->get('search')]);
-         }
-
-
-         /* Search for all   */
-         if($request->get('search'))
-         {
-           $query->select('{{%vendor}}.*, {{%area}}.*')
-          //->leftjoin('{{%vendor_category_link}}','{{%vendor_category_link}}.vendor_id = {{%vendor}}.vendor_id')
-          //->leftjoin('{{%category}}','{{%category}}.category_id = {{%vendor_category_link}}.category_id')
-          ->leftjoin('{{%vendor_area_link}}','{{%vendor_area_link}}.vendor_id = {{%vendor}}.vendor_id')
-          ->leftjoin('{{%area}}','{{%area}}.id = {{%vendor_area_link}}.area_id')
-          //->where(['like','{{%category}}.category_name_en',$request->get('search')])
-          ->where(['like','{{%vendor}}.vendor_name_en',$request->get('search')])
-          ->orWhere(['like','{{%area}}.area_name_en',$request->get('search')])
-          ->groupby('{{%vendor}}.vendor_id');
-         }
-         $vendors = $query->asArray()->all();
-        if($vendors)
-            return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "vendors"), 'data' => ['vendors' => $vendors]];
+        $query                  =   $model->find()
+           ->select([new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/'.'",{{%vendor}}.vendor_logo) as logo'),'{{%vendor}}.*'])
+           ->asArray()->all();
+        if($query)
+            return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "VENDOR_LIST"), 'data' => ['vendors' => $query]];
         else
             return ['code' => parent::STATUS_FAILURE, 'message' => Yii::t("api", "VENDOR_NOT_FOUND"), 'data' => (Object)[]];
+    }
+
+
+    public function actionCategorylink()
+    {
+        $rows = (new \yii\db\Query())
+      ->select('*')
+      ->from('{{%vendor_category_link}}')
+      ->all();
+      if($rows)
+            return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "CATEGORY_LINKS"), 'data' => ['category_link' => $rows]];
+        else
+            return ['code' => parent::STATUS_FAILURE, 'message' => Yii::t("api", "CATEGORY_LINKS"), 'data' => (Object)[]];
+    }
+
+    public function actionArealink()
+    {
+        $rows = (new \yii\db\Query())
+      ->select('*')
+      ->from('{{%vendor_area_link}}')
+      ->all();
+      if($rows)
+            return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "AREA_LINKS"), 'data' => ['area_link' => $rows]];
+        else
+            return ['code' => parent::STATUS_FAILURE, 'message' => Yii::t("api", "AREA_LINKS"), 'data' => (Object)[]];
+    }
+
+
+   public function actionVendorgallery()
+    {
+        $rows = (new \yii\db\Query())
+      ->select([new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/gallery/'.'",photo_url) as photo'), 'vendor_id'])
+      ->from('{{%vendor_gallery}}')
+      ->all();
+      if($rows)
+            return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "VENDOR_GALLERY"), 'data' => ['vendor_gallery' => $rows]];
+        else
+            return ['code' => parent::STATUS_FAILURE, 'message' => Yii::t("api", "VENDOR_GALLERY"), 'data' => (Object)[]];
     }
 
    public function actionArealists($language = "en")
@@ -98,7 +83,6 @@ class VendorController extends BaseController
         $request                =   Yii::$app->request;
         $model                  =   new $this->modelClass;
         $query                  =   $model->find();
-
         $rows = (new \yii\db\Query())
       ->select('*')
       ->from('{{%area}}')
@@ -113,7 +97,7 @@ class VendorController extends BaseController
     {
      if(Yii::$app->request->post())
       $data = Yii::$app->request->post();
-      $body = $data['name']. 'requested '.$data['message'].'';
+      $body = $data['name'].', Requested '.$data['message'].'';
       $send = Yii::$app->mailer->compose([
             "html" => "layouts/enquiry"
                 ],[
@@ -121,8 +105,8 @@ class VendorController extends BaseController
             "mobile" => $data['mobile']
            ])
           ->setFrom('sivabalan.s@technoduce.com')
-          ->setTo('khalid@bawes.net')
-          ->setSubject('Enquiry from user')
+          ->setTo('mariyappan@technoduce.com')
+          ->setSubject('Enquiry from customer - Student Quide')
           ->send();
      if($send)
             return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "mail"), 'data' => ['status' => 1]];

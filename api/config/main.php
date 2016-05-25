@@ -75,6 +75,41 @@ return [
                         'GET arealist'     =>  'arealist',
                     ],
                 ],
+                [
+                    'class'         =>  'yii\rest\UrlRule',
+                    'controller'    =>  ['v1/vendor'],
+                    'extraPatterns' =>  [
+                        'GET vendorcategory'     =>  'vendorcategory',
+                    ],
+                ],
+                [
+                    'class'         =>  'yii\rest\UrlRule',
+                    'controller'    =>  ['v1/vendor'],
+                    'extraPatterns' =>  [
+                        'GET categorylink'     =>  'categorylink',
+                    ],
+                ],
+                [
+                    'class'         =>  'yii\rest\UrlRule',
+                    'controller'    =>  ['v1/vendor'],
+                    'extraPatterns' =>  [
+                        'GET arealink'     =>  'arealink',
+                    ],
+                ],
+                [
+                    'class'         =>  'yii\rest\UrlRule',
+                    'controller'    =>  ['v1/vendor'],
+                    'extraPatterns' =>  [
+                        'GET vendorgallery'     =>  'vendorgallery',
+                    ],
+                ],
+                [
+                    'class'         =>  'yii\rest\UrlRule',
+                    'controller'    =>  ['v1/vendor'],
+                    'extraPatterns' =>  [
+                        'GET new'     =>  'new',
+                    ],
+                ],
             ],
         ],
         'request' => [

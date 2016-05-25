@@ -29,16 +29,10 @@ class CategoryController extends BaseController
     	Yii::$app->language    =	$language;
         $request                =   Yii::$app->request;
         $model                  =   new $this->modelClass;
-        $query                  =   $model->find()
-            ->select(['category' => '{{%category}}.category_id', 'category_en' => '{{%category}}.category_name_en', 'category_ar' => '{{%category}}.category_name_ar', 'parent_category' => 'IF({{%category}}.parent_category_id IS NULL, "", {{%category}}.parent_category_id)', 'filter_by' => '{{%category}}.category_vendors_filterable_by_area', 'count' =>   'count(p.category_id)'])
-            ->leftJoin('{{%category}} AS p', '{{%category}}.category_id = p.parent_category_id');
-        
-        if($request->get('category'))
-            $query->where(['{{%category}}.parent_category_id' => $request->get('category')]);
-        else
-            $query->where(['{{%category}}.parent_category_id' => NULL]);
-
-        $categories = $query->groupBy(['p.parent_category_id'])->orderBy('{{%category}}.category_id DESC')->asArray()->all();
+        $query                  =   $model->find();
+        $query->select(['category_id','IFNULL(parent_category_id,0) as parent_category_id','category_name_en',
+            'category_name_ar','category_vendors_filterable_by_area']);
+        $categories = $query->orderBy('{{%category}}.category_id DESC')->asArray()->all();
         if($categories)
             return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "testing"), 'data' => ['categories' => $categories]];
         else
