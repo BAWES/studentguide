@@ -1775,3 +1775,86 @@ Stack trace:
     ]
     'argc' => 3
 ]
+2016-05-26 11:45:44 [-][-][-][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 1364 Field 'created_at' doesn't have a default value' in /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/db/Command.php:844
+Stack trace:
+#0 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/db/Command.php(844): PDOStatement->execute()
+#1 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/db/Migration.php(189): yii\db\Command->execute()
+#2 /Users/BAWES/Sites/guide-student/console/migrations/m160519_124839_insert_user.php(15): yii\db\Migration->insert('{{%user}}', Array)
+#3 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_124839_insert_user->up()
+#4 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_124839_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('', Array)
+#9 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('', Array)
+#10 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate', Array)
+#11 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate', Array)
+#12 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /Users/BAWES/Sites/guide-student/yii(27): yii\base\Application->run()
+#14 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 1364 Field 'created_at' doesn't have a default value
+The SQL being executed was: INSERT INTO `user` (`username`, `auth_key`, `password_hash`, `email`, `status`) VALUES ('Admin', 'ssss', '$2y$13$a1CtIHXBJ9grdb6409uRvud3KBaeCRYfqIGC6Hn2LT9cxdRpu/rzm', 'sivabalan.s@technoduce.com', 10)' in /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/db/Schema.php:633
+Stack trace:
+#0 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/db/Command.php(854): yii\db\Schema->convertException(Object(PDOException), 'INSERT INTO `us...')
+#1 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/db/Migration.php(189): yii\db\Command->execute()
+#2 /Users/BAWES/Sites/guide-student/console/migrations/m160519_124839_insert_user.php(15): yii\db\Migration->insert('{{%user}}', Array)
+#3 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(509): m160519_124839_insert_user->up()
+#4 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/controllers/BaseMigrateController.php(130): yii\console\controllers\BaseMigrateController->migrateUp('m160519_124839_...')
+#5 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#6 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/base/InlineAction.php(55): call_user_func_array(Array, Array)
+#7 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/base/Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#8 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/Controller.php(119): yii\base\Controller->runAction('', Array)
+#9 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/base/Module.php(454): yii\console\Controller->runAction('', Array)
+#10 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/Application.php(176): yii\base\Module->runAction('migrate', Array)
+#11 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/console/Application.php(143): yii\console\Application->runAction('migrate', Array)
+#12 /Users/BAWES/Sites/guide-student/vendor/yiisoft/yii2/base/Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#13 /Users/BAWES/Sites/guide-student/yii(27): yii\base\Application->run()
+#14 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1364
+    [2] => Field 'created_at' doesn't have a default value
+)
+
+2016-05-26 11:45:42 [-][-][-][info][application] $_SERVER = [
+    'TERM_PROGRAM' => 'Apple_Terminal'
+    'SHELL' => '/bin/zsh'
+    'TERM' => 'xterm-256color'
+    'TMPDIR' => '/var/folders/t0/ssb8ck0j4c106w8w9hzftjcc0000gn/T/'
+    'Apple_PubSub_Socket_Render' => '/private/tmp/com.apple.launchd.Ykx1S8NeYq/Render'
+    'TERM_PROGRAM_VERSION' => '361.1'
+    'TERM_SESSION_ID' => '98A5BFFD-91FF-4837-9D07-ECA0B844E565'
+    'USER' => 'BAWES'
+    'SSH_AUTH_SOCK' => '/private/tmp/com.apple.launchd.a2ajtVpuvi/Listeners'
+    '__CF_USER_TEXT_ENCODING' => '0x1F5:0x0:0x0'
+    'PATH' => '/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/BAWES/Library/Android/sdk/platform-tools:/Users/BAWES/Library/Android/sdk/tools:/Library/Java/JavaVirtualMachines/jdk1.8.0_31.jdk/Contents/Home/bin:/Users/BAWES/Library/apache-ant-1.9.4/bin:/Users/BAWES/.composer/vendor/bin'
+    'PWD' => '/Users/BAWES/Sites/guide-student'
+    'XPC_FLAGS' => '0x0'
+    'XPC_SERVICE_NAME' => '0'
+    'SHLVL' => '1'
+    'HOME' => '/Users/BAWES'
+    'LOGNAME' => 'BAWES'
+    'LC_CTYPE' => 'UTF-8'
+    'SECURITYSESSIONID' => '186a6'
+    'OLDPWD' => '/Users/BAWES/Sites/plugto'
+    'ZSH' => '/Users/BAWES/.oh-my-zsh'
+    'PAGER' => 'less'
+    'LESS' => '-R'
+    'LSCOLORS' => 'Gxfxcxdxbxegedabagacad'
+    '_' => '/Users/BAWES/Sites/guide-student/./yii'
+    'PHP_SELF' => './yii'
+    'SCRIPT_NAME' => './yii'
+    'SCRIPT_FILENAME' => './yii'
+    'PATH_TRANSLATED' => './yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1464252342.655
+    'REQUEST_TIME' => 1464252342
+    'argv' => [
+        0 => './yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]
