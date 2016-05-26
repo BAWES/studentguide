@@ -31,7 +31,7 @@ class VendorController extends BaseController
         $request                =   Yii::$app->request;
         $model                  =   new $this->modelClass;
         $query                  =   $model->find()
-           ->select([new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/'.'",{{%vendor}}.vendor_logo) as logo'),'{{%vendor}}.*'])
+           ->select([new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/'.'",{{%vendor}}.vendor_logo) as logo'),'{{%vendor}}.*',new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/'.'",{{%vendor}}.vendor_logo) as vendor_logo')])
            ->asArray()->all();
         if($query)
             return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "VENDOR_LIST"), 'data' => ['vendors' => $query]];
@@ -68,7 +68,7 @@ class VendorController extends BaseController
    public function actionVendorgallery()
     {
         $rows = (new \yii\db\Query())
-      ->select([new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/gallery/'.'",photo_url) as photo'), 'vendor_id'])
+      ->select([new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/gallery/'.'",photo_url) as photo'), 'vendor_id', 'gallery_id'])
       ->from('{{%vendor_gallery}}')
       ->all();
       if($rows)
@@ -77,16 +77,16 @@ class VendorController extends BaseController
             return ['code' => parent::STATUS_FAILURE, 'message' => Yii::t("api", "VENDOR_GALLERY"), 'data' => (Object)[]];
     }
 
-   public function actionArealists($language = "en")
+   public function actionArealist($language = "en")
    {
-        Yii::$app->language    = $language;
+        Yii::$app->language     =   $language;
         $request                =   Yii::$app->request;
         $model                  =   new $this->modelClass;
         $query                  =   $model->find();
         $rows = (new \yii\db\Query())
-      ->select('*')
-      ->from('{{%area}}')
-      ->all();
+          ->select('*')
+          ->from('{{%area}}')
+          ->all();
       if($rows)
             return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "areas"), 'data' => ['vendors' => $rows]];
         else

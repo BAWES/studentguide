@@ -12,6 +12,8 @@ class m160519_124839_insert_user extends Migration
             'password_hash'         =>  '$2y$13$a1CtIHXBJ9grdb6409uRvud3KBaeCRYfqIGC6Hn2LT9cxdRpu/rzm',
             'email'                 =>  'sivabalan.s@technoduce.com',
             'status'                =>  '10',
+            'created_at'            =>  '0',
+            'updated_at'            =>  '0',
         ]);
     }
 

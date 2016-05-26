@@ -34,6 +34,18 @@
 						<span class="title">Dashboard</span>
 					</a>
 				</li>
+				<li class="<?php if ($menu_act == 'CategoryController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/category/index']) ?>">
+						<i class="fa fa-bars"></i>
+						<span class="title">Category</span>
+					</a>
+				</li>
+				<li class="<?php if ($menu_act == 'CategoryController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/vendor/index']) ?>">
+						<i class="fa fa-users"></i>
+						<span class="title">Vendor</span>
+					</a>
+				</li>
 			</ul>
 			<!-- END SIDEBAR MENU -->
 
