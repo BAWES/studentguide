@@ -33,6 +33,7 @@ return [
         'path' => 'dev',
         'setWritable' => [
             'api/runtime',
+            'api/web/assets',
             'backend/runtime',
             'backend/web/assets',
             'frontend/runtime',
@@ -52,6 +53,7 @@ return [
         'path' => 'dev-khalid',
         'setWritable' => [
             'api/runtime',
+            'api/web/assets',
             'backend/runtime',
             'backend/web/assets',
             'frontend/runtime',
@@ -71,6 +73,7 @@ return [
         'path' => 'prod',
         'setWritable' => [
             'api/runtime',
+            'api/web/assets',
             'backend/runtime',
             'backend/web/assets',
             'frontend/runtime',
@@ -89,6 +92,7 @@ return [
         'path' => 'tech',
         'setWritable' => [
             'api/runtime',
+            'api/web/assets',
             'backend/runtime',
             'backend/web/assets',
             'frontend/runtime',
