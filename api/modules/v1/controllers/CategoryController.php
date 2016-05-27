@@ -26,8 +26,8 @@ class CategoryController extends BaseController
     * category list
     */
     public function actionIndex($language = "en")
-    {
-    	Yii::$app->language    =	$language;
+    { 
+        Yii::$app->language    =    $language;
         $request                =   Yii::$app->request;
         $model                  =   new $this->modelClass;
 
@@ -37,7 +37,7 @@ class CategoryController extends BaseController
         /* Insert lastupdate table*/
         if(empty($checkDevice))
         {            
-            return $insert = new Lastupdate;
+            $insert = new Lastupdate;
             $insert->device_token = $request->get('device_token');
             $insert->token_type = $request->get('token_type');
             $insert->category_key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));            
