@@ -20,7 +20,7 @@ use yii\helpers\ArrayHelper;
 
     <?php
         if($model->isNewRecord)
-                $model->category_vendors_filterable_by_area = 0;
+            $model->category_vendors_filterable_by_area = 0;
     ?>
     
     <?= $form->field($model, 'category_vendors_filterable_by_area')->radioList([1 => 'Yes', 0 => 'No']) ?>

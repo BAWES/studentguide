@@ -31,7 +31,7 @@ use Yii;
  */
 class Vendor extends \yii\db\ActiveRecord
 {
-    public $vendor_category;
+    public $vendor_category, $vendor_area, $vendor_gallery;
     /**
      * @inheritdoc
      */
@@ -52,6 +52,7 @@ class Vendor extends \yii\db\ActiveRecord
             [['vendor_logo', 'vendor_name_en', 'vendor_name_ar'], 'string', 'max' => 255],
             [['vendor_phone1', 'vendor_phone2'], 'string', 'max' => 15],
             [['vendor_youtube_video', 'vendor_address_text_en', 'vendor_address_text_ar'], 'string', 'max' => 512],
+            [['vendor_social_instagram', 'vendor_social_twitter', 'vendor_youtube_video'], 'url'],
             [['vendor_social_instagram', 'vendor_social_twitter'], 'string', 'max' => 1024],
             [['vendor_location'], 'string', 'max' => 128],
         ];

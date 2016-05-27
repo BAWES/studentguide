@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use common\models\Lastupdate;
 use backend\models\Category;
 use backend\models\CategorySearch;
 use yii\web\Controller;
@@ -66,6 +67,8 @@ class CategoryController extends Controller
         $model = new Category();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
+            $update = Lastupdate::updateAll(['category_key'=>$key]);
             return $this->redirect(['view', 'id' => $model->category_id]);
         } else {
             return $this->render('create', [
@@ -85,6 +88,8 @@ class CategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
+            $update = Lastupdate::updateAll(['category_key'=>$key]);
             return $this->redirect(['view', 'id' => $model->category_id]);
         } else {
             return $this->render('update', [

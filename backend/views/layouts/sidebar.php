@@ -34,16 +34,28 @@
 						<span class="title">Dashboard</span>
 					</a>
 				</li>
+				<li class="<?php if ($menu_act == 'AreaController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/area/index']) ?>">
+						<i class="fa fa-map-marker"></i>
+						<span class="title">Area</span>
+					</a>
+				</li>
 				<li class="<?php if ($menu_act == 'CategoryController') {echo "active"; } else  {echo "noactive";}?>">
 					<a class="link-title" href="<?= Url::to(['/category/index']) ?>">
 						<i class="fa fa-bars"></i>
 						<span class="title">Category</span>
 					</a>
 				</li>
-				<li class="<?php if ($menu_act == 'CategoryController') {echo "active"; } else  {echo "noactive";}?>">
+				<li class="<?php if ($menu_act == 'VendorController') {echo "active"; } else  {echo "noactive";}?>">
 					<a class="link-title" href="<?= Url::to(['/vendor/index']) ?>">
 						<i class="fa fa-users"></i>
 						<span class="title">Vendor</span>
+					</a>
+				</li>
+				<li class="<?php if ($menu_act == 'ContactController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/vendor/index']) ?>">
+						<i class="fa fa-book"></i>
+						<span class="title">Contact Enquiries</span>
 					</a>
 				</li>
 			</ul>

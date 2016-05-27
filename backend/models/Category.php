@@ -20,6 +20,7 @@ use Yii;
  */
 class Category extends \common\models\Category
 {
+    public $leafCategories = [];
     /**
      * @inheritdoc
      */
@@ -77,26 +78,23 @@ class Category extends \common\models\Category
     }
 
     /**
-     * @return \yii\db\ActiveQuery
-     */
-    /*public function getParentCategory()
+    * Get all the child categories which doesn't have the sub categories anymore
+    * @param null|number id indicates the parent category id
+    * @return array returns the leaf categories
+    */
+    public function getLeafCategories($id = NULL)
     {
-        return $this->hasOne(Category::className(), ['category_id' => 'parent_category_id']);
+        $categories = self::find()->where(['parent_category_id' => $id])->asArray()->all();
+        if($categories)
+        {
+            foreach($categories AS $category)
+                $this->getLeafCategories($category['category_id']);
+        }
+        else
+        {
+            $subcategory = self::find()->select(['category_id', 'category_name_en'])->where(['category_id' => $id])->asArray()->one();
+            $this->leafCategories[] = $subcategory;
+        }
+        return $this->leafCategories;
     }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    /*public function getCategories()
-    {
-        return $this->hasMany(Category::className(), ['parent_category_id' => 'category_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    /*public function getVendorCategoryLinks()
-    {
-        return $this->hasMany(VendorCategoryLink::className(), ['category_id' => 'category_id']);
-    }*/
 }
