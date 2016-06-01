@@ -66,18 +66,18 @@ class Vendor extends \yii\db\ActiveRecord
         return [
             'vendor_id' => Yii::t('app', 'Vendor ID'),
             'vendor_logo' => Yii::t('app', 'Vendor Logo'),
-            'vendor_name_en' => Yii::t('app', 'Vendor Name En'),
-            'vendor_name_ar' => Yii::t('app', 'Vendor Name Ar'),
-            'vendor_description_en' => Yii::t('app', 'Vendor Description En'),
-            'vendor_description_ar' => Yii::t('app', 'Vendor Description Ar'),
+            'vendor_name_en' => Yii::t('app', 'Vendor Name (English)'),
+            'vendor_name_ar' => Yii::t('app', 'Vendor Name (Arabic)'),
+            'vendor_description_en' => Yii::t('app', 'Vendor Description (English)'),
+            'vendor_description_ar' => Yii::t('app', 'Vendor Description (Arabic)'),
             'vendor_phone1' => Yii::t('app', 'Vendor Phone1'),
             'vendor_phone2' => Yii::t('app', 'Vendor Phone2'),
             'vendor_youtube_video' => Yii::t('app', 'Vendor Youtube Video'),
             'vendor_social_instagram' => Yii::t('app', 'Vendor Social Instagram'),
             'vendor_social_twitter' => Yii::t('app', 'Vendor Social Twitter'),
             'vendor_location' => Yii::t('app', 'Vendor Location'),
-            'vendor_address_text_en' => Yii::t('app', 'Vendor Address Text En'),
-            'vendor_address_text_ar' => Yii::t('app', 'Vendor Address Text Ar'),
+            'vendor_address_text_en' => Yii::t('app', 'Vendor Address (English)'),
+            'vendor_address_text_ar' => Yii::t('app', 'Vendor Address (Arabic)'),
             'vendor_account_start_date' => Yii::t('app', 'Vendor Account Start Date'),
             'vendor_account_end_date' => Yii::t('app', 'Vendor Account End Date'),
         ];
@@ -113,5 +113,125 @@ class Vendor extends \yii\db\ActiveRecord
     public function getVendorViews()
     {
         return $this->hasMany(VendorView::className(), ['vendor_id' => 'vendor_id']);
+    }
+
+    /**
+    * Get the vendor related categories
+    * @param number id indicates the vendor id
+    * @return string html template with category template
+    */
+    public function getCategories($id)
+    {
+        $categories = self::find()
+            ->select(['{{%category}}.category_id', 'category_name_en', 'category_name_ar'])
+            ->join("join", "{{%vendor_category_link}}", "{{%vendor_category_link}}.vendor_id = {{%vendor}}.vendor_id")
+            ->join("join", "{{%category}}", "{{%category}}.category_id = {{%vendor_category_link}}.category_id")
+            ->where(['{{%vendor}}.vendor_id' => $id])
+            ->asArray()
+            ->all();
+
+        $template   =   '';
+        if($categories)
+        {
+            $template   =   "<table><thead><tr><th>Category (English)</th><th>Category (Arabic)</th><th>View</th</tr></thead>";
+            $template   .=   "<tbody>";
+            foreach($categories AS $category)
+            {
+                $template   .=  "<tr>";
+                $template   .=  "<td>" . $category['category_name_en'] . "</td>";
+                $template   .=  "<td>" . $category['category_name_ar'] . "</td>";
+                $template   .=  "<td><a title='View Category' target='_blank' href='" . \yii\helpers\Url::to(['/category/view', 'id' => $category['category_id']] ) . "'><i class='fa fa-eye'></i></a></td>";
+                $template   .=  "</tr>";
+            }
+            $template   .=   "</tbody></table>";
+        }
+
+        return $template;
+    }
+
+    /**
+    * Get the vendor related areas
+    * @param number id indicates the vendor id
+    * @return string html template with area template
+    */
+    public function getAreas($id)
+    {
+        $areas = self::find()
+            ->select(['{{%area}}.id', 'area_name_en', 'area_name_ar'])
+            ->join("join", "{{%vendor_area_link}}", "{{%vendor_area_link}}.vendor_id = {{%vendor}}.vendor_id")
+            ->join("join", "{{%area}}", "{{%area}}.id = {{%vendor_area_link}}.area_id")
+            ->where(['{{%vendor}}.vendor_id' => $id])
+            ->asArray()
+            ->all();
+
+        $template   =   '';
+        if($areas)
+        {
+            $template   =   "<table><thead><tr><th>Area (English)</th><th>Area (Arabic)</th><th>View</th</tr></thead>";
+            $template   .=   "<tbody>";
+            foreach($areas AS $area)
+            {
+                $template   .=  "<tr>";
+                $template   .=  "<td>" . $area['area_name_en'] . "</td>";
+                $template   .=  "<td>" . $area['area_name_ar'] . "</td>";
+                $template   .=  "<td><a title='View Category' target='_blank' href='" . \yii\helpers\Url::to(['/area/view', 'id' => $area['id']] ) . "'><i class='fa fa-eye'></i></a></td>";
+                $template   .=  "</tr>";
+            }
+            $template   .=   "</tbody></table>";
+        }
+        
+        return $template;
+    }  
+
+    /**
+    * Get the vendor galleries
+    * @param number id indicates the vendor id
+    * @param number action include action button or not default not include
+    * @return string html template with galleries template
+    */
+    public function getGalleries($id, $action = 0)
+    {
+        $galleries = self::find()
+            ->select(['gallery_id', 'photo_url'])
+            ->join("join", "{{%vendor_gallery}}", "{{%vendor_gallery}}.vendor_id = {{%vendor}}.vendor_id")
+            ->where(['{{%vendor}}.vendor_id' => $id])
+            ->asArray()
+            ->all();
+
+        $template   =   '';
+        if($galleries)
+        {
+            $template   =   "<div class='row'>";
+            foreach($galleries AS $gallery)
+            {
+                $template       .=  "<div class = 'col-sm-6 col-md-3'><div class = 'thumbnail'><img class='vendor_gallery' src='" .$gallery['photo_url'] . "'/>";
+                if($action)
+                    $template   .=  "<div class='caption'><a id='" . $gallery['gallery_id'] ."' class='btn btn-warning pull-right gallery_action' href='#'>Remove</a></div>";
+                $template       .=  "</div></div>";
+            }
+            $template           .=   "</div>";
+        }
+        
+        return $template;
+    }
+
+    /**
+    * Delete vendor images from aws s3 bucket
+    * @param string url holds the image url
+    * @param number action holds whether delete logo or gallery image, 1 for logo, 2 for 
+    * gallery
+    * @return number 1 for success, 0 for failure
+    */  
+    public function deleteImage($url, $action = 1)
+    {
+        //$url = "";
+        $urlParts   =   explode("/", $url);
+        $count      =   count($urlParts) - 1;
+        $start      =   ($action == 1) ? $count - 2 : $count - 3;
+        $fileName   =   [];
+        for($i = $start; $i <= $count; $i++)
+            $fileName[] = $urlParts[$i];
+
+        Yii::$app->resourceManager->delete(implode("/", $fileName));
     }
 }

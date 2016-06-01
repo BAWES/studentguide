@@ -12,8 +12,10 @@ use backend\models\VendorAreaLink;
 use backend\models\VendorGallery;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use common\models\Lastupdate;
 /**
  * VendorController implements the CRUD actions for Vendor model.
  */
@@ -25,6 +27,16 @@ class VendorController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['create', 'index', 'view', 'update', 'delete', 'delete_gallery'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -72,17 +84,34 @@ class VendorController extends Controller
         $category   = new Category();
         if ($model->load(Yii::$app->request->post())) 
         {
-            $transaction                        = Yii::$app->db->beginTransaction();
-            $startDate                          = \DateTime::createFromFormat('d-m-Y', $model->vendor_account_start_date);
-            $endDate                            = \DateTime::createFromFormat('d-m-Y', $model->vendor_account_end_date);
-            $model->vendor_account_start_date   =  $startDate->format('Y-m-d');
-            $model->vendor_account_end_date     =  $endDate->format('Y-m-d');
-            $request                            = Yii::$app->request->post('Vendor');
-            $error                              = 0;
+            $transaction                        =   Yii::$app->db->beginTransaction();
+            $startDate                          =   \DateTime::createFromFormat('d-m-Y', $model->vendor_account_start_date);
+            $endDate                            =   \DateTime::createFromFormat('d-m-Y', $model->vendor_account_end_date);
+            $model->vendor_account_start_date   =   $startDate->format('Y-m-d');
+            $model->vendor_account_end_date     =   $endDate->format('Y-m-d');
+            
+            $request                            =   Yii::$app->request->post('Vendor');
+            $error                              =   0;
             if($model->save())
             {
-                $vendorId                       = $model->vendor_id;
-                if(isset($request['vendor_category']))
+                #Updating last update table for vendor key
+                $lastUpdate                     =   Lastupdate::find()->one();
+                $lastUpdate->vendor_key         =   Yii::$app->getSecurity()->generateRandomString(10);
+                $lastUpdate->save();
+
+                $vendorId                       =   $model->vendor_id;
+                $logo                           =   UploadedFile::getInstance($model, 'vendor_logo');
+                
+                if($logo)
+                {
+                    $imageName                  =   "vendors/" . $vendorId . "/logo." . $logo->extension;
+                    $vendorUpdate               =   Vendor::findOne(['vendor_id' => $vendorId]);
+                    $vendorUpdate->vendor_logo  =   Yii::$app->resourceManager->getUrl($imageName);
+                    if($vendorUpdate->update(false))
+                        Yii::$app->resourceManager->save($logo, $imageName);
+                }
+
+                if(isset($request['vendor_category']) && !empty($request['vendor_category']))
                 {
                     foreach($request['vendor_category'] As $category)
                     {
@@ -90,13 +119,11 @@ class VendorController extends Controller
                         $vendorCategory->category_id    = $category;
                         $vendorCategory->vendor_id      = $vendorId;
                         if(!$vendorCategory->save())
-                        {
                             $error  =   1;
-                        }
                     }
                 }
                 
-                if(isset($request['vendor_area']))
+                if(isset($request['vendor_area']) && !empty($request['vendor_area']))
                 {
                     foreach($request['vendor_area'] As $area)
                     {
@@ -104,25 +131,27 @@ class VendorController extends Controller
                         $vendorArea->area_id        = $area;
                         $vendorArea->vendor_id      = $vendorId;
                         if(!$vendorArea->save())
-                        {
                             $error  =   1;
-                            
-                        }
                     }
                 }
+
                 $model->vendor_gallery = UploadedFile::getInstances($model, 'vendor_gallery');
                 if($model->vendor_gallery)
                 {
                     foreach($model->vendor_gallery AS $gallery)
                     {
-                        $imageName                          = $gallery->baseName . "." . $gallery->extension;
-                        //$gallery->saveAs('uploads/' . $imageName);
+                        $imageName                          = Yii::$app->getSecurity()->generateRandomString(10) . "." . $gallery->extension;
+                        Yii::$app->resourceManager->save($gallery, "vendors/" . $vendorId . "/gallery/" . $imageName);
+
                         $modelGallery                       =   new VendorGallery();
                         $modelGallery->vendor_id            =   $vendorId;
-                        $modelGallery->photo_url            =   $imageName;
+                        $modelGallery->photo_url            =   Yii::$app->resourceManager->getUrl("vendors/" . $vendorId . "/gallery/" . $imageName);
                         $modelGallery->photo_added_datetime =   date('Y-m-d H:i:s');
+
                         if(!$modelGallery->save())
                             $error = 1;
+                        else
+                            Yii::$app->resourceManager->save($gallery, $imageName);
                     }
                 }
             }
@@ -155,14 +184,148 @@ class VendorController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-        $category   = new Category();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        $model      =   $this->findModel($id);
+        $oldImage   =   $model->vendor_logo;
+
+        $category   =   new Category();
+        
+        if ($model->load(Yii::$app->request->post()))
+        {
+            $transaction                        =   Yii::$app->db->beginTransaction();
+
+            #Updating last update table for vendor key
+            $lastUpdate                         =   Lastupdate::find()->one();
+            $lastUpdate->vendor_key             =   Yii::$app->getSecurity()->generateRandomString(10);
+            $lastUpdate->save();
+
+            $startDate                          =   \DateTime::createFromFormat('d-m-Y', $model->vendor_account_start_date);
+            $endDate                            =   \DateTime::createFromFormat('d-m-Y', $model->vendor_account_end_date);
+            $model->vendor_account_start_date   =   $startDate->format('Y-m-d');
+            $model->vendor_account_end_date     =   $endDate->format('Y-m-d');
+
+            $vendorId                           =   $model->vendor_id;
+            $logo                               =   UploadedFile::getInstance($model, 'vendor_logo');
+            if(!$logo)
+                $model->vendor_logo             =   $oldImage;
+            $error                              =   0;
+            $request                            =   Yii::$app->request->post('Vendor');
+            if($model->save())
+            {
+                if($logo)
+                {
+                    $imageName                  =   "vendors/" . $vendorId . "/logo." . $logo->extension;
+                    $vendorUpdate               =   Vendor::findOne(['vendor_id' => $vendorId]);
+                    $vendorUpdate->vendor_logo  =   Yii::$app->resourceManager->getUrl($imageName);
+
+                    $model->deleteImage($imageName, 1); #Delete old vendor logo
+
+                    if($vendorUpdate->update(false))
+                        Yii::$app->resourceManager->save($logo, $imageName);
+                }
+
+                $vendorCategories               =   \yii\helpers\ArrayHelper::getColumn(VendorCategoryLink::find()
+                        ->where(['vendor_id' => $model->vendor_id])
+                        ->asArray()
+                        ->all(), 'category_id');
+
+                if(isset($request['vendor_category']) && !empty($request['vendor_category']))
+                {
+                    foreach($request['vendor_category'] As $category)
+                    {
+                        $index  =   array_search($category, $vendorCategories);
+                        if($index !== FALSE)
+                            unset($vendorCategories[$index]);
+                        else
+                        {
+                            $vendorCategory                 = new VendorCategoryLink();
+                            $vendorCategory->category_id    = $category;
+                            $vendorCategory->vendor_id      = $vendorId;
+                            if(!$vendorCategory->save())
+                                $error  =   1;
+                        }
+                    }
+                }
+
+                VendorCategoryLink::deleteAll(['and', 'vendor_id = :id', ['in', 'category_id', $vendorCategories]], [':id' => $vendorId]);
+
+                $vendorAreas                    =   \yii\helpers\ArrayHelper::getColumn(VendorAreaLink::find()
+                        ->where(['vendor_id' => $model->vendor_id])
+                        ->asArray()
+                        ->all(), 'area_id');
+
+                if(isset($request['vendor_area']) && !empty($request['vendor_area']))
+                {
+                    foreach($request['vendor_area'] As $area)
+                    {
+                        $index  =   array_search($area, $vendorAreas);
+                        if($index !== FALSE)
+                            unset($vendorAreas[$index]);
+                        else
+                        {
+                            $vendorArea                 = new VendorAreaLink();
+                            $vendorArea->area_id        = $area;
+                            $vendorArea->vendor_id      = $vendorId;
+                            if(!$vendorArea->save())
+                                $error  =   1;
+                        }
+                    }
+                }
+                
+                VendorAreaLink::deleteAll(['and', 'vendor_id = :id', ['in', 'area_id', $vendorAreas]], [':id' => $vendorId]);
+
+                $model->vendor_gallery = UploadedFile::getInstances($model, 'vendor_gallery');
+                if($model->vendor_gallery)
+                {
+                    foreach($model->vendor_gallery AS $gallery)
+                    {
+                        $imageName                          = Yii::$app->getSecurity()->generateRandomString(10) . "." . $gallery->extension;
+                        Yii::$app->resourceManager->save($gallery, "vendors/" . $vendorId . "/gallery/" . $imageName);
+
+                        $modelGallery                       =   new VendorGallery();
+                        $modelGallery->vendor_id            =   $vendorId;
+                        $modelGallery->photo_url            =   Yii::$app->resourceManager->getUrl("vendors/" . $vendorId . "/gallery/" . $imageName);
+                        $modelGallery->photo_added_datetime =   date('Y-m-d H:i:s');
+
+                        if(!$modelGallery->save())
+                            $error = 1;
+                        else
+                            Yii::$app->resourceManager->save($gallery, $imageName);
+                    }
+                }
+
+                if($error)
+                    $transaction->rollback();
+                else
+                    $transaction->commit();
+
+            }
+
             return $this->redirect(['view', 'id' => $model->vendor_id]);
-        } else {
+        } 
+        else 
+        {
+            $categoryLinks  =   \yii\helpers\ArrayHelper::getColumn(\backend\models\VendorCategoryLink::find()
+                ->select(['category_id'])
+                ->where(['vendor_id' => $model->vendor_id])
+                ->asArray()
+                ->all(), 'category_id');
+
+            $areaLinks      =   \yii\helpers\ArrayHelper::getColumn(\backend\models\VendorAreaLink::find()
+                ->select(['area_id'])
+                ->where(['vendor_id' => $model->vendor_id])
+                ->asArray()
+                ->all(), 'area_id');
+
+            $model->vendor_category             = $categoryLinks;
+            $model->vendor_area                 = $areaLinks;
+            $startDate                          =   \DateTime::createFromFormat('Y-m-d', $model->vendor_account_start_date);
+            $endDate                            =   \DateTime::createFromFormat('Y-m-d', $model->vendor_account_end_date);
+            $model->vendor_account_start_date   =   $startDate->format('d-m-Y');
+            $model->vendor_account_end_date     =   $endDate->format('d-m-Y');
+            
             return $this->render('update', [
-                'model' => $model,
+                'model'         =>  $model,
                 'categories'    =>  $category->getLeafCategories(),
                 'areas'         =>  Area::find()->asArray()->all(),
             ]);
@@ -177,6 +340,11 @@ class VendorController extends Controller
      */
     public function actionDelete($id)
     {
+        #Updating last update table for vendor key
+        $lastUpdate                     =   Lastupdate::find()->one();
+        $lastUpdate->vendor_key         =   Yii::$app->getSecurity()->generateRandomString(10);
+        $lastUpdate->save();
+        
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -195,6 +363,34 @@ class VendorController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    /**
+    * Delete vendor gallery through ajax
+    * @method POST
+    * @param number gallery vendor gallery id
+    * @return object returns the json object
+    */
+    public function actionDelete_gallery()
+    {
+        if(Yii::$app->request->isAjax)
+        {
+            $gallery = VendorGallery::findOne(['gallery_id' =>  Yii::$app->request->post('gallery')]);
+            if($gallery)
+            {
+                $galleryUrl     =   $gallery->photo_url;
+                if($gallery->delete())
+                {
+                    $model      =   new Vendor();
+                    $model->deleteImage($galleryUrl, 2);
+                    return json_encode(['status' => 200]);
+                }
+                else
+                    return json_encode(['status' => 401]);
+            }
+            else
+                return json_encode(['status' => 401]);
         }
     }
 }

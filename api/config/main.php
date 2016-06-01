@@ -51,7 +51,8 @@ return [
                     'controller'    =>  'v1/base',
                     'pluralize'     =>  false,
                     'extraPatterns' =>  [
-                        'GET index1'    =>  'index1',
+                        'GET setting'           =>  'setting',
+                        'GET change_language'   =>  'change_language',
                     ],
                 ],
                 [

@@ -3,17 +3,15 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\Category;
-use backend\models\CategorySearch;
+use backend\models\Setting;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use common\models\Lastupdate;
 
 /**
- * CategoryController implements the CRUD actions for Category model.
+ * SettingController implements the CRUD actions for Setting model.
  */
-class CategoryController extends Controller
+class SettingController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,23 +29,22 @@ class CategoryController extends Controller
     }
 
     /**
-     * Lists all Category models.
+     * Lists all Setting models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new CategorySearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+        $model = Setting::find()->one();
+        
+        if($model)
+            $this->redirect(['update', 'id' => $model->id]);
+        else
+            $this->redirect(['create']);
     }
 
     /**
-     * Displays a single Category model.
-     * @param string $id
+     * Displays a single Setting model.
+     * @param integer $id
      * @return mixed
      */
     public function actionView($id)
@@ -58,18 +55,16 @@ class CategoryController extends Controller
     }
 
     /**
-     * Creates a new Category model.
+     * Creates a new Setting model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Category();
+        $model = new Setting();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
-            $update = Lastupdate::updateAll(['category_key' => $key]);
-            return $this->redirect(['view', 'id' => $model->category_id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -78,9 +73,9 @@ class CategoryController extends Controller
     }
 
     /**
-     * Updates an existing Category model.
+     * Updates an existing Setting model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      */
     public function actionUpdate($id)
@@ -88,9 +83,7 @@ class CategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
-            $update = Lastupdate::updateAll(['category_key'=>$key]);
-            return $this->redirect(['view', 'id' => $model->category_id]);
+            return $this->redirect(['update', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -99,30 +92,28 @@ class CategoryController extends Controller
     }
 
     /**
-     * Deletes an existing Category model.
+     * Deletes an existing Setting model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
-        $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
-        $update = Lastupdate::updateAll(['category_key'=>$key]);
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Category model based on its primary key value.
+     * Finds the Setting model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return Category the loaded model
+     * @param integer $id
+     * @return Setting the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Category::findOne($id)) !== null) {
+        if (($model = Setting::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

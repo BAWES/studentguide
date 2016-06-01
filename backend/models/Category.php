@@ -69,12 +69,14 @@ class Category extends \common\models\Category
     }
 
     /**
-    * Get all the categories
+    * Get all the categories which doesn't have vendors under that
     * @return array returns all the categories
     */
     public function getCategoryList()
     {
-        return self::find()->select(['category_id', 'category_name_en'])->asArray()->all();
+        $vendorCategoryLink =   VendorCategoryLink::className();
+        $query              =   $vendorCategoryLink::find()->select('category_id');
+        return self::find()->select(['category_id', 'category_name_en'])->where(['not in', 'category_id', $query])->groupBy('category_id')->asArray()->all();
     }
 
     /**

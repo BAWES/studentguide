@@ -6,7 +6,7 @@
 	use yii\bootstrap\NavBar;
 	use yii\widgets\Breadcrumbs;
 
-	$this->title = 'Login - POS';
+	$this->title = 'Login - Student Guide';
 	$this->params['breadcrumbs'][] = $this->title;
 
 	AppAsset::register($this);

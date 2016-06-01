@@ -2,50 +2,52 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Dashboard';
 ?>
 <div class="site-index">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
     <div class="body-content">
-
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+            <div class="col-md-4 col-vlg-3 col-sm-6">
+                <div class="tiles green m-b-10">
+                    <div class="tiles-body">
+                        <div class="controller"> <a href="javascript:;"></a>  </div>
+                        <div class="tiles-title text-black">OVERALL CATEGORIES</div>
+                        <div class="widget-stats">
+                            <div class="wrapper transparent">
+                                <span class="item-title">Count</span> <span class="item-count animate-number semi-bold" data-value="<?= $categoryCount ?>" data-animation-duration="700"><?= $categoryCount ?></span>
+                            </div>
+                        </div>
+                        <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+                            <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="64.8%" style="width: 64.8%;"></div>
+                        </div>
+                    </div>
+                </div>  
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+            <div class="col-md-4 col-vlg-3 col-sm-6">
+                <div class="tiles green m-b-10">
+                    <div class="tiles-body">
+                        <div class="controller"> <a href="javascript:;"></a>  </div>
+                        <div class="tiles-title text-black">OVERALL VENDORS</div>
+                        <div class="widget-stats">
+                            <div class="wrapper transparent">
+                                <span class="item-title">Count</span> <span class="item-count animate-number semi-bold" data-value="<?= $vendorCount ?>" data-animation-duration="700"><?= $vendorCount ?></span>
+                            </div>
+                        </div>
+                        <div class="progress transparent progress-small no-radius m-t-20" style="width:90%">
+                            <div class="progress-bar progress-bar-white animate-progress-bar" data-percentage="64.8%" style="width: 64.8%;"></div>
+                        </div>
+                    </div>
+                </div>  
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+        </div>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+        <div class="col-md-12 col-vlg-12m-b-10 ">
+            <div class="tiles white">
+                <div class="row">
+                    <h4>Vendors Statistics</h4>
+                    
+                </div>
             </div>
         </div>
 

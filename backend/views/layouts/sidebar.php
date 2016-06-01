@@ -21,17 +21,23 @@
 			<!-- END MINI-PROFILE -->
 			<!-- BEGIN SIDEBAR MENU -->
 			<?php 
-				$Controller = get_class($this->context);
-				$action 	= $this->context->action->id;
-				$menu 		= explode('\\',$Controller);
-				$menu_act 	= $menu[2];
+				$Controller 	=	get_class($this->context);
+				$action 		=	$this->context->action->id;
+				$menu 			=	explode('\\',$Controller);
+				$menu_act 		=	$menu[2];
 			?>
 			<p class="menu-title"><span class="pull-right"><a href="javascript:;"></a></span></p> 
 			<ul>
-				<li class="<?php if ($menu_act == 'DefaultController') {echo "active"; } else  {echo "noactive";}?>">
+				<li class="<?php if ($menu_act == 'SiteController' && $action != "send_notification") {echo "active"; } else  {echo "noactive";}?>">
 					<a class="link-title" href="<?= Url::to(['/site/index']) ?>">
 						<i class="icon-custom-home"></i>
 						<span class="title">Dashboard</span>
+					</a>
+				</li>
+				<li class="<?php if ($menu_act == 'SettingController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/setting/index']) ?>">
+						<i class="fa fa-gear"></i>
+						<span class="title">Setting</span>
 					</a>
 				</li>
 				<li class="<?php if ($menu_act == 'AreaController') {echo "active"; } else  {echo "noactive";}?>">
@@ -52,10 +58,16 @@
 						<span class="title">Vendor</span>
 					</a>
 				</li>
-				<li class="<?php if ($menu_act == 'ContactController') {echo "active"; } else  {echo "noactive";}?>">
-					<a class="link-title" href="<?= Url::to(['/vendor/index']) ?>">
+				<li class="<?php if ($menu_act == 'EnquiryController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/enquiry/index']) ?>">
 						<i class="fa fa-book"></i>
 						<span class="title">Contact Enquiries</span>
+					</a>
+				</li>
+				<li class="<?php if ($menu_act == 'SiteController' && $action == "send_notification") {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/site/send_notification']) ?>">
+						<i class="fa fa-paper-plane"></i>
+						<span class="title">Push Notification</span>
 					</a>
 				</li>
 			</ul>
