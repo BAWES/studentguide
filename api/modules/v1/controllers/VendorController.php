@@ -48,7 +48,7 @@ class VendorController extends BaseController
         {
 
             $query              =   $model->find()
-                ->select([new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/'.'",vendor_logo) as logo'), 'vendor_id', new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/'.'",{{%vendor}}.vendor_logo) as vendor_logo'), 'vendor_name_en', 'vendor_name_ar', 'vendor_description_en', 'vendor_description_ar', 'vendor_phone1', 'IFNULL(vendor_phone2, "") AS vendor_phone2', 'IFNULL(vendor_youtube_video, "") AS vendor_youtube_video', 'IFNULL(vendor_social_instagram, "") AS vendor_social_instagram', 'IFNULL(vendor_social_twitter, "") AS vendor_social_twitter, IFNULL(vendor_location, "") AS vendor_location, IFNULL(vendor_address_text_en, "") AS vendor_address_text_en, IFNULL(vendor_address_text_ar, "") AS vendor_address_text_ar', 'vendor_account_start_date', 'vendor_account_end_date'])
+                ->select(['vendor_logo as logo', 'vendor_id', 'vendor_logo as vendor_logo', 'vendor_name_en', 'vendor_name_ar', 'vendor_description_en', 'vendor_description_ar', 'vendor_phone1', 'IFNULL(vendor_phone2, "") AS vendor_phone2', 'IFNULL(vendor_youtube_video, "") AS vendor_youtube_video', 'IFNULL(vendor_social_instagram, "") AS vendor_social_instagram', 'IFNULL(vendor_social_twitter, "") AS vendor_social_twitter, IFNULL(vendor_location, "") AS vendor_location, IFNULL(vendor_address_text_en, "") AS vendor_address_text_en, IFNULL(vendor_address_text_ar, "") AS vendor_address_text_ar', 'vendor_account_start_date', 'vendor_account_end_date', 'sort_order'])
                 ->asArray()
                 ->all();
         }
@@ -136,10 +136,7 @@ class VendorController extends BaseController
         }
         else
         {
-            $rows               = (new \yii\db\Query())
-                ->select([new \yii\db\Expression('CONCAT("'.Yii::$app->request->hostinfo.'/common/uploads/gallery/'.'",photo_url) as photo'), 'vendor_id', 'gallery_id'])
-                ->from('{{%vendor_gallery}}')
-                ->all();
+            $rows               = (new \yii\db\Query())->select(['photo' => 'photo_url', 'vendor_id', 'gallery_id'])->from('{{%vendor_gallery}}')->all();
         }
 
         if($rows)
@@ -198,6 +195,7 @@ class VendorController extends BaseController
         $insert->name       = $data['name'];
         $insert->message    = $data['message'];
         $insert->mobile     = $data['mobile'];
+
         $insert->save();
         if($send)
             return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "mail"), 'data' => ['status' => 1]];
