@@ -25,7 +25,7 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
-
+    public $new_password, $confirm_password, $current_password;
 
     /**
      * @inheritdoc
@@ -45,6 +45,14 @@ class User extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    public function scenario()
+    {
+        $scenarios                      =   parent::scenarios();
+        $scenarios['change_password']   =   ['new_password', 'current_password', 'confirm_password'];
+        $scenarios['forgot_password']   =   ['email'];
+        return $scenarios;
+    }
+
     /**
      * @inheritdoc
      */
@@ -53,7 +61,29 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+
+            [['current_password', 'confirm_password', 'new_password'], 'required', 'on' => 'change_password'],
+            ['new_password', 'compare', 'compareAttribute' => 'current_password', 'operator' => '!=', 'on' => 'change_password'],
+            ['new_password', 'string', 'min' => 6, 'max' => 12, 'on' => 'change_password'],
+            ['confirm_password', 'compare', 'compareAttribute' => 'new_password'], 
+            ['current_password', 'verifyPassword', 'on' => 'change_password'],
+
+            [['username', 'email'], 'required', 'on' => 'myaccount'],
+            ['email', 'email', 'on' => 'myaccount'],
+
+            ['email', 'required', 'on' => 'forgot_password'],
+            ['email', 'email', 'on' => 'forgot_password'],
+            ['email', 'exist', 'on' => 'forgot_password'],
+
         ];
+    }
+
+
+    public function verifyPassword()
+    {
+        $user = self::find()->asArray()->one();
+        if(!Yii::$app->security->validatePassword($this->current_password, $user['password_hash']))
+            $this->addError('current_password', 'Current Password is invalid');
     }
 
     /**

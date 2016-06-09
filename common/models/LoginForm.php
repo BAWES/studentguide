@@ -12,7 +12,6 @@ class LoginForm extends Model
     public $username;
     public $password;
     public $rememberMe = true;
-
     private $_user;
 
 
@@ -74,5 +73,13 @@ class LoginForm extends Model
         }
 
         return $this->_user;
+    }
+
+    public function scenario()
+    {
+        $scenarios                      =   parent::scenario();
+        $scenarios['login']             =   ['username', 'password'];
+        $scenarios['change_password']   =   ['password', 'new_password', 'confirm_password'];
+        return $scenarios;
     }
 }
