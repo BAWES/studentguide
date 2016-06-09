@@ -18,7 +18,8 @@
         "yiisoft/yii2"                              : ">=2.0.6",
         "yiisoft/yii2-bootstrap"                    : "*",
         "yiisoft/yii2-swiftmailer"                  : "*",
-        "2amigos/yii2-resource-manager-component"   : "*"
+        "2amigos/yii2-resource-manager-component"   : "*",
+        "yiisoft/yii2-jui"                          : "~2.0.0"
     },
     "require-dev"           : {
         "yiisoft/yii2-codeception"                  : "*",
