@@ -108,7 +108,7 @@ return [
                     'class'         =>  'yii\rest\UrlRule',
                     'controller'    =>  ['v1/vendor'],
                     'extraPatterns' =>  [
-                        'GET enquiry'     =>  'enquiry',
+                        'POST enquiry'     =>  'enquiry',
                     ],
                 ],
             ],
