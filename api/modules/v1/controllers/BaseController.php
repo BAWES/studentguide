@@ -8,6 +8,7 @@ use yii\rest\ActiveController;
 use Yii;
 use common\models\Lastupdate;
 use common\models\PushNotification;
+use common\models\Setting;
 
 class BaseController extends ActiveController
 {
@@ -40,6 +41,7 @@ class BaseController extends ActiveController
 		if($deviceToken && $request->get('device_type'))
 		{
 			$model 	=	PushNotification::findOne(['device_token' => $deviceToken]);
+			$terms 	=	Setting::find()->asArray()->one();
 			if(!$model)
 			{
 				$model 					=	new PushNotification();
@@ -51,7 +53,7 @@ class BaseController extends ActiveController
 			$update 		= 	Lastupdate::find()->select(['category_key', 'vendor_key', 'area_key'])->one();
 
 			if($update)
-	            return ['code' => self::STATUS_SUCCESS, 'message' => Yii::t("api", "testing"), 'data' => ['keys' => $update, 'terms' => '<h1>Terms and conditions</h1>']];
+	            return ['code' => self::STATUS_SUCCESS, 'message' => Yii::t("api", "testing"), 'data' => ['keys' => $update, 'terms' => $terms['terms_and_conditions']]];
 	        else
 	            return ['code' => self::STATUS_FAILURE, 'message' => Yii::t("api", "testing"), 'data' => (Object)[]];
 	    }
@@ -75,14 +77,16 @@ class BaseController extends ActiveController
 		if($deviceToken && $language)
 		{
 			$model 				=	PushNotification::findOne(['device_token' => $deviceToken]);
-			$model->language 	=	$language;
-			if($model->update() || !$model->isAttributeChanged($model->language))
-				return ['code' => self::STATUS_SUCCESS, 'message' => Yii::t("api", "LANGUAGE_CHANGED"), 'data' => (Object)[]];
-			else
+            if($model)
 			{
-				
-				return ['code' => self::STATUS_FAILURE, 'message' => Yii::t("api", "INVAILD_DEVICE_TOKEN"), 'data' => (Object)[]];
+				$model->language 	=	$language;
+				if($model->update() || !$model->isAttributeChanged($model->language))
+					return ['code' => self::STATUS_SUCCESS, 'message' => Yii::t("api", "LANGUAGE_CHANGED"), 'data' => (Object)[]];
+				else		
+					return ['code' => self::STATUS_FAILURE, 'message' => Yii::t("api", "INVAILD_DEVICE_TOKEN"), 'data' => (Object)[]];
 			}
+			else
+				return ['code' => self::STATUS_FAILURE, 'message' => Yii::t("api", "INVAILD_DEVICE_TOKEN"), 'data' => (Object)[]];
 		}
 		else
 	    	return ['code' => self::STATUS_FAILURE, 'message' => Yii::t("api", "FIELDS_MANDATORY"), 'data' => (Object)[]];
