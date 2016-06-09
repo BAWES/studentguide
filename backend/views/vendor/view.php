@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Back', ['index'], ['class' => 'btn btn-default']) ?>
+        <?= Html::a('Back', ['category/index', 'id' => $category], ['class' => 'btn btn-default']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             [
                 'attribute' =>  'vendor_logo',
-                'value'     =>  Html::img($model->vendor_logo, ['id' => 'vendor_logo']),
+                'value'     =>  ($model->vendor_logo) ? Html::img($model->vendor_logo, ['id' => 'vendor_logo']) : '',
                 'format'    =>  'raw',
             ],
             'vendor_name_en',
@@ -71,6 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'     =>  $model->getGalleries($model->vendor_id),
                 'format'    =>  'raw',
             ],
+            'sort_order',
         ],
     ]) ?>
 

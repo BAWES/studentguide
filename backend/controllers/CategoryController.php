@@ -5,10 +5,12 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Category;
 use backend\models\CategorySearch;
+use backend\models\VendorCategoryLink;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\models\Lastupdate;
+use yii\filters\AccessControl;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -21,10 +23,20 @@ class CategoryController extends Controller
     public function behaviors()
     {
         return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
+            'access'    =>  [
+                'class'     =>  AccessControl::className(),
+                'rules'     =>  [
+                    [
+                        'actions'   =>  ['create', 'view', 'delete', 'update', 'index'],
+                        'allow'     =>  true,
+                        'roles'     =>  ['@'],
+                    ],
+                ],
+            ],
+            'verbs'     =>  [
+                'class'     =>  VerbFilter::className(),
+                'actions'   =>  [
+                    'delete'    =>  ['POST'],
                 ],
             ],
         ];
@@ -34,14 +46,20 @@ class CategoryController extends Controller
      * Lists all Category models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id = '')
     {
-        $searchModel = new CategorySearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $searchModel    =   new CategorySearch();
+        $dataProvider   =   $searchModel->search(Yii::$app->request->queryParams, $id);
+
+        if(VendorCategoryLink::find()->where(['category_id' => $id])->count())
+            return $this->redirect(['vendor/index', 'id' => $id]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'searchModel'           =>  $searchModel,
+            'dataProvider'          =>  $dataProvider,
+            'parent_category_id'    =>  $id,
+            'category'              =>  ($id) ? Category::find()->where(['category_id' => $id])->asArray()->one() : '',
+            'categoryList'          =>  $searchModel->getCategoryRoot($id),
         ]);
     }
 
@@ -52,9 +70,11 @@ class CategoryController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->redirect(['index', 'id' => $id]);
+        //return $this->render('')
+        /*return $this->render('view', [
             'model' => $this->findModel($id),
-        ]);
+        ]);*/
     }
 
     /**
@@ -62,7 +82,7 @@ class CategoryController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id = '')
     {
         $model = new Category();
 
@@ -72,7 +92,8 @@ class CategoryController extends Controller
             return $this->redirect(['view', 'id' => $model->category_id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                'model'             =>  $model,
+                'parentCategoryId'  =>  $id,
             ]);
         }
     }
@@ -87,13 +108,17 @@ class CategoryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) 
+        {
             $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
             $update = Lastupdate::updateAll(['category_key'=>$key]);
-            return $this->redirect(['view', 'id' => $model->category_id]);
-        } else {
+            return $this->redirect(['view', 'id' => $model->parent_category_id]);
+        } 
+        else 
+        {
             return $this->render('update', [
-                'model' => $model,
+                'model'             =>  $model,
+                'parentCategoryId'  =>  $model->parent_category_id,
             ]);
         }
     }
@@ -106,11 +131,14 @@ class CategoryController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $categoryId = $model->parent_category_id;
+        $model->delete();
+
         $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
         $update = Lastupdate::updateAll(['category_key'=>$key]);
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index', 'id' => $categoryId]);
     }
 
     /**

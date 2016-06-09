@@ -6,7 +6,9 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
+use common\models\User;
 use backend\models\PushNotification;
+use backend\models\PushNotificationHistory;
 
 /**
  * Site controller
@@ -23,11 +25,11 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error', 'forgot_password'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'send_notification'],
+                        'actions' => ['logout', 'index', 'send_notification', 'change_password', 'myaccount'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -56,11 +58,11 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $categories = \backend\models\Category::find()->count();
-        $vendors    = \backend\models\Vendor::find()->count();
+        $categories         =   \backend\models\Category::find()->count();
+        $vendors            =   \backend\models\Vendor::find()->count();
         return $this->render('index', [
-            'categoryCount' =>  $categories,
-            'vendorCount'   =>  $vendors,
+            'categoryCount'     =>  $categories,
+            'vendorCount'       =>  $vendors,
         ]);
     }
 
@@ -69,10 +71,10 @@ class SiteController extends Controller
         if (!Yii::$app->user->isGuest)
             return $this->goHome();
 
-        $this->layout = 'login';
-        $model = new LoginForm();
+        $this->layout       =   'login';
+        $model              =   new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) 
-            return $this->goBack();
+            return $this->redirect(['site/index']);
         else 
             return $this->render('login', [
                 'model' => $model,
@@ -95,6 +97,12 @@ class SiteController extends Controller
         $request    =   Yii::$app->request;
         if($request->isPost && isset($request->post()['PushNotification']['message_en']) && isset($request->post()['PushNotification']['message_ar']))
         {
+            $model              =   new PushNotificationHistory();
+            $model->message_ar  =   $request->post()['PushNotification']['message_ar'];
+            $model->message_en  =   $request->post()['PushNotification']['message_en'];
+            $model->datetime    =   date('Y-m-d H:i:s');
+            $model->save();
+
             #Getting the device tokens of the users who choose english language
             $deviceTokens['en'] = \yii\helpers\ArrayHelper::getColumn(PushNotification::find()->select(['device_token'])->where(['language' => 'en'])->asArray()->all(), 'device_token');
 
@@ -137,6 +145,76 @@ class SiteController extends Controller
         {
             return $this->render('notification', [
                 'model' =>  $model
+            ]);
+        }
+    }
+
+    /**
+    *
+    */
+    public function actionMyaccount()
+    {
+        $model              =   User::find()->one();
+        $model->scenario    =   "myaccount";
+        if($model->load(Yii::$app->request->post()) && $model->save())
+            return $this->redirect(['site/myaccount']);
+        else
+            return $this->render('myaccount', [
+                'model' =>  $model,
+            ]);
+    }
+
+    /**
+    * Change the admin password
+    */
+    public function actionChange_password()
+    {
+        $model              =   new User();
+        $model->scenario    =   "change_password";
+        if($model->load(Yii::$app->request->post()) && $model->validate())
+        {
+            $user                   =   User::find()->one();
+            $user->password_hash    =   Yii::$app->getSecurity()->generatePasswordHash($model->new_password);
+            $user->save();
+
+            return $this->redirect(['site/change_password']);
+        }
+        else
+        {
+            return $this->render('change_password', [
+                'model' =>  $model,
+            ]);
+        }
+    }
+
+    /**
+    * Forgot the admin password
+    */
+    public function actionForgot_password()
+    {
+        $this->layout       =   'login';
+
+        $model              =   new User();
+        $model->scenario    =   "forgot_password";
+        if($model->load(Yii::$app->request->post()) && $model->validate())
+        {
+            $user                   =   User::find()->one();
+            $password               =   Yii::$app->getSecurity()->generateRandomString(6);
+            $user->password_hash    =   Yii::$app->getSecurity()->generatePasswordHash($password);
+            $user->save();
+
+            $send = Yii::$app->mailer->compose('layouts/html', ['content' => 'Dear Admin, <br> Your password is <b>' . $password . '</b>'])
+                ->setFrom('q8studentguide@gmail.com')
+                ->setTo($model->email)
+                ->setSubject('Forgot Password - Student Guide')
+                ->send();
+
+            return $this->redirect(['site/login']);
+        }
+        else
+        {
+            return $this->render('forgot_password', [
+                'model' =>  $model,
             ]);
         }
     }

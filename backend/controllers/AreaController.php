@@ -22,6 +22,16 @@ class AreaController extends Controller
     public function behaviors()
     {
         return [
+            'access'    =>  [
+                'class'     =>  AccessControl::className(),
+                'rules'     =>  [
+                    [
+                        'actions'   =>  ['create', 'view', 'delete', 'update', 'index'],
+                        'allow'     =>  true,
+                        'roles'     =>  ['@'],
+                    ],
+                ],
+            ],
             'verbs'     => [
                 'class' => VerbFilter::className(),
                 'actions' => [

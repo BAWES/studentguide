@@ -11,14 +11,13 @@
     </div>
     <div class="row login-container">
         <div class="col-md-5 col-md-offset-4" style="padding: 1% 8% 3% 8%;  background: white;  width: 40%; border-radius:20px; margin-left:30%;">
-            <h2><center>Sign In</center></h2>  
+            <h2><center>Forgot Password</center></h2>  
             <br>
             <?php $form = ActiveForm::begin(); ?>
-                <?= $form->field($model, 'username')->textInput(['maxlength' => 255, 'autocomplete' => 'off'])?>
-                <?= $form->field($model, 'password')->passwordInput() ?>
+                <?= $form->field($model, 'email')->textInput(['maxlength' => 255, 'autocomplete' => 'off'])?>
                 <div class="form-inline">
-                    <?= Html::submitButton('Login', ['class' => 'col-md-5 btn btn-success pull-left']) ?>
-                    <?= Html::a('Forgot Password', ['forgot_password'], ['class' => 'col-md-6 btn btn-success pull-right']) ?>
+                    <?= Html::submitButton('Send Password', ['class' => 'col-md-5 btn btn-success pull-left']) ?>
+                    <?= Html::a('Login', ['login'], ['class' => 'col-md-5 btn btn-success pull-right']) ?>
                 </div>
             <?php ActiveForm::end(); ?> 
             <div style="clear:both;"></div>

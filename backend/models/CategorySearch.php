@@ -39,14 +39,15 @@ class CategorySearch extends Category
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $id)
     {
         $query = Category::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+            'query' => ($id) ? $query->where(['parent_category_id' => $id]) : $query->where(['parent_category_id' => NULL]),
+            'sort'  =>  ['defaultOrder' => ['category_created_datetime' => SORT_DESC]],
         ]);
 
         $this->load($params);

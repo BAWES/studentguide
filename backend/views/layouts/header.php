@@ -19,8 +19,8 @@
 			</ul>
 			<!-- END MOBILE HEADER -->
 			<!-- BEGIN LOGO -->	
-			<a href="<?php //echo Yii::$app->urlManagerBackEnd->createAbsoluteUrl('/admin/site/index'); ?>">
-				<img src="<?= $this->theme->getUrl('img/logo.png') ?>" class="logo" alt="" data-src="<?php //echo Siteinfo::logoUrl();?>" data-src-retina="<?php //echo Siteinfo::logoUrl();?>" width="175" height="55"/>
+			<a class='header_link' style='display:block;text-align:center;' href="<?php Url::to(['/site/index']) ?>">
+				<img style='width:20%' src="<?= $this->theme->getUrl('img/logo.png') ?>" class="logo" alt="" data-src="<?php //echo Siteinfo::logoUrl();?>" data-src-retina="<?php //echo Siteinfo::logoUrl();?>" width="175" height="55"/>
 			</a>
 			<?php //echo Yii::getAlias('@logo_url').'/logo.png';
 			?>
@@ -107,6 +107,8 @@
 							<div class="iconset top-settings-dark"></div> 	
 						</a>
 						<ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
+							 <li><a href="<?= Url::to(['/site/myaccount'])?>">My Account</a>
+						  </li>
 						  <li><a href="<?= Url::to(['/site/change_password'])?>">Change password</a>
 						  </li>
 						  <li class="divider"></li>                

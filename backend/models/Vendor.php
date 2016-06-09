@@ -32,6 +32,7 @@ use Yii;
 class Vendor extends \yii\db\ActiveRecord
 {
     public $vendor_category, $vendor_area, $vendor_gallery;
+    public static $category_id = 10;
     /**
      * @inheritdoc
      */
@@ -55,6 +56,7 @@ class Vendor extends \yii\db\ActiveRecord
             [['vendor_social_instagram', 'vendor_social_twitter', 'vendor_youtube_video'], 'url'],
             [['vendor_social_instagram', 'vendor_social_twitter'], 'string', 'max' => 1024],
             [['vendor_location'], 'string', 'max' => 128],
+            ['sort_order', 'number'],
         ];
     }
 

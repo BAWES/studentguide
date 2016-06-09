@@ -21,6 +21,7 @@ use Yii;
 class Category extends \common\models\Category
 {
     public $leafCategories = [];
+    public $rootCategories = [];
     /**
      * @inheritdoc
      */
@@ -49,14 +50,25 @@ class Category extends \common\models\Category
     public function attributeLabels()
     {
         return [
-            'category_id' => Yii::t('app', 'Category ID'),
-            'parent_category_id' => Yii::t('app', 'Parent Category ID'),
-            'category_name_en' => Yii::t('app', 'Category Name En'),
-            'category_name_ar' => Yii::t('app', 'Category Name Ar'),
-            'category_vendors_filterable_by_area' => Yii::t('app', 'Category Vendors Filterable By Area'),
-            'category_created_datetime' => Yii::t('app', 'Category Created Datetime'),
-            'category_updated_datetime' => Yii::t('app', 'Category Updated Datetime'),
+            'category_id'                           => Yii::t('app', 'Category ID'),
+            'parent_category_id'                    => Yii::t('app', 'Parent Category ID'),
+            'category_name_en'                      => Yii::t('app', 'Category Name En'),
+            'category_name_ar'                      => Yii::t('app', 'Category Name Ar'),
+            'category_vendors_filterable_by_area'   => Yii::t('app', 'Category Vendors Filterable By Area'),
+            'sort_order'                            => Yii::t('app', 'Sort order'),
+            'category_created_datetime'             => Yii::t('app', 'Category Created Datetime'),
+            'category_updated_datetime'             => Yii::t('app', 'Category Updated Datetime'),
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        if($insert)
+            $this->category_created_datetime    =   date('Y-m-d H:i:s');
+        else
+            $this->category_updated_datetime    =   date('Y-m-d H:i:s');
+        
+        return true;
     }
 
     /**
@@ -65,7 +77,11 @@ class Category extends \common\models\Category
     */
     public function getParentCategories()
     {
-        return self::find()->select(['p.category_id', 'p.category_name_en'])->join('join', '{{%category}} AS p', 'p.category_id = {{%category}}.parent_category_id')->asArray()->all();
+        return self::find()
+            ->select(['p.category_id', 'p.category_name_en'])
+            ->join('join', '{{%category}} AS p', 'p.category_id = {{%category}}.parent_category_id')
+            ->asArray()
+            ->all();
     }
 
     /**
@@ -98,5 +114,23 @@ class Category extends \common\models\Category
             $this->leafCategories[] = $subcategory;
         }
         return $this->leafCategories;
+    }
+
+    /**
+    * Get category top lists
+    * @param int category id
+    * @return array category list
+    */
+    public function getCategoryRoot($category)
+    {
+        $category                   =   self::find()->select(['category_id', 'category_name_en'])->where(['parent_category_id' => $category])->asArray()->one();
+        
+        if($category)
+        {
+            $this->rootCategories[] =   $category;
+            $this->getCategoryRoot($category['category_id']);
+        }
+
+        return $this->rootCategories;
     }
 }

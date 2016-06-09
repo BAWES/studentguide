@@ -70,6 +70,12 @@
 						<span class="title">Push Notification</span>
 					</a>
 				</li>
+				<li class="<?php if ($menu_act == 'PushnotificationhistoryController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/pushnotificationhistory/index']) ?>">
+						<i class="fa fa-paper-plane"></i>
+						<span class="title">Push Notification History</span>
+					</a>
+				</li>
 			</ul>
 			<!-- END SIDEBAR MENU -->
 

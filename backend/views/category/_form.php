@@ -16,7 +16,10 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'category_name_ar')->textInput(['maxlength' => true])->label('Category Name (Arabic)') ?>
 
-    <?= $form->field($model, 'parent_category_id')->dropDownList(ArrayHelper::map($model->getCategoryList(), 'category_id', 'category_name_en'), ['prompt' => 'Select Category'])->label('Parent Category') ?>
+    <?= $form->field($model, 'parent_category_id')->hiddenInput(['value' => $parentCategoryId])->label(false) ?>
+    <!-- if($parentCategoryId) { ?>
+         $form->field($model, 'parent_category_id')->dropDownList(ArrayHelper::map($model->getCategoryList(), 'category_id', 'category_name_en'), ['prompt' => 'Select Category'])->label('Parent Category') ?>
+     } ?>-->
 
     <?php
         if($model->isNewRecord)
@@ -27,7 +30,7 @@ use yii\helpers\ArrayHelper;
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-        <?= Html::a('Back', ['category/index'], ['class' => 'btn btn-default']) ?>
+        <?= Html::a('Back', ['category/index', 'id' => $parentCategoryId], ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

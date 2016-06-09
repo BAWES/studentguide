@@ -1,15 +1,16 @@
 <?php
 
-use yii\helpers\Html;
-use yii\widgets\DetailView;
+    use yii\helpers\Html;
+    use yii\widgets\DetailView;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\Category */
+    /* @var $this yii\web\View */
+    /* @var $model backend\models\Category */
 
-$this->title = $model->category_name_en;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+    $this->title = $model->category_name_en;
+    $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Categories'), 'url' => ['index']];
+    $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="category-view">
 
     <p>
@@ -53,5 +54,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]) ?>
-
 </div>

@@ -39,14 +39,14 @@ class VendorSearch extends Vendor
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $vendors)
     {
         $query = Vendor::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+            'query' => $query->where(['in', 'vendor_id', $vendors])
         ]);
 
         $this->load($params);

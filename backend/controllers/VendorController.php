@@ -50,14 +50,20 @@ class VendorController extends Controller
      * Lists all Vendor models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id = '')
     {
-        $searchModel = new VendorSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $categoryLinks              =   VendorCategoryLink::find()->select(['vendor_id'])->where(['category_id' => $id])->asArray()->all();
+        $vendors                    =   \yii\helpers\ArrayHelper::getColumn($categoryLinks, 'vendor_id');
 
+        $searchModel                = new VendorSearch();
+        $dataProvider               = $searchModel->search(Yii::$app->request->queryParams, $vendors);
+        $model                      =   new Vendor();
+        $category                   =   Category::find()->select(['category_id', 'parent_category_id'])->where(['category_id' => $id])->asArray()->one();
+        Vendor::$category_id        =   $id;
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            'searchModel'   =>  $searchModel,
+            'dataProvider'  =>  $dataProvider,
+            'category'      =>  $category,
         ]);
     }
 
@@ -66,10 +72,11 @@ class VendorController extends Controller
      * @param string $id
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($id, $category)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model'     =>  $this->findModel($id),
+            'category'  =>  $category,
         ]);
     }
 
@@ -78,7 +85,7 @@ class VendorController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($id = '')
     {
         $model      = new Vendor();
         $category   = new Category();
@@ -163,7 +170,7 @@ class VendorController extends Controller
             else
             {
                 $transaction->commit();
-                return $this->redirect(['view', 'id' => $model->vendor_id]);
+                return $this->redirect(['view', 'id' => $model->vendor_id, 'category' => $id]);
             }
         } 
         else 
@@ -172,6 +179,7 @@ class VendorController extends Controller
                 'model'         =>  $model,
                 'categories'    =>  $category->getLeafCategories(),
                 'areas'         =>  Area::find()->asArray()->all(),
+                'categoryID'    =>  $id,
             ]);
         }
     }
@@ -182,7 +190,7 @@ class VendorController extends Controller
      * @param string $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id, $categoryID)
     {
 
         $model      =   $this->findModel($id);
@@ -328,6 +336,7 @@ class VendorController extends Controller
                 'model'         =>  $model,
                 'categories'    =>  $category->getLeafCategories(),
                 'areas'         =>  Area::find()->asArray()->all(),
+                'category'      =>  $categoryID,
             ]);
         }
     }
@@ -338,7 +347,7 @@ class VendorController extends Controller
      * @param string $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDelete($id, $category = '')
     {
         #Updating last update table for vendor key
         $lastUpdate                     =   Lastupdate::find()->one();
@@ -347,7 +356,7 @@ class VendorController extends Controller
         
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index', 'id' => $category]);
     }
 
     /**
