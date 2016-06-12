@@ -73,7 +73,8 @@ return [
                     'class'         =>  'yii\rest\UrlRule',
                     'controller'    =>  ['v1/vendor'],
                     'extraPatterns' =>  [
-                        'GET arealist'     =>  'arealist',
+                        'GET arealist'      =>  'arealist',
+                        'POST view_vendor'  =>  'view_vendor',
                     ],
                 ],
                 [
