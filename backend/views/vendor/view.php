@@ -2,26 +2,42 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Vendor */
 
+$this->title                    =   ($category) ? Yii::t('app', 'Categories') : Yii::t('app', 'Vendors');
+$initalBreadCrumb               =   ($category) ? ['label' => Yii::t('app', 'Category'), 'url' => [Url::to(['category/index'])]] : ['label' => Yii::t('app', 'Vendors'), 'url' => ['index']];
+$this->params['breadcrumbs'][]  =   $initalBreadCrumb;
+
+if($categoryList)
+{
+    $count = count($categoryList) - 1;
+    for($i = 0; $i <= $count; $i++)
+        $this->params['breadcrumbs'][] = ['url' => Url::to(['index', 'id' => $categoryList[$i]['category_id']]), 'label' => $categoryList[$i]['category_name_en']];
+}
+
 $this->title = $model->vendor_name_en;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Vendors'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vendor-view">
 
     <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->vendor_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->vendor_id], [
+        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->vendor_id, 'categoryID' => $category], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->vendor_id, 'category' => $category], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Back', ['category/index', 'id' => $category], ['class' => 'btn btn-default']) ?>
+        <?php  
+            if($category)
+                echo Html::a('Back', ['category/index', 'id' => $category], ['class' => 'btn btn-default']);
+            else
+                echo Html::a('Back', ['vendor/index'], ['class' => 'btn btn-default']);
+        ?>
+
     </p>
 
     <?= DetailView::widget([

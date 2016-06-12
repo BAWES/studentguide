@@ -121,16 +121,22 @@ class Category extends \common\models\Category
     * @param int category id
     * @return array category list
     */
-    public function getCategoryRoot($category)
+    public function getCategoryRoot($categoryId)
     {
-        $category                   =   self::find()->select(['category_id', 'category_name_en'])->where(['parent_category_id' => $category])->asArray()->one();
+        $category                   =   self::find()->select(['p.category_id', 'p.category_name_en'])->join('JOIN', '{{%category}} AS p', 'p.category_id = {{%category}}.parent_category_id')->where(['{{%category}}.category_id' => $categoryId])->asArray()->one();
         
         if($category)
         {
-            $this->rootCategories[] =   $category;
+            $categories                   =   self::find()->select(['category_id', 'category_name_en'])->where(['category_id' => $categoryId])->asArray()->one();
+            $this->rootCategories[]       =   $categories;
             $this->getCategoryRoot($category['category_id']);
         }
-
-        return $this->rootCategories;
+        else
+        {
+            $category                   =   self::find()->select(['category_id', 'category_name_en'])->where(['category_id' => $categoryId])->asArray()->one();
+            if($category)
+                $this->rootCategories[] =   $category;
+        }
+        return array_reverse($this->rootCategories);
     }
 }

@@ -8,8 +8,21 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\VendorSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Vendors');
-$this->params['breadcrumbs'][] = $this->title;
+$this->title        =   ($category) ? Yii::t('app', 'Categories') : Yii::t('app', 'Vendors');
+$initalBreadCrumb   =   ($category) ? ['url' => Url::to(['category/index']), 'label' => $this->title] : ['url' => 'index', 'label' => $this->title];
+$this->params['breadcrumbs'][] = $initalBreadCrumb;
+
+if($categoryList)
+{
+    $count = count($categoryList) - 1;
+    for($i = 0; $i <= $count; $i++)
+    {
+        if($i == $count)
+            $this->params['breadcrumbs'][] = $categoryList[$i]['category_name_en'];
+        else
+            $this->params['breadcrumbs'][] = ['url' => Url::to(['index', 'id' => $categoryList[$i]['category_id']]), 'label' => $categoryList[$i]['category_name_en']];
+    }
+}
 ?>
 <div class="vendor-index">
 

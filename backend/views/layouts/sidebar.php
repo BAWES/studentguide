@@ -58,6 +58,12 @@
 						<span class="title">Vendor</span>
 					</a>
 				</li>
+				<li class="<?php if ($menu_act == 'VendorviewController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/vendorview/index']) ?>">
+						<i class="fa fa-eye"></i>
+						<span class="title">Vendor Statistics</span>
+					</a>
+				</li>
 				<li class="<?php if ($menu_act == 'EnquiryController') {echo "active"; } else  {echo "noactive";}?>">
 					<a class="link-title" href="<?= Url::to(['/enquiry/index']) ?>">
 						<i class="fa fa-book"></i>
@@ -76,6 +82,7 @@
 						<span class="title">Push Notification History</span>
 					</a>
 				</li>
+
 			</ul>
 			<!-- END SIDEBAR MENU -->
 

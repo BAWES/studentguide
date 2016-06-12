@@ -55,15 +55,18 @@ class VendorController extends Controller
         $categoryLinks              =   VendorCategoryLink::find()->select(['vendor_id'])->where(['category_id' => $id])->asArray()->all();
         $vendors                    =   \yii\helpers\ArrayHelper::getColumn($categoryLinks, 'vendor_id');
 
-        $searchModel                = new VendorSearch();
-        $dataProvider               = $searchModel->search(Yii::$app->request->queryParams, $vendors);
+        $searchModel                =   new VendorSearch();
+        $dataProvider               =   $searchModel->search(Yii::$app->request->queryParams, $vendors);
         $model                      =   new Vendor();
         $category                   =   Category::find()->select(['category_id', 'parent_category_id'])->where(['category_id' => $id])->asArray()->one();
         Vendor::$category_id        =   $id;
+        $categoryModel              =   new Category();
+        $categoryList               =   $categoryModel->getCategoryRoot($id);
         return $this->render('index', [
             'searchModel'   =>  $searchModel,
             'dataProvider'  =>  $dataProvider,
             'category'      =>  $category,
+            'categoryList'  =>  $categoryList,
         ]);
     }
 
@@ -72,11 +75,14 @@ class VendorController extends Controller
      * @param string $id
      * @return mixed
      */
-    public function actionView($id, $category)
+    public function actionView($id, $category = '')
     {
+        $categoryModel              =   new Category();
+        $categoryList               =   $categoryModel->getCategoryRoot($category);
         return $this->render('view', [
-            'model'     =>  $this->findModel($id),
-            'category'  =>  $category,
+            'model'         =>  $this->findModel($id),
+            'category'      =>  $category,
+            'categoryList'  =>  $categoryList,
         ]);
     }
 
@@ -96,6 +102,7 @@ class VendorController extends Controller
             $endDate                            =   \DateTime::createFromFormat('d-m-Y', $model->vendor_account_end_date);
             $model->vendor_account_start_date   =   $startDate->format('Y-m-d');
             $model->vendor_account_end_date     =   $endDate->format('Y-m-d');
+            $model->sort_order                  =   ($model->sort_order) ? $model->sort_order : 0;
             
             $request                            =   Yii::$app->request->post('Vendor');
             $error                              =   0;
@@ -190,14 +197,13 @@ class VendorController extends Controller
      * @param string $id
      * @return mixed
      */
-    public function actionUpdate($id, $categoryID)
+    public function actionUpdate($id, $categoryID = '')
     {
 
         $model      =   $this->findModel($id);
         $oldImage   =   $model->vendor_logo;
 
         $category   =   new Category();
-        
         if ($model->load(Yii::$app->request->post()))
         {
             $transaction                        =   Yii::$app->db->beginTransaction();
@@ -211,7 +217,8 @@ class VendorController extends Controller
             $endDate                            =   \DateTime::createFromFormat('d-m-Y', $model->vendor_account_end_date);
             $model->vendor_account_start_date   =   $startDate->format('Y-m-d');
             $model->vendor_account_end_date     =   $endDate->format('Y-m-d');
-
+            $model->sort_order                  =   ($model->sort_order) ? $model->sort_order : 0;
+            
             $vendorId                           =   $model->vendor_id;
             $logo                               =   UploadedFile::getInstance($model, 'vendor_logo');
             if(!$logo)
@@ -309,7 +316,7 @@ class VendorController extends Controller
 
             }
 
-            return $this->redirect(['view', 'id' => $model->vendor_id]);
+            return $this->redirect(['view', 'id' => $model->vendor_id, 'category' => $categoryID]);
         } 
         else 
         {

@@ -3,13 +3,27 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\CategorySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Categories');
-$this->params['breadcrumbs'][] = $this->title;
+if(!$categoryList)
+    $this->params['breadcrumbs'][] = $this->title;
+else
+{
+    $this->params['breadcrumbs'][] = ['url' => 'index', 'label' => $this->title];
+    $count = count($categoryList) - 1;
+    for($i = 0; $i <= $count; $i++)
+    {
+        if($i == $count)
+            $this->params['breadcrumbs'][] = $categoryList[$i]['category_name_en'];
+        else
+            $this->params['breadcrumbs'][] = ['url' => Url::to(['index', 'id' => $categoryList[$i]['category_id']]), 'label' => $categoryList[$i]['category_name_en']];
+    }
+}
 ?>
 
 <div class="category-index">

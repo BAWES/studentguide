@@ -11,14 +11,20 @@ use yii\widgets\ActiveForm;
 ?>
 <div class="vendor-form">
 
-    <?php $form = ActiveForm::begin(['options' => [
-        'enctype' =>  'multipart/form-data',
-    ]]); ?>
-
     <?php 
+        $formOptions                =   ['options' => [ 'enctype' =>  'multipart/form-data']];
         if($model->isNewRecord)
+        {
             $model->vendor_category =   $categoryID;
+            $formOptions['action']  =   Url::to(['vendor/create?id=' . $categoryID]);
+        }
+        else
+            $formOptions['action']  =   Url::to(['vendor/update?id=' . $model->vendor_id  . '&categoryID=' . $category]);
+        //var_dump($formOptions);die;
     ?>
+
+    <?php $form = ActiveForm::begin($formOptions); ?>
+    
     <?= $form->field($model, 'vendor_name_en')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'vendor_name_ar')->textInput(['maxlength' => true]) ?>

@@ -50,7 +50,6 @@ class CategoryController extends Controller
     {
         $searchModel    =   new CategorySearch();
         $dataProvider   =   $searchModel->search(Yii::$app->request->queryParams, $id);
-
         if(VendorCategoryLink::find()->where(['category_id' => $id])->count())
             return $this->redirect(['vendor/index', 'id' => $id]);
 
