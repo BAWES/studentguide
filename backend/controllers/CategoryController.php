@@ -87,7 +87,21 @@ class CategoryController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
-            $update = Lastupdate::updateAll(['category_key' => $key]);
+            #Updating last update table for area key
+            $lastUpdate                     =   Lastupdate::find()->one();
+            if($lastUpdate)
+            {
+                $lastUpdate->category_key   =   Yii::$app->getSecurity()->generateRandomString(10);
+                $lastUpdate->save();
+            }
+            else
+            {
+                $modelUpdate                  =   new Lastupdate();
+                $modelUpdate->category_key    =   Yii::$app->getSecurity()->generateRandomString(8);
+                $modelUpdate->vendor_key      =   Yii::$app->getSecurity()->generateRandomString(8);
+                $modelUpdate->area_key        =   Yii::$app->getSecurity()->generateRandomString(8);
+                $modelUpdate->save();
+            }
             return $this->redirect(['view', 'id' => $model->category_id]);
         } else {
             return $this->render('create', [

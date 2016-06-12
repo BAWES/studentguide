@@ -109,9 +109,21 @@ class VendorController extends Controller
             if($model->save())
             {
                 #Updating last update table for vendor key
-                $lastUpdate                     =   Lastupdate::find()->one();
-                $lastUpdate->vendor_key         =   Yii::$app->getSecurity()->generateRandomString(10);
-                $lastUpdate->save();
+                #Updating last update table for area key
+                $lastUpdate                       =   Lastupdate::find()->one();
+                if($lastUpdate)
+                {
+                    $lastUpdate->vendor_key       =   Yii::$app->getSecurity()->generateRandomString(10);
+                    $lastUpdate->save();
+                }
+                else
+                {
+                    $modelUpdate                  =   new Lastupdate();
+                    $modelUpdate->category_key    =   Yii::$app->getSecurity()->generateRandomString(8);
+                    $modelUpdate->vendor_key      =   Yii::$app->getSecurity()->generateRandomString(8);
+                    $modelUpdate->area_key        =   Yii::$app->getSecurity()->generateRandomString(8);
+                    $modelUpdate->save();
+                }
 
                 $vendorId                       =   $model->vendor_id;
                 $logo                           =   UploadedFile::getInstance($model, 'vendor_logo');

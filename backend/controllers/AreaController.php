@@ -84,10 +84,21 @@ class AreaController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) 
         {
-            #Updating last update table for vendor key
+            #Updating last update table for area key
             $lastUpdate                     =   Lastupdate::find()->one();
-            $lastUpdate->area_key           =   Yii::$app->getSecurity()->generateRandomString(10);
-            $lastUpdate->save();
+            if($lastUpdate)
+            {
+                $lastUpdate->area_key           =   Yii::$app->getSecurity()->generateRandomString(10);
+                $lastUpdate->save();
+            }
+            else
+            {
+                $modelUpdate                  =   new Lastupdate();
+                $modelUpdate->category_key    =   Yii::$app->getSecurity()->generateRandomString(8);
+                $modelUpdate->vendor_key      =   Yii::$app->getSecurity()->generateRandomString(8);
+                $modelUpdate->area_key        =   Yii::$app->getSecurity()->generateRandomString(8);
+                $modelUpdate->save();
+            }
             
             return $this->redirect(['view', 'id' => $model->id]);
         } 
