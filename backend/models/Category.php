@@ -63,11 +63,15 @@ class Category extends \common\models\Category
 
     public function beforeSave($insert)
     {
-        if($insert)
+        if($insert){
             $this->category_created_datetime    =   date('Y-m-d H:i:s');
-        else
+            Yii::info("[New Category] Created category ".$this->category_name_en, __METHOD__);
+        }
+        else{
             $this->category_updated_datetime    =   date('Y-m-d H:i:s');
-        
+            Yii::info("[Updated Category] Updated the category ".$this->category_name_en, __METHOD__);
+        }
+
         return true;
     }
 
@@ -124,7 +128,7 @@ class Category extends \common\models\Category
     public function getCategoryRoot($categoryId)
     {
         $category                   =   self::find()->select(['p.category_id', 'p.category_name_en'])->join('JOIN', '{{%category}} AS p', 'p.category_id = {{%category}}.parent_category_id')->where(['{{%category}}.category_id' => $categoryId])->asArray()->one();
-        
+
         if($category)
         {
             $categories                   =   self::find()->select(['category_id', 'category_name_en'])->where(['category_id' => $categoryId])->asArray()->one();

@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap"                    : "*",
         "yiisoft/yii2-swiftmailer"                  : "*",
         "2amigos/yii2-resource-manager-component"   : "*",
-        "yiisoft/yii2-jui"                          : "~2.0.0"
+        "yiisoft/yii2-jui"                          : "~2.0.0",
+        "yiisoft/yii2-httpclient": "dev-master",
+        "understeam/yii2-slack": "*"
     },
     "require-dev"           : {
         "yiisoft/yii2-codeception"                  : "*",

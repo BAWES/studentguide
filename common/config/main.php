@@ -11,5 +11,8 @@ return [
         'cache'				=> [
             'class' 			=> 'yii\caching\FileCache',
         ],
+        'httpclient' => [
+            'class' =>'yii\httpclient\Client',
+        ],
     ],
 ];
