@@ -89,11 +89,11 @@ class Vendor extends \yii\db\ActiveRecord
     {
         if($this->isNewRecord)
         {
-            Yii::info("[New Vendor Added] ".$this->vendor_name_en." ".$this->vendor_description_en, __METHOD__);
+            Yii::info("[New Vendor - ".$this->vendor_name_en."] ".$this->vendor_description_en, __METHOD__);
         }
         else
         {
-            Yii::info("[Updated Vendor] ".$this->vendor_name_en." ".$this->vendor_description_en, __METHOD__);
+            Yii::info("[Updated Vendor - ".$this->vendor_name_en."] ".$this->vendor_description_en, __METHOD__);
         }
 
         return parent::beforeSave($insert);
