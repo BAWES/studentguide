@@ -7,6 +7,7 @@ use Yii;
 use common\models\Category;
 use common\models\Enquiry;
 use common\models\Lastupdate;
+use common\models\VendorView;
 
 /**
  * Default controller for the `v1` module
@@ -17,7 +18,7 @@ class VendorController extends BaseController
     public function actions()
     {
         $actions = parent::actions();
-        unset($actions['create'], $actions['index'], $actions['update'], $actions['delete']);
+        unset($actions['create'], $actions['index'], $actions['update'], $actions['delete'], $actions['view']);
         return $actions;
     }
     
@@ -186,7 +187,7 @@ class VendorController extends BaseController
               "mobile"  => $data['mobile']
             ])
             ->setFrom('mariyappan@technoduce.com')
-            ->setTo('sivabalan.s@technoduce.com')
+            ->setTo($to_email['contact_email'])
             ->setSubject('Enquiry from customer - Student Quide')
             ->send();
         
@@ -202,4 +203,46 @@ class VendorController extends BaseController
         else
             return ['code' => parent::STATUS_FAILURE, 'message' => Yii::t("api", "mail"), 'data' => ['status' => 0]];
     } 
+
+    /**
+    * Manage vendor views on each day
+    * @method POST
+    * @param number vendor id
+    */
+    public function actionView_vendor($language = "en")
+    {
+        Yii::$app->language     =   $language;
+        $request                =   Yii::$app->request;
+        $model                  =   new VendorView();        
+        $model->vendor_id       =   Yii::$app->request->post('vendor');
+        $model->view_date       =   Yii::$app->request->post('date');
+        if($model->validate())
+        {
+            $views  =   VendorView::find()->where(['vendor_id' => Yii::$app->request->post('vendor'), 'view_date' => Yii::$app->request->post('date')])->one();
+            if($views)
+            {
+                $views->number_of_views += 1;
+                $views->update();
+            }
+            else
+            {
+                $view                   =   new VendorView();
+                $view->vendor_id        =   Yii::$app->request->post('vendor');
+                $view->view_date        =   Yii::$app->request->post('date');
+                $view->number_of_views  =   1;
+                $view->save();
+            }
+            
+            return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t('api', 'View was updated')];
+        }
+        else
+        {
+            $errors = $model->getErrors();
+            if(isset($errors['view_date']))
+                $message = $errors['view_date'][0];
+            else if(isset($errors['vendor_id']))
+                $message = $errors['vendor_id'][0];
+            return ['code' => parent::STATUS_FAILURE, 'message' => $message];
+        }
+    }
 }
