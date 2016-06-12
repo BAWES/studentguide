@@ -34,6 +34,18 @@ class Area extends \yii\db\ActiveRecord
         ];
     }*/
 
+    public function beforeSave($insert)
+    {
+        if($insert){
+            Yii::info("[New Area] Created area -> ".$this->area_name_en, __METHOD__);
+        }
+        else{
+            Yii::info("[Updated Area] Updated area -> ".$this->area_name_en, __METHOD__);
+        }
+
+        return true;
+    }
+
     /**
      * @inheritdoc
      */

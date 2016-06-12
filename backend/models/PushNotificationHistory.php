@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace backend\models;
 
 use Yii;
@@ -21,5 +21,15 @@ class PushNotificationHistory extends \yii\db\ActiveRecord
             'message_ar'	=> Yii::t('app', 'Message (Arabic) '),
             'datetime'		=> Yii::t('app', 'Datetime'),
         ];
+    }
+
+	public function beforeSave($insert)
+    {
+        if($this->isNewRecord)
+        {
+            Yii::info("[Push Notification Sent] ".$this->message_en." ".$this->message_ar, __METHOD__);
+        }
+
+        return parent::beforeSave($insert);
     }
 }

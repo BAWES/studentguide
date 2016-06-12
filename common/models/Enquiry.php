@@ -58,11 +58,14 @@ class Enquiry extends \yii\db\ActiveRecord
         if($this->isNewRecord)
         {
             $this->created_datetime = date("Y-m-d H:i:s");
+            Yii::info("[New Inquiry] -> ".$this->message, __METHOD__);
         }
         else
         {
             $this->modified_datetime = date("Y-m-d H:i:s");
+            Yii::info("[Updated Inquiry] ".$this->message, __METHOD__);
         }
-        return parent::beforeSave($insert);     
+        return parent::beforeSave($insert);
     }
+
 }

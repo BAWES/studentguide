@@ -85,6 +85,20 @@ class Vendor extends \yii\db\ActiveRecord
         ];
     }
 
+    public function beforeSave($insert)
+    {
+        if($this->isNewRecord)
+        {
+            Yii::info("[New Vendor Added] ".$this->vendor_name_en." ".$this->vendor_description_en, __METHOD__);
+        }
+        else
+        {
+            Yii::info("[Updated Vendor] ".$this->vendor_name_en." ".$this->vendor_description_en, __METHOD__);
+        }
+
+        return parent::beforeSave($insert);
+    }
+
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -181,9 +195,9 @@ class Vendor extends \yii\db\ActiveRecord
             }
             $template   .=   "</tbody></table>";
         }
-        
+
         return $template;
-    }  
+    }
 
     /**
     * Get the vendor galleries
@@ -213,17 +227,17 @@ class Vendor extends \yii\db\ActiveRecord
             }
             $template           .=   "</div>";
         }
-        
+
         return $template;
     }
 
     /**
     * Delete vendor images from aws s3 bucket
     * @param string url holds the image url
-    * @param number action holds whether delete logo or gallery image, 1 for logo, 2 for 
+    * @param number action holds whether delete logo or gallery image, 1 for logo, 2 for
     * gallery
     * @return number 1 for success, 0 for failure
-    */  
+    */
     public function deleteImage($url, $action = 1)
     {
         //$url = "";
