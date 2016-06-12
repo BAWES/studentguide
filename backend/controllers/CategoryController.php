@@ -107,13 +107,13 @@ class CategoryController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) 
+        if ($model->load(Yii::$app->request->post()) && $model->save())
         {
             $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
             $update = Lastupdate::updateAll(['category_key'=>$key]);
             return $this->redirect(['view', 'id' => $model->parent_category_id]);
-        } 
-        else 
+        }
+        else
         {
             return $this->render('update', [
                 'model'             =>  $model,
@@ -132,6 +132,9 @@ class CategoryController extends Controller
     {
         $model = $this->findModel($id);
         $categoryId = $model->parent_category_id;
+
+        Yii::warning("[Deleted Category] ".$model->category_name_en." category has been deleted", __METHOD__);
+
         $model->delete();
 
         $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));
