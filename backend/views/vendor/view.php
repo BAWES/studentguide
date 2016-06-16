@@ -54,6 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'vendor_description_ar:ntext',
             'vendor_phone1',
             'vendor_phone2',
+            'vendor_website',
             'vendor_youtube_video',
             'vendor_social_instagram',
             'vendor_social_twitter',

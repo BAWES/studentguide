@@ -41,6 +41,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'vendor_phone2')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'vendor_website')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'vendor_logo')->fileInput(['accept' => 'image/*']) ?>
 
     <?php 
@@ -187,6 +189,8 @@ use yii\widgets\ActiveForm;
 
                 getLatitudeLongitude();
 
+
+
                 google.maps.event.addListener(marker, "dragend", function(event){
                     getLatitudeLongitude();
                 });
@@ -236,6 +240,15 @@ use yii\widgets\ActiveForm;
             map         :   map,
             anchorPoint :   new google.maps.Point(0, -29),
             draggable   :   true
+        });
+
+
+        google.maps.event.addDomListener(input, 'keydown', function(e) { 
+            if (e.keyCode == 13) { 
+                alert("sksks");
+                return false; 
+            }
+            return false;
         });
 
         google.maps.event.addListener(autocomplete, "place_changed", function() {
@@ -290,6 +303,8 @@ use yii\widgets\ActiveForm;
             });
         });
     }
+
+
 
     function getLatitudeLongitude()
     {
