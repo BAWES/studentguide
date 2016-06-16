@@ -57,6 +57,8 @@ class Vendor extends \yii\db\ActiveRecord
             [['vendor_social_instagram', 'vendor_social_twitter'], 'string', 'max' => 1024],
             [['vendor_location'], 'string', 'max' => 128],
             ['sort_order', 'number'],
+            ['vendor_website', 'url'],
+            ['vendor_url', 'string', 'max' => '256'],
         ];
     }
 
