@@ -63,10 +63,10 @@ class VendorController extends Controller
         $categoryModel              =   new Category();
         $categoryList               =   $categoryModel->getCategoryRoot($id);
         return $this->render('index', [
-            'searchModel'   =>  $searchModel,
-            'dataProvider'  =>  $dataProvider,
-            'category'      =>  $category,
-            'categoryList'  =>  $categoryList,
+            'searchModel'           =>  $searchModel,
+            'dataProvider'          =>  $dataProvider,
+            'category'              =>  $category,
+            'categoryList'          =>  $categoryList,
         ]);
     }
 
@@ -195,10 +195,10 @@ class VendorController extends Controller
         else 
         {
             return $this->render('create', [
-                'model'         =>  $model,
-                'categories'    =>  $category->getLeafCategories(),
-                'areas'         =>  Area::find()->asArray()->all(),
-                'categoryID'    =>  $id,
+                'model'                 =>  $model,
+                'categories'            =>  $category->getLeafCategories(),
+                'areas'                 =>  Area::find()->asArray()->all(),
+                'categoryID'            =>  $id,
             ]);
         }
     }
@@ -241,11 +241,11 @@ class VendorController extends Controller
             {
                 if($logo)
                 {
-                    $imageName                  =   "vendors/" . $vendorId . "/logo." . $logo->extension;
+                    $imageName                  =   "vendors/" . $vendorId . "/" . Yii::$app->getSecurity()->generateRandomString(8) .  "." . $logo->extension;
                     $vendorUpdate               =   Vendor::findOne(['vendor_id' => $vendorId]);
                     $vendorUpdate->vendor_logo  =   Yii::$app->resourceManager->getUrl($imageName);
 
-                    $model->deleteImage($imageName, 1); #Delete old vendor logo
+                    $model->deleteImage($oldImage, 1); #Delete old vendor logo
 
                     if($vendorUpdate->update(false))
                         Yii::$app->resourceManager->save($logo, $imageName);
