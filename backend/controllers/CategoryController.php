@@ -107,6 +107,7 @@ class CategoryController extends Controller
             return $this->render('create', [
                 'model'             =>  $model,
                 'parentCategoryId'  =>  $id,
+                'category'          =>  Category::find()->select(['category_id', 'category_name_en'])->where(['category_id' => $id])->asArray()->one()
             ]);
         }
     }
