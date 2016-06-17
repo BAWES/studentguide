@@ -41,8 +41,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'vendor_phone2')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'vendor_website')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'vendor_logo')->fileInput(['accept' => 'image/*']) ?>
 
     <?php 
@@ -59,6 +57,8 @@ use yii\widgets\ActiveForm;
             echo ($vendorGalleries) ? $vendorGalleries : '';
         }
     ?>
+
+    <?= $form->field($model, 'vendor_website')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'vendor_youtube_video')->textInput(['maxlength' => true]) ?>
 
@@ -104,7 +104,22 @@ use yii\widgets\ActiveForm;
 
 </div>
 <div class="notification"></div>
-<?php 
+<?php
+    $js = <<<JS
+    // get the form id and set the event
+    $('#w0').on('afterValidate', function(e) {
+        // return false to prevent submission
+        if(($('.has-error').length != 0)){
+            $('#fade').remove();
+            $('.processing_image').hide();
+            return true;
+        }
+        return false;
+    });
+JS;
+ 
+    $this->registerJs($js);
+
     $this->registerCss(".notification {display:none; position: fixed;bottom: 1%;right: 1%;background: #ccc;width: 20%;padding: 1%;border-radius: 3px;}#map-canvas {height: 350px;width: 95%;margin:0 auto;}.notification .loading, .notification .success{display:none;}.notification.success{background: #AECE4E;color: #fff;}.notification.error{background: #F35958;color:#fff;}div#ui-datepicker-div{z-index: 999 !important;}#vendor_logo{width: 30%;} .vendor_gallery{height: 120px !important;}");
     $this->registerCssFile($this->theme->baseUrl . "/plugins/bootstrap-select/css/bootstrap-select.min.css");
     $this->registerJsFile($this->theme->baseUrl . "/plugins/bootstrap-select/js/bootstrap-select.min.js", [
@@ -157,6 +172,14 @@ use yii\widgets\ActiveForm;
     var map;
     var marker;
 
+    //Prevent form submission by using enter key in google autocomplete search field
+    document.getElementById("location-text-box").onkeypress = function(e) {
+        var key = e.charCode || e.keyCode || 0;     
+        if (key == 13)
+            e.preventDefault();
+    }
+
+    //Google map initialization
     function initialize() 
     {
         var mapOptions = {
@@ -230,7 +253,7 @@ use yii\widgets\ActiveForm;
 
 
         // get places auto-complete when user type in location-text-box
-        var input = /** @type {HTMLInputElement} */(document.getElementById("location-text-box"));
+        var input = document.getElementById("location-text-box");
 
         var autocomplete = new google.maps.places.Autocomplete(input);
         autocomplete.bindTo("bounds", map);
@@ -244,11 +267,48 @@ use yii\widgets\ActiveForm;
 
 
         google.maps.event.addDomListener(input, 'keydown', function(e) { 
-            if (e.keyCode == 13) { 
-                alert("sksks");
-                return false; 
+            if (e.keyCode == 13) 
+            { 
+                //$(".pac-container .pac-item:first").click();
+                var firstResult = $(".pac-container .pac-item:first").text();
+
+                var geocoder = new google.maps.Geocoder();
+                geocoder.geocode({"address":firstResult }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) 
+                    {
+                        var lat = results[0].geometry.location.lat(),
+                            lng = results[0].geometry.location.lng(),
+                            placeName = results[0].address_components[0].long_name,
+                            latlng = new google.maps.LatLng(lat, lng);
+
+                        $(".pac-container .pac-item:first").addClass("pac-selected");
+                        $(".pac-container").css("display","none");
+                        $("#searchTextField").val(firstResult);
+                        $(".pac-container").css("visibility","hidden");
+
+                        // If the place has a geometry, then present it on a map.
+                        if (results[0].geometry.viewport) 
+                            map.fitBounds(results[0].geometry.viewport);
+                        else 
+                        {
+                            map.setCenter(results[0].geometry.location);
+                            map.setZoom(17); // Why 17? Because it looks good.
+                        }
+
+                        /*marker.setIcon( /** @type {google.maps.Icon}  ({
+                            url: results[0].icon,
+                            size: new google.maps.Size(71, 71),
+                            origin: new google.maps.Point(0, 0),
+                            anchor: new google.maps.Point(17, 34),
+                            scaledSize: new google.maps.Size(35, 35)
+                        }));*/
+            
+                        marker.setPosition(results[0].geometry.location);
+                        marker.setVisible(true);
+                    }
+                    getLatitudeLongitude();
+                });
             }
-            return false;
         });
 
         google.maps.event.addListener(autocomplete, "place_changed", function() {
