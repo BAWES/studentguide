@@ -32,8 +32,16 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'vendor_description_en')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'vendor_description_ar')->textarea(['rows' => 6]) ?>
+    <?php 
+        $toolTip = [];
+        foreach($categories AS $category)
+        {
+            $categoryList = array_reverse($model->getCategoryList($category['category_id']));
+            $toolTip[$category['category_id']] = ['data-content' => '<span title="' . implode(' > ', $categoryList) . '">' . $category['category_name_en'] . '</span>'];
+        }
+    ?>
 
-    <?= $form->field($model, 'vendor_category')->dropDownList(ArrayHelper::map($categories, 'category_id', 'category_name_en'), ['multiple' => true, 'id' => 'category', 'class' => 'selectpicker', 'title' => 'Select Category', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"]) ?>
+    <?= $form->field($model, 'vendor_category')->dropDownList(ArrayHelper::map($categories, 'category_id', 'category_name_en'), ['multiple' => true, 'id' => 'category', 'class' => 'selectpicker', 'title' => 'Select Category', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true", 'options' => $toolTip]) ?>
 
     <?= $form->field($model, 'vendor_area')->dropDownList(ArrayHelper::map($areas, 'id', 'area_name_en'), ['multiple' => true, 'id' => 'area',  'class' => 'selectpicker', 'title' => 'Select Area', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"]) ?>
 
@@ -120,7 +128,7 @@ JS;
  
     $this->registerJs($js);
 
-    $this->registerCss(".notification {display:none; position: fixed;bottom: 1%;right: 1%;background: #ccc;width: 20%;padding: 1%;border-radius: 3px;}#map-canvas {height: 350px;width: 95%;margin:0 auto;}.notification .loading, .notification .success{display:none;}.notification.success{background: #AECE4E;color: #fff;}.notification.error{background: #F35958;color:#fff;}div#ui-datepicker-div{z-index: 999 !important;}#vendor_logo{width: 30%;} .vendor_gallery{height: 120px !important;}");
+    $this->registerCss(".dropdown-menu.inner li a span{display: block;}.notification {display:none; position: fixed;bottom: 1%;right: 1%;background: #ccc;width: 20%;padding: 1%;border-radius: 3px;}#map-canvas {height: 350px;width: 95%;margin:0 auto;}.notification .loading, .notification .success{display:none;}.notification.success{background: #AECE4E;color: #fff;}.notification.error{background: #F35958;color:#fff;}div#ui-datepicker-div{z-index: 999 !important;}#vendor_logo{width: 30%;} .vendor_gallery{height: 120px !important;}");
     $this->registerCssFile($this->theme->baseUrl . "/plugins/bootstrap-select/css/bootstrap-select.min.css");
     $this->registerJsFile($this->theme->baseUrl . "/plugins/bootstrap-select/js/bootstrap-select.min.js", [
         'depends' =>  \yii\web\JqueryAsset::className(),
@@ -250,7 +258,23 @@ JS;
 
         }
 
-
+        google.maps.event.addListener(map, 'click', function(event){
+            if (marker) {
+                //if marker already was created change positon
+                marker.setPosition(event.latLng);
+                document.getElementById('customer_latitude').value = marker.position.lat();
+                document.getElementById('customer_longitude').value = marker.position.lng();
+            } else {
+                //create a marker
+                marker = new google.maps.Marker({          
+                    position: event.latLng,
+                    map: map,
+                    draggable: true
+                });
+                document.getElementById('customer_latitude').value = marker.position.lat();
+                document.getElementById('customer_longitude').value = marker.position.lng();
+            }
+        })
 
         // get places auto-complete when user type in location-text-box
         var input = document.getElementById("location-text-box");
