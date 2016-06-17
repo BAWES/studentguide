@@ -58,7 +58,7 @@ class Vendor extends \yii\db\ActiveRecord
             [['vendor_location'], 'string', 'max' => 128],
             ['sort_order', 'number'],
             ['vendor_website', 'url'],
-            ['vendor_url', 'string', 'max' => '256'],
+            ['vendor_website', 'string', 'max' => '256'],
         ];
     }
 
