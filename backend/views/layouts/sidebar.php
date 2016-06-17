@@ -52,6 +52,12 @@
 						<span class="title">Category</span>
 					</a>
 				</li>
+				<li class="<?php if ($menu_act == 'DefaultcategoryController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/defaultcategory/index']) ?>">
+						<i class="fa fa-bars"></i>
+						<span class="title">Category(Order)</span>
+					</a>
+				</li>
 				<li class="<?php if ($menu_act == 'VendorController') {echo "active"; } else  {echo "noactive";}?>">
 					<a class="link-title" href="<?= Url::to(['/vendor/index']) ?>">
 						<i class="fa fa-users"></i>
