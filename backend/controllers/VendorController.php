@@ -373,7 +373,17 @@ class VendorController extends Controller
         $lastUpdate->vendor_key         =   Yii::$app->getSecurity()->generateRandomString(10);
         $lastUpdate->save();
         
-        $this->findModel($id)->delete();
+        $model                          =   $this->findModel($id);
+        $logo                           =   $model->vendor_logo;
+        if($logo)
+            $model->deleteImage($oldImage, 1); #Delete old vendor logo
+
+        #Delete vendor gallery images from aws
+        $modelGallery                   =   VendorGallery::find()->where(['vendor_id' => $model->vendor_id])->asArray()->all();
+        foreach($modelGallery AS $gallery)
+            $model->deleteImage($gallery->photo_url, 2);
+
+        $model->delete();
 
         return $this->redirect(['index', 'id' => $category]);
     }
