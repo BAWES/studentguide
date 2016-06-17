@@ -32,6 +32,7 @@ use Yii;
 class Vendor extends \yii\db\ActiveRecord
 {
     public $vendor_category, $vendor_area, $vendor_gallery;
+    public $categoryList = [];
     public static $category_id = 10;
     /**
      * @inheritdoc
@@ -57,7 +58,7 @@ class Vendor extends \yii\db\ActiveRecord
             [['vendor_social_instagram', 'vendor_social_twitter'], 'string', 'max' => 1024],
             [['vendor_location'], 'string', 'max' => 128],
             ['sort_order', 'number'],
-            ['vendor_website', 'url'],
+            ['vendor_website', 'url', 'defaultScheme' => 'http'],
             ['vendor_website', 'string', 'max' => '256'],
         ];
     }
@@ -251,5 +252,22 @@ class Vendor extends \yii\db\ActiveRecord
             $fileName[] = $urlParts[$i];
 
         Yii::$app->resourceManager->delete(implode("/", $fileName));
+    }
+
+    /**
+    * Get Parent category list for the leaf category
+    * @param int category leaf category id
+    * @return string category path
+    */
+    public function getCategoryList($category_id)
+    {
+        $category   =   Category::find()->select(['p.category_id', 'p.category_name_en'])->join('JOIN', '{{%category}} AS p', '{{%category}}.parent_category_id = p.category_id')->where(['{{%category}}.category_id' => $category_id])->asArray()->one();
+        if($category)
+        {
+            $this->categoryList[] =   $category['category_name_en'];
+            $this->getCategoryList($category['category_id']);
+        }
+
+        return $this->categoryList;
     }
 }
