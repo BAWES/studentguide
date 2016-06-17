@@ -2,7 +2,7 @@
 
 namespace backend\models;
 use Yii;
-
+use yii\helpers\Url;
 /**
  * This is the model class for table "{{%category}}".
  *
@@ -20,8 +20,10 @@ use Yii;
  */
 class Category extends \common\models\Category
 {
-    public $leafCategories = [];
-    public $rootCategories = [];
+    public $leafCategories  =   [];
+    public $rootCategories  =   [];
+    public $categories      =   '';
+
     /**
      * @inheritdoc
      */
@@ -41,6 +43,7 @@ class Category extends \common\models\Category
             [['category_created_datetime', 'category_updated_datetime'], 'safe'],
             [['category_name_en', 'category_name_ar'], 'string', 'max' => 255],
             [['parent_category_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['parent_category_id' => 'category_id']],
+            ['category_id', 'number'],
         ];
     }
 
@@ -142,5 +145,30 @@ class Category extends \common\models\Category
                 $this->rootCategories[] =   $category;
         }
         return array_reverse($this->rootCategories);
+    }
+
+    /**
+    * Full Category Path
+    */
+    public function getCategoryView($category_id = NULL)
+    {
+        $this->categories .= "<ul>";
+        $expression =   new \yii\db\Expression('IFNULL(parent_category_id, 0) AS parent_category_id');
+        $categories = self::find()->select(['category_id', 'category_name_en', 'category_name_ar', $expression])->where(['parent_category_id' => $category_id])->asArray()->all();
+        foreach($categories AS $category)
+        {
+            $this->categories .= "<li class='" . (($category_id) ? $category_id : 'base'). "'>"  . $category['category_name_en'] . ' ' . $category['category_name_ar'];
+            $subCategoryCount   =   self::find()->select(['category_id', 'category_name_en', 'category_name_ar', $expression])->where(['parent_category_id' => $category['category_id']])->count();
+            $this->categories .= "<div class='pull-right'>";
+            if(!$subCategoryCount)
+                $this->categories .= '<a class="add_category" data-attribute-id="' . $category['category_id'] . '" data-attribute-name="' . $category['category_name_en'] . '"><i class="fa fa-plus fa-fw"></i></a>';
+            $this->categories .= "<a class='view' id='" . $category['category_id'] . "' href='#'><i class='fa fa-eye fa-fw'></i></a><a id='" . $category['category_id'] . "' class='update' href='#'><i class='fa fa-edit fa-fw'></i></a><a class='actions' href='" . Url::to(['defaultcategory/delete', 'id' => $category['category_id']]) . "'><i class='fa fa-trash fa-fw fa-1x'></i></a></div>";
+
+            if($category)
+                $this->getCategoryView($category['category_id']);
+            $this->categories .= "</li>";
+        }
+        $this->categories .= "</ul>";
+        return $this->categories;
     }
 }
