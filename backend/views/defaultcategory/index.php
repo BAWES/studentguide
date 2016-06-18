@@ -13,7 +13,6 @@ $this->title = Yii::t('app', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<?= Html::a('Create category', '#', ['class' => 'btn btn-success create_category']); ?>
 <div class="row category_list col-md-12">
 <?= Html::dropDownList('categoryList', '', ArrayHelper::map($categoryList, 'category_id', 'category_name_en'), ['class' => 'categoryList', 'prompt' => 'Select category']) ?>
 <?= $categories ?>
@@ -131,7 +130,7 @@ $this->params['breadcrumbs'][] = $this->title;
       <?php $form = ActiveForm::begin(['action' => Url::to(['update'])]); ?>
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title">Create Category</h4>
+        <h4 class="modal-title">Update Category</h4>
       </div>
       <div class="modal-body">
        <?= $form->field($model, 'category_name_en')->textInput(['maxlength' => true])->label('Category Name (English)') ?>
