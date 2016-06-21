@@ -49,9 +49,8 @@ class DefaultcategoryController extends Controller
     public function actionIndex()
     {
         $model          =   new Category();
-
         return $this->render('index', [
-            'categories'    =>  $model->getCategoryView(),
+            'categories'    =>  "<table class='table table-striped table-bordered'><tr><td>Category Name (English)</td><td>Category Name(Arabic)</td><td>Action</td></tr>" . $model->getCategoryView() . "</table>",
             'model'         =>  $model,
             'categoryList'  =>  $model->getCategoryList(),
         ]);
