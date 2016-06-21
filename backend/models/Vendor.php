@@ -48,7 +48,7 @@ class Vendor extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['vendor_name_en', 'vendor_name_ar', 'vendor_phone1', 'vendor_account_start_date', 'vendor_account_end_date'], 'required'],
+            [['vendor_name_en', 'vendor_name_ar', 'vendor_account_start_date', 'vendor_account_end_date'], 'required'],
             [['vendor_description_en', 'vendor_description_ar'], 'string'],
             [['vendor_account_start_date', 'vendor_account_end_date'], 'safe'],
             [['vendor_logo', 'vendor_name_en', 'vendor_name_ar'], 'string', 'max' => 255],
