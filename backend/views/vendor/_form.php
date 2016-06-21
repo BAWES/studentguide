@@ -34,9 +34,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'vendor_description_ar')->textarea(['rows' => 6]) ?>
     <?php 
         $toolTip = [];
+        $i = 0;
         foreach($categories AS $category)
         {
-            $categoryList = array_reverse($model->getCategoryList($category['category_id']));
+            $categoryList = array_unique(array_reverse($model->getCategoryList($category['category_id'])));
             $toolTip[$category['category_id']] = ['data-content' => '<span title="' . implode(' > ', $categoryList) . '">' . $category['category_name_en'] . '</span>'];
         }
     ?>
@@ -85,8 +86,8 @@ use yii\widgets\ActiveForm;
             $latitude = $longitude = '';
     ?>
     
-    <?= $form->field($model, 'vendor_location', ['template' => '{label}<input type="text" id="location-text-box" /><input type="hidden" id="latitude" name="latitude" value="' . $latitude . '"/>
-<input type="hidden" id="longitude" name="longitude" value="' . $longitude . '"/>{input}{hint}'])->hiddenInput(['maxlength' => true, 'value' => $model->vendor_location]) ?>
+    <?= $form->field($model, 'vendor_location', ['template' => '{label}<input type="text" id="location-text-box" /><input type="text" id="latitude" name="latitude" value="' . $latitude . '"/>
+<input type="text" id="longitude" name="longitude" value="' . $longitude . '"/>{input}{hint}'])->hiddenInput(['maxlength' => true, 'value' => $model->vendor_location]) ?>
     <div id="map-canvas"></div>
     <br>
 
@@ -262,8 +263,7 @@ JS;
             if (marker) {
                 //if marker already was created change positon
                 marker.setPosition(event.latLng);
-                document.getElementById('customer_latitude').value = marker.position.lat();
-                document.getElementById('customer_longitude').value = marker.position.lng();
+                getLatitudeLongitude();
             } else {
                 //create a marker
                 marker = new google.maps.Marker({          
@@ -271,8 +271,7 @@ JS;
                     map: map,
                     draggable: true
                 });
-                document.getElementById('customer_latitude').value = marker.position.lat();
-                document.getElementById('customer_longitude').value = marker.position.lng();
+                getLatitudeLongitude();
             }
         })
 
