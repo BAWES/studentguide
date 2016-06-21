@@ -164,8 +164,8 @@ class Category extends \common\models\Category
             $vendorCount        =   self::find()->select(['category_id', 'category_name_en', 'category_name_ar', $expression])->join('JOIN', '{{%vendor_category_link}} AS vl', '{{%category}}.category_id = vl.category_id')->where(['{{%category}}.category_id' => $category['category_id']])->count();
             $this->categories .= "<td>";
             if(!$vendorCount)
-                $this->categories .= '<a class="add_category" data-attribute-id="' . $category['category_id'] . '" data-attribute-name="' . $category['category_name_en'] . '"><i class="fa fa-plus fa-fw"></i></a>';
-            $this->categories .= "<a class='view' id='" . $category['category_id'] . "' href='#'><i class='fa fa-eye fa-fw'></i></a><a id='" . $category['category_id'] . "' class='update' href='#'><i class='fa fa-edit fa-fw'></i></a><a class='actions' onclick='return confirm(\"Are you sure want to delete?\")' href='" . Url::to(['defaultcategory/delete', 'id' => $category['category_id']]) . "'><i class='fa fa-trash fa-fw fa-1x'></i></a></td>";
+                $this->categories .= '<a class="actions add_category" data-attribute-id="' . $category['category_id'] . '" data-attribute-name="' . $category['category_name_en'] . '"><i class="fa fa-plus fa-fw"></i></a>';
+            $this->categories .= "<a class='actions view' id='" . $category['category_id'] . "' href='#'><i class='fa fa-eye fa-fw'></i></a><a id='" . $category['category_id'] . "' class='actions update' href='#'><i class='fa fa-edit fa-fw'></i></a><a class='actions' onclick='return confirm(\"Are you sure want to delete?\")' href='" . Url::to(['defaultcategory/delete', 'id' => $category['category_id']]) . "'><i class='fa fa-trash fa-fw fa-1x'></i></a></td>";
             $this->categories .= "</tr>";
             if($category)
                 $this->getCategoryView($category['category_id']);
