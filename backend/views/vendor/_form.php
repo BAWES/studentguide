@@ -86,7 +86,7 @@ use yii\widgets\ActiveForm;
             $latitude = $longitude = '';
     ?>
     
-    <?= $form->field($model, 'vendor_location', ['template' => '{label}<input type="text" id="location-text-box" /><input type="text" id="latitude" name="latitude" value="' . $latitude . '"/>
+    <?= $form->field($model, 'vendor_location', ['template' => '{label}<input type="hidden" id="location-text-box" /><input type="hidden" id="latitude" name="latitude" value="' . $latitude . '"/>
 <input type="text" id="longitude" name="longitude" value="' . $longitude . '"/>{input}{hint}'])->hiddenInput(['maxlength' => true, 'value' => $model->vendor_location]) ?>
     <div id="map-canvas"></div>
     <br>
