@@ -12,23 +12,28 @@ use yii\helpers\Url;
 $this->title = Yii::t('app', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-
-<div class="row category_list col-md-12">
 <?= Html::dropDownList('categoryList', '', ArrayHelper::map($categoryList, 'category_id', 'category_name_en'), ['class' => 'categoryList', 'prompt' => 'Select category']) ?>
 <?= $categories ?>
-</div>
 <?php
-    $this->registerCss(".categoryList{ display:none; }.category_list li {list-style: decimal-leading-zero; padding: 1%; cursor: pointer;}
-    .category_list li > ul {display: none;}");
-
-    $this->registerJs("$(document).on('click', '.category_list li', function(e){
+    $this->registerCss(".categoryList{ display:none; }.category_list ul{padding-left: 0%;}.category_list li {list-style: none; padding: 1%; cursor: pointer;}
+    .category_list li > ul {display: none;}.category_list li ul{padding-left: 0px;}.category_list li ul li{padding: 1% 0px}");
+    $this->registerJsFile($this->theme->baseUrl . "/js/jquery.aCollapTable.js", [
+      'depends' => \yii\web\JqueryAsset::className()]);
+    $this->registerJs("$('.table-striped').aCollapTable({ 
+      startCollapsed: true,
+      addColumn: false, 
+      plusButton: '<span class=\"i\">&blacktriangleright;</span>', 
+      minusButton: '<span class=\"i\">&blacktriangledown;</span>' 
+    });
+    $(document).on('click', '.category_list li', function(e){
         $(this).children('ul').slideToggle();
         e.stopPropagation();
     });
     $(document).on('click', '.actions', function(e){
         e.stopPropagation();
     })
-    $(document).on('click', '.add_category', function(){
+    $(document).on('click', '.add_category', function(e){
+      e.stopImmediatePropagation();
       $('#w0')[0].reset();
       $('#category-parent_category_id').html(\"<option value='\" + $(this).attr('data-attribute-id') + \"'>\" + $(this).attr('data-attribute-name') + \"</option>\");
       $('#myModal').modal();
