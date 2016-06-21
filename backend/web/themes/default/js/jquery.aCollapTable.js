@@ -168,7 +168,7 @@
 
             $(item).find("td:not(:last-child)").each(function(index, td){
               $(this).bind("click", function(){
-                  _collaptable(obj, $(td).parent().find("a"));
+                  _collaptable(obj, $(td).parent().find("a:not(.actions)"));
               });
             });
             /*$(item).find("td").bind('click', function(){
