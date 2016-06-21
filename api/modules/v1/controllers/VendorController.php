@@ -49,7 +49,7 @@ class VendorController extends BaseController
         {
 
             $query              =   $model->find()
-                ->select(['vendor_logo as logo', 'vendor_id', 'vendor_logo as vendor_logo', 'vendor_name_en', 'vendor_name_ar', 'vendor_description_en', 'vendor_description_ar', 'vendor_phone1', 'IFNULL(vendor_phone2, "") AS vendor_phone2', 'IFNULL(vendor_website, "") AS vendor_website', 'IFNULL(vendor_youtube_video, "") AS vendor_youtube_video', 'IFNULL(vendor_social_instagram, "") AS vendor_social_instagram', 'IFNULL(vendor_social_twitter, "") AS vendor_social_twitter, IFNULL(vendor_location, "") AS vendor_location, IFNULL(vendor_address_text_en, "") AS vendor_address_text_en, IFNULL(vendor_address_text_ar, "") AS vendor_address_text_ar', 'vendor_account_start_date', 'vendor_account_end_date', 'sort_order'])
+                ->select(['vendor_logo as logo', 'vendor_id', 'vendor_logo as vendor_logo', 'vendor_name_en', 'vendor_name_ar', 'vendor_description_en', 'vendor_description_ar', 'IFNULL(vendor_phone1, "") AS vendor_phone1', 'IFNULL(vendor_phone2, "") AS vendor_phone2', 'IFNULL(vendor_website, "") AS vendor_website', 'IFNULL(vendor_youtube_video, "") AS vendor_youtube_video', 'IFNULL(vendor_social_instagram, "") AS vendor_social_instagram', 'IFNULL(vendor_social_twitter, "") AS vendor_social_twitter, IFNULL(vendor_location, "") AS vendor_location, IFNULL(vendor_address_text_en, "") AS vendor_address_text_en, IFNULL(vendor_address_text_ar, "") AS vendor_address_text_ar', 'vendor_account_start_date', 'vendor_account_end_date', 'sort_order'])
                 ->asArray()
                 ->all();
         }
