@@ -148,7 +148,8 @@ class Category extends \common\models\Category
     }
 
     /**
-    * Full Category Path
+    * Full Category Path for default category 
+    * @param int category id
     */
     public function getCategoryView($category_id = NULL)
     {
@@ -170,6 +171,32 @@ class Category extends \common\models\Category
             if($category)
                 $this->getCategoryView($category['category_id']);
             //$this->categories .= "</li>";
+        }
+        //$this->categories .= "</tr>";
+        return $this->categories;
+    }
+
+    /**
+    * Category Drop down list
+    * @param int category id
+    * @return string holds the category list
+    */
+    public function getCategoryDropDownList($category_id = NULL)
+    {
+        //$this->categories .= "<ul>";
+        $expression =   new \yii\db\Expression('IFNULL(parent_category_id, 0) AS parent_category_id');
+        $categories = self::find()->select(['category_id', 'category_name_en', 'category_name_ar', $expression])->where(['parent_category_id' => $category_id])->asArray()->all();
+        foreach($categories AS $category)
+        {
+            $subCategoryCount        =   self::find()->join('JOIN', '{{%category}} AS child', '{{%category}}.category_id = child.parent_category_id')->where(['{{%category}}.category_id' => $category['category_id']])->count();
+            $this->categories .= "<tr data-id='" . $category['category_id'] . "' data-parent='" . (($category_id) ? $category_id : '') . "'>";
+            if(!$subCategoryCount)
+                $this->categories .= '<td><input type="checkbox" id="' . $category['category_id'] . '" name="Vendor[vendor_category][]" value="' . $category['category_id'] . '"/>&nbsp;<label class="checkbox_label" for="' . $category['category_id'] . '">' . $category['category_name_en'] . '</label></td>';
+            else
+                $this->categories .= "<td>"  . $category['category_name_en'] . "</td>";
+            $this->categories .= "</tr>";
+            if($category)
+                $this->getCategoryDropDownList($category['category_id']);
         }
         //$this->categories .= "</tr>";
         return $this->categories;

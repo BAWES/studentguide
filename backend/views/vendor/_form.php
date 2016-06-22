@@ -12,6 +12,7 @@ use yii\widgets\ActiveForm;
 <div class="vendor-form">
 
     <?php 
+        
         $formOptions                =   ['options' => [ 'enctype' =>  'multipart/form-data']];
         if($model->isNewRecord)
         {
@@ -42,7 +43,12 @@ use yii\widgets\ActiveForm;
         }
     ?>
 
-    <?= $form->field($model, 'vendor_category')->dropDownList(ArrayHelper::map($categories, 'category_id', 'category_name_en'), ['multiple' => true, 'id' => 'category', 'class' => 'selectpicker', 'title' => 'Select Category', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true", 'options' => $toolTip]) ?>
+    <!--$form->field($model, 'vendor_category')->dropDownList(ArrayHelper::map($categories, 'category_id', 'category_name_en'), ['multiple' => true, 'id' => 'category', 'class' => 'selectpicker', 'title' => 'Select Category', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true", 'options' => $toolTip]) ?>-->
+
+    <label>Vendor Category</label>
+    <?= "<div class='category_drop_down_list'><table class='table'>" . $categoryDropDownList . "</table></div>" ?>
+
+    <br>
 
     <?= $form->field($model, 'vendor_area')->dropDownList(ArrayHelper::map($areas, 'id', 'area_name_en'), ['multiple' => true, 'id' => 'area',  'class' => 'selectpicker', 'title' => 'Select Area', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"]) ?>
 
@@ -108,7 +114,7 @@ use yii\widgets\ActiveForm;
                 echo Html::a('Back', Url::to(['vendor/index', 'id' => $categoryID]), ['class' => 'btn btn-default']);
         ?>
     </div>
-
+    <?php var_dump(json_encode($model->vendor_category)) ?>
     <?php ActiveForm::end(); ?>
 
 </div>
@@ -126,10 +132,21 @@ use yii\widgets\ActiveForm;
         return false;
     });
 JS;
- 
     $this->registerJs($js);
+    if(!$model->isNewRecord && !empty($model->vendor_category))
+    {
+        $this->registerJs("var json = " . json_encode($model->vendor_category) . ";$.each(json, function(index, value){ $('input#' + value).attr('checked', true); });");
+    }
 
-    $this->registerCss(".dropdown-menu.inner li a span{display: block;}.notification {display:none; position: fixed;bottom: 1%;right: 1%;background: #ccc;width: 20%;padding: 1%;border-radius: 3px;}#map-canvas {height: 350px;width: 95%;margin:0 auto;}.notification .loading, .notification .success{display:none;}.notification.success{background: #AECE4E;color: #fff;}.notification.error{background: #F35958;color:#fff;}div#ui-datepicker-div{z-index: 999 !important;}#vendor_logo{width: 30%;} .vendor_gallery{height: 120px !important;}");
+    $this->registerJsFile($this->theme->baseUrl . "/js/jquery.aCollapTable.js", [
+      'depends' => \yii\web\JqueryAsset::className()]);
+    $this->registerJs("$('.category_drop_down_list table').aCollapTable({ 
+      startCollapsed: true,
+      addColumn: false, 
+      plusButton: '<span class=\"i\">&blacktriangleright;</span>', 
+      minusButton: '<span class=\"i\">&blacktriangledown;</span>' 
+    });");
+    $this->registerCss(".checkbox_label{display:inline-block;}.category_drop_down_list{height: 150px;overflow-x:hidden;border: 1px solid #ccc;}.dropdown-menu.inner li a span{display: block;}.notification {display:none; position: fixed;bottom: 1%;right: 1%;background: #ccc;width: 20%;padding: 1%;border-radius: 3px;}#map-canvas {height: 350px;width: 95%;margin:0 auto;}.notification .loading, .notification .success{display:none;}.notification.success{background: #AECE4E;color: #fff;}.notification.error{background: #F35958;color:#fff;}div#ui-datepicker-div{z-index: 999 !important;}#vendor_logo{width: 30%;} .vendor_gallery{height: 120px !important;}");
     $this->registerCssFile($this->theme->baseUrl . "/plugins/bootstrap-select/css/bootstrap-select.min.css");
     $this->registerJsFile($this->theme->baseUrl . "/plugins/bootstrap-select/js/bootstrap-select.min.js", [
         'depends' =>  \yii\web\JqueryAsset::className(),

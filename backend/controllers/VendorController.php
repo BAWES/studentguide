@@ -199,6 +199,7 @@ class VendorController extends Controller
                 'categories'            =>  $category->getLeafCategories(),
                 'areas'                 =>  Area::find()->asArray()->all(),
                 'categoryID'            =>  $id,
+                'categoryDropDownList'  =>  $category->getCategoryDropDownList(),
             ]);
         }
     }
@@ -352,10 +353,11 @@ class VendorController extends Controller
             $model->vendor_account_end_date     =   $endDate->format('d-m-Y');
             
             return $this->render('update', [
-                'model'         =>  $model,
-                'categories'    =>  $category->getLeafCategories(),
-                'areas'         =>  Area::find()->asArray()->all(),
-                'category'      =>  $categoryID,
+                'model'                 =>  $model,
+                'categories'            =>  $category->getLeafCategories(),
+                'areas'                 =>  Area::find()->asArray()->all(),
+                'category'              =>  $categoryID,
+                'categoryDropDownList'  =>  $category->getCategoryDropDownList(),
             ]);
         }
     }

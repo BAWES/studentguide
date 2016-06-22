@@ -13,10 +13,11 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="vendor-create">
 
     <?= $this->render('_form', [
-        'model' 		=>	$model,
-        'categories'	=>	$categories,
-        'areas'			=>	$areas,
-        'categoryID'    =>  $categoryID,
+        'model' 				=>	$model,
+        'categories'			=>	$categories,
+        'areas'					=>	$areas,
+        'categoryID'    		=>  $categoryID,
+        'categoryDropDownList'	=>	$categoryDropDownList,
     ]) ?>
 
 </div>

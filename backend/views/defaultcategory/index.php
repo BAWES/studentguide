@@ -12,6 +12,10 @@ use yii\helpers\Url;
 $this->title = Yii::t('app', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
+<?= Html::a('Create Category', '#', ['class' => 'create_category btn btn-success']) ?>
+<br><br>
+
 <?= Html::dropDownList('categoryList', '', ArrayHelper::map($categoryList, 'category_id', 'category_name_en'), ['class' => 'categoryList', 'prompt' => 'Select category']) ?>
 <?= $categories ?>
 <?php
@@ -42,6 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
       $('#w0')[0].reset();
       $('#myModal').modal();
       $('#category-parent_category_id').html($('.categoryList').html());
+      return false;
     })
     $(document).on('click', '.view', function(e){
       e.stopPropagation();
@@ -65,6 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
         }
       })
     })
+
     $(document).on('click', '.update', function(e){
       e.stopPropagation();
       $.ajax({

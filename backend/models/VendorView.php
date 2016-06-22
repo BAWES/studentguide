@@ -18,6 +18,6 @@ class VendorView extends \common\models\VendorView
 {
     public function getVendors()
     {
-        return Vendor::find()->select(['vendor_id', 'vendor_name_en'])->asArray()->all();
+        return Vendor::find()->select(['vendor_id', 'vendor_name_en', 'vendor_name_ar'])->asArray()->all();
     }   
 }

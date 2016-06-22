@@ -16,10 +16,11 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'category_name_ar')->textInput(['maxlength' => true])->label('Category Name (Arabic)') ?>
 
-    <?= $form->field($model, 'parent_category_id')->hiddenInput(['value' => $parentCategoryId])->label(false) ?>
-    <!-- if($parentCategoryId) { ?>
-         $form->field($model, 'parent_category_id')->dropDownList(ArrayHelper::map($model->getCategoryList(), 'category_id', 'category_name_en'), ['prompt' => 'Select Category'])->label('Parent Category') ?>
-     } ?>-->
+    <!-- $form->field($model, 'parent_category_id')->hiddenInput(['value' => $parentCategoryId])->label(false) ?>-->
+    <?php if($parentCategoryId) { 
+        $model->parent_category_id = $category['category_id'];
+        echo $form->field($model, 'parent_category_id')->dropDownList([$category['category_id'] => $category['category_name_en']])->label('Parent Category');
+     } ?>
 
     <?php
         if($model->isNewRecord)
