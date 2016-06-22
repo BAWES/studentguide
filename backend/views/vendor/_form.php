@@ -114,7 +114,6 @@ use yii\widgets\ActiveForm;
                 echo Html::a('Back', Url::to(['vendor/index', 'id' => $categoryID]), ['class' => 'btn btn-default']);
         ?>
     </div>
-    <?php var_dump(json_encode($model->vendor_category)) ?>
     <?php ActiveForm::end(); ?>
 
 </div>
