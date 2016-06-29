@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <?php 
 
-    $this->registerCss('#ui-datepicker-div{z-index:999 !important;};');
+    $this->registerCss('#ui-datepicker-div{z-index:999 !important;}input.input-mini.active{padding: 0 6px 0 28px !important;');
     $this->registerJs('$("#from_date").datepicker({
             "dateFormat"   : "dd-mm-yy", 
             "onSelect" : function(dateText){
