@@ -167,6 +167,7 @@ JS;
         });
         $(document).on("click", ".gallery_action", function(e){
             e.preventDefault();
+            var element     =   $(this);
             if(confirm("Are you sure want to delete?"))
             {
                 $.ajax({
@@ -180,8 +181,11 @@ JS;
                     complete    :   function(){
                         $(".notification").fadeOut();
                     },
+                    async       :   false,
                     success     :   function(data){
-                        $(".notification").html(\'<div><i class="fa fa-check fa-fw"></i><span>Vendor image deleted successfully</span></div>\').addClass("success").fadeIn().delay(3000).fadeOut();
+                        $(".notification").html(\'<div><i class="fa fa-check fa-fw"></i><span>Vendor image deleted successfully</span></div>\').addClass("success").fadeIn(function(){
+                            $(element).parents(".col-sm-6").remove();
+                        }).delay(3000).fadeOut();
                     },
                     error       :   function(){
                         alert("error");
@@ -213,6 +217,7 @@ JS;
 
         map             =   new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         var oldLatLng   =   "<?php echo $model->vendor_location; ?>";
+        console.log(oldLatLng);
         // Get GEOLOCATION
         if (navigator.geolocation) 
         {
@@ -223,10 +228,11 @@ JS;
                     var latitude    =   latLngs[0];
                     var longitude   =   latLngs[1];
                     var pos         =   new google.maps.LatLng(latitude, longitude);
+                    console.log(pos);
                     document.getElementById("location-text-box").value = "vadavalli";
                 }
                 else
-                    var pos = new google.maps.LatLng(11.0168, 76.9558);
+                    var pos         =   new google.maps.LatLng(11.0168, 76.9558);
 
                 map.setCenter(pos);
                 marker = new google.maps.Marker({
@@ -236,8 +242,6 @@ JS;
                 });
 
                 getLatitudeLongitude();
-
-
 
                 google.maps.event.addListener(marker, "dragend", function(event){
                     getLatitudeLongitude();
@@ -409,6 +413,8 @@ JS;
     {
         var newLat      =   marker.getPosition().lat();
         var newLng      =   marker.getPosition().lng();
+        console.log(newLat);
+        console.log(newLng);
         var myLatlngs   =   new google.maps.LatLng(newLat,newLng);
         geocoder        =   new google.maps.Geocoder();
         geocoder.geocode({'latLng': myLatlngs }, function(results, status) 
