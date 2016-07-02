@@ -246,7 +246,8 @@ class VendorController extends Controller
                     $vendorUpdate               =   Vendor::findOne(['vendor_id' => $vendorId]);
                     $vendorUpdate->vendor_logo  =   Yii::$app->resourceManager->getUrl($imageName);
 
-                    $model->deleteImage($oldImage, 1); #Delete old vendor logo
+                    if($oldImage)
+                        $model->deleteImage($oldImage, 1); #Delete old vendor logo
 
                     if($vendorUpdate->update(false))
                         Yii::$app->resourceManager->save($logo, $imageName);
