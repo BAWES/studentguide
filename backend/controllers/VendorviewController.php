@@ -51,9 +51,10 @@ class VendorviewController extends Controller
         
         if(isset(Yii::$app->request->queryParams['VendorViewSearch']) && Yii::$app->request->queryParams['VendorViewSearch']['view_date'])
         {
-            $dataProvider->query->select(['{{%vendor}}.vendor_id', 'view_date', 'number_of_views' => 'SUM(number_of_views)']);
-            $dataProvider->query->groupBy('{{%vendor}}.vendor_id');
+            $dataProvider->query->select(['vendor_id', 'view_date', 'number_of_views' => 'SUM(number_of_views)']);
+            $dataProvider->query->groupBy('vendor_id');
         }
+        
         return $this->render('index', [
             'searchModel'   =>  $searchModel,
             'dataProvider'  =>  $dataProvider,
