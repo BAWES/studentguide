@@ -219,11 +219,12 @@ JS;
         var oldLatLng   =   "<?php echo $model->vendor_location; ?>";
         console.log(oldLatLng);
         // Get GEOLOCATION
-        if (navigator.geolocation) 
+        /*if (navigator.geolocation) 
         {
-            navigator.geolocation.getCurrentPosition(function(position) {
+            navigator.geolocation.getCurrentPosition(function(position) {*/
                 if(oldLatLng)
                 {
+                    console.log(oldLatLng);
                     var latLngs     =   oldLatLng.split(",");
                     var latitude    =   latLngs[0];
                     var longitude   =   latLngs[1];
@@ -241,20 +242,22 @@ JS;
                     draggable   :   true,
                 });
 
+                console.log(pos.latitude);
+
                 getLatitudeLongitude();
 
                 google.maps.event.addListener(marker, "dragend", function(event){
                     getLatitudeLongitude();
                 });
 
-            }, function() {
+            /*}, function() {
                 handleNoGeolocation(true);
-            });
-        } 
+            });*/
+        /*} 
         else {
             // Browser does not support Geolocation
             handleNoGeolocation(false);
-        }
+        }*/
 
         function handleNoGeolocation(errorFlag) 
         {
@@ -323,6 +326,9 @@ JS;
                             lng = results[0].geometry.location.lng(),
                             placeName = results[0].address_components[0].long_name,
                             latlng = new google.maps.LatLng(lat, lng);
+
+                        console.log("sss" + lat);
+                        console.log("longitude" + lng);
 
                         $(".pac-container .pac-item:first").addClass("pac-selected");
                         $(".pac-container").css("display","none");
@@ -418,7 +424,7 @@ JS;
         var myLatlngs   =   new google.maps.LatLng(newLat,newLng);
         geocoder        =   new google.maps.Geocoder();
         geocoder.geocode({'latLng': myLatlngs }, function(results, status) 
-        {
+        { 
             document.getElementById("location-text-box").value      =   results[0].formatted_address;
             document.getElementById("latitude").value               =   results[0].geometry.location.lat();
             document.getElementById("longitude").value              =   results[0].geometry.location.lng();
