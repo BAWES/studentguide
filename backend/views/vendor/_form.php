@@ -217,19 +217,16 @@ JS;
 
         map             =   new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         var oldLatLng   =   "<?php echo $model->vendor_location; ?>";
-        console.log(oldLatLng);
         // Get GEOLOCATION
-        /*if (navigator.geolocation) 
+        if (navigator.geolocation) 
         {
-            navigator.geolocation.getCurrentPosition(function(position) {*/
+            navigator.geolocation.getCurrentPosition(function(position) {
                 if(oldLatLng)
                 {
-                    console.log(oldLatLng);
                     var latLngs     =   oldLatLng.split(",");
                     var latitude    =   latLngs[0];
                     var longitude   =   latLngs[1];
                     var pos         =   new google.maps.LatLng(latitude, longitude);
-                    console.log(pos);
                     document.getElementById("location-text-box").value = "vadavalli";
                 }
                 else
@@ -242,7 +239,6 @@ JS;
                     draggable   :   true,
                 });
 
-                console.log(pos.latitude);
 
                 getLatitudeLongitude();
 
@@ -250,36 +246,38 @@ JS;
                     getLatitudeLongitude();
                 });
 
-            /*}, function() {
-                handleNoGeolocation(true);
-            });*/
-        /*} 
+            }, function(error){
+                if(error.code == error.PERMISSION_DENIED)
+                {
+                    if(oldLatLng)
+                    {
+                        var latLngs     =   oldLatLng.split(",");
+                        var latitude    =   latLngs[0];
+                        var longitude   =   latLngs[1];
+                        var pos         =   new google.maps.LatLng(latitude, longitude);
+                        document.getElementById("location-text-box").value = "vadavalli";
+                    }
+                    else
+                        var pos         =   new google.maps.LatLng(11.0168, 76.9558);
+
+                    map.setCenter(pos);
+                    marker = new google.maps.Marker({
+                        position    :   pos,
+                        map         :   map,
+                        draggable   :   true,
+                    });
+
+                    getLatitudeLongitude();
+
+                    google.maps.event.addListener(marker, "dragend", function(event){
+                        getLatitudeLongitude();
+                    });
+                }
+            });
+        } 
         else {
             // Browser does not support Geolocation
             handleNoGeolocation(false);
-        }*/
-
-        function handleNoGeolocation(errorFlag) 
-        {
-            if (errorFlag) {
-                var content = "Error: The Geolocation service failed.";
-            } else {
-                var content = "Error: Your browser does not support geolocation.";
-            }
-
-            var options = {
-                map         :   map,
-                position    :   new google.maps.LatLng(11.0168, 76.9558),
-                content     :   content
-            };
-
-            map.setCenter(options.position);
-            marker = new google.maps.Marker({
-                position    :   options.position,
-                map         :   map,
-                draggable   :   true
-            });
-
         }
 
         google.maps.event.addListener(map, 'click', function(event){
@@ -327,9 +325,6 @@ JS;
                             placeName = results[0].address_components[0].long_name,
                             latlng = new google.maps.LatLng(lat, lng);
 
-                        console.log("sss" + lat);
-                        console.log("longitude" + lng);
-
                         $(".pac-container .pac-item:first").addClass("pac-selected");
                         $(".pac-container").css("display","none");
                         $("#searchTextField").val(firstResult);
@@ -344,14 +339,6 @@ JS;
                             map.setZoom(17); // Why 17? Because it looks good.
                         }
 
-                        /*marker.setIcon( /** @type {google.maps.Icon}  ({
-                            url: results[0].icon,
-                            size: new google.maps.Size(71, 71),
-                            origin: new google.maps.Point(0, 0),
-                            anchor: new google.maps.Point(17, 34),
-                            scaledSize: new google.maps.Size(35, 35)
-                        }));*/
-            
                         marker.setPosition(results[0].geometry.location);
                         marker.setVisible(true);
                     }
@@ -373,6 +360,7 @@ JS;
             geocoder.geocode( { 'address': address}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) 
                 {
+
                     document.getElementById("location-text-box").value      =   results[0].formatted_address;
                     document.getElementById("latitude").value               =   results[0].geometry.location.lat();
                     document.getElementById("longitude").value              =   results[0].geometry.location.lng();
@@ -419,16 +407,17 @@ JS;
     {
         var newLat      =   marker.getPosition().lat();
         var newLng      =   marker.getPosition().lng();
-        console.log(newLat);
-        console.log(newLng);
         var myLatlngs   =   new google.maps.LatLng(newLat,newLng);
         geocoder        =   new google.maps.Geocoder();
         geocoder.geocode({'latLng': myLatlngs }, function(results, status) 
-        { 
-            document.getElementById("location-text-box").value      =   results[0].formatted_address;
-            document.getElementById("latitude").value               =   results[0].geometry.location.lat();
-            document.getElementById("longitude").value              =   results[0].geometry.location.lng();
-            document.getElementById("vendor-vendor_location").value =   results[0].geometry.location.lat() + "," + results[0].geometry.location.lng();
+        {
+            if(results)
+            {
+                document.getElementById("location-text-box").value      =   results[0].formatted_address;
+                document.getElementById("latitude").value               =   results[0].geometry.location.lat();
+                document.getElementById("longitude").value              =   results[0].geometry.location.lng();
+                document.getElementById("vendor-vendor_location").value =   results[0].geometry.location.lat() + "," + results[0].geometry.location.lng();
+            }
         });
     }
     google.maps.event.addDomListener(window, 'load', initialize);
