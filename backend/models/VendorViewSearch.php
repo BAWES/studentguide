@@ -65,7 +65,7 @@ class VendorViewSearch extends VendorView
         ]);
         if($this->view_date)
         {
-            $dates = explode("||", $this->view_date);
+            $dates = explode(" - ", $this->view_date);
             if(isset($dates[0]) && !empty($dates[0]))
                 $query->andFilterWhere(['>=', 'view_date', $dates[0]]);
             if(isset($dates[1]) && !empty($dates[1]))

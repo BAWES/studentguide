@@ -13,8 +13,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="vendor-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <?= GridView::widget([
         'dataProvider'  =>  $dataProvider,
         'filterModel'   =>  $searchModel,
@@ -42,13 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format'        =>  'date',
                 'value'         =>  'view_date',
                 'filter'        =>  DateRangePicker::widget([
-                    'name'             =>  'VendorViewSearch[view_date]',
+                    'name'             =>   'VendorViewSearch[view_date]',
                     'id'               =>   'daterange',
-                    'pluginOptions'    =>  [ 
-                            'locale'    =>  [
-                                'separator'   =>  '||',
+                    'value'            =>   Yii::$app->request->queryParams['VendorViewSearch']['view_date'],
+                    'pluginOptions'    =>   [ 
+                            'locale'    =>      [
+                                'separator'         =>  ' - ',
+                                'format'            =>  'Y-MM-DD',
                             ],
-                            'opens'     =>  'right'
+                            'opens'     =>  'left'
                     ] 
                 ]) . '</div>',
                 /*'content'=>function($data){
@@ -63,16 +63,4 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php 
 
     $this->registerCss('#ui-datepicker-div{z-index:999 !important;}input.input-mini{padding: 0 6px 0 28px !important;');
-    $this->registerJs('$("#from_date").datepicker({
-            "dateFormat"   : "dd-mm-yy", 
-            "onSelect" : function(dateText){
-                $("#to_date").datepicker("option", "minDate", $(this).datepicker("getDate"));
-            }
-        }); 
-        $("#to_date").datepicker({
-            "dateFormat"   : "dd-mm-yy", 
-            "onSelect" : function(dateText){
-                $("#from_date").datepicker("option", "maxDate", $(this).datepicker("getDate"));
-            }
-        });');
 ?>
