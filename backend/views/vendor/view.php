@@ -58,6 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'vendor_youtube_video',
             'vendor_social_instagram',
             'vendor_social_twitter',
+            'vendor_governorate',
             [
                 'attribute' => 'vendor_location',
                 'value'     =>  '<div id="map"></div>',

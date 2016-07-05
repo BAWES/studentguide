@@ -50,7 +50,7 @@ use yii\widgets\ActiveForm;
 
     <br>
 
-    <!-- $form->field($model, 'vendor_area')->dropDownList(ArrayHelper::map($areas, 'id', 'area_name_en'), ['multiple' => true, 'id' => 'area',  'class' => 'selectpicker', 'title' => 'Select Area', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"]) -->
+    <?= $form->field($model, 'vendor_area')->dropDownList(ArrayHelper::map($areas, 'id', 'area_name_en'), ['multiple' => true, 'id' => 'area',  'class' => 'selectpicker', 'title' => 'Select Area', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"]) ?>
 
     <?= $form->field($model, 'vendor_phone1')->textInput(['maxlength' => true]) ?>
 
@@ -92,7 +92,7 @@ use yii\widgets\ActiveForm;
             $latitude = $longitude = '';
     ?>
     
-    <?= $form->field($model, 'vendor_location', ['template' => '{label}' . $form->field($model, 'vendor_area')->dropDownList(ArrayHelper::map($areas, 'id', 'area_name_en'), ['multiple' => true, 'id' => 'area', 'class' => 'selectpicker', 'title' => 'Select Area', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"])->label(false) . '&nbsp;<input type="text" id="location-text-box" style="width:70%;"/><input type="hidden" id="latitude" name="latitude" value="' . $latitude . '"/><input type="hidden" id="longitude" name="longitude" value="' . $longitude . '"/>{input}{hint}'])->hiddenInput(['maxlength' => true, 'value' => $model->vendor_location]) ?>
+    <?= $form->field($model, 'vendor_location', ['template' => '{label}' . $form->field($model, 'vendor_governorate')->textInput(['maxlength' => true])->label(false) . '&nbsp;<input type="text" id="location-text-box" style="width:70%;"/><input type="hidden" id="latitude" name="latitude" value="' . $latitude . '"/><input type="hidden" id="longitude" name="longitude" value="' . $longitude . '"/>{input}{hint}'])->hiddenInput(['maxlength' => true, 'value' => $model->vendor_location]) ?>
     <div id="map-canvas"></div>
     <br>
 
@@ -144,7 +144,7 @@ JS;
       plusButton: '<span class=\"i\">&blacktriangleright;</span>', 
       minusButton: '<span class=\"i\">&blacktriangledown;</span>' 
     });");
-    $this->registerCss(".form-group .field-area{display: inline-block;margin-bottom: 0px;}.checkbox_label{display:inline-block;}.category_drop_down_list{height: 150px;overflow-x:hidden;border: 1px solid #ccc;}.dropdown-menu.inner li a span{display: block;}.notification {display:none; position: fixed;bottom: 1%;right: 1%;background: #ccc;width: 20%;padding: 1%;border-radius: 3px;}#map-canvas {height: 350px;width: 100%;margin:0 auto;}.notification .loading, .notification .success{display:none;}.notification.success{background: #AECE4E;color: #fff;}.notification.error{background: #F35958;color:#fff;}div#ui-datepicker-div{z-index: 999 !important;}#vendor_logo{width: 30%;} .vendor_gallery{height: 120px !important;}");
+    $this->registerCss(".form-group .field-vendor-vendor_governorate{display: inline-block;margin-bottom: 0px;}.checkbox_label{display:inline-block;}.category_drop_down_list{height: 150px;overflow-x:hidden;border: 1px solid #ccc;}.dropdown-menu.inner li a span{display: block;}.notification {display:none; position: fixed;bottom: 1%;right: 1%;background: #ccc;width: 20%;padding: 1%;border-radius: 3px;}#map-canvas {height: 350px;width: 100%;margin:0 auto;}.notification .loading, .notification .success{display:none;}.notification.success{background: #AECE4E;color: #fff;}.notification.error{background: #F35958;color:#fff;}div#ui-datepicker-div{z-index: 999 !important;}#vendor_logo{width: 30%;} .vendor_gallery{height: 120px !important;}");
     $this->registerCssFile($this->theme->baseUrl . "/plugins/bootstrap-select/css/bootstrap-select.min.css");
     $this->registerJsFile($this->theme->baseUrl . "/plugins/bootstrap-select/js/bootstrap-select.min.js", [
         'depends' =>  \yii\web\JqueryAsset::className(),
