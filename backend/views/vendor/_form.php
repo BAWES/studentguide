@@ -50,8 +50,6 @@ use yii\widgets\ActiveForm;
 
     <br>
 
-    <?= $form->field($model, 'vendor_area')->dropDownList(ArrayHelper::map($areas, 'id', 'area_name_en'), ['multiple' => true, 'id' => 'area',  'class' => 'selectpicker', 'title' => 'Select Area', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"]) ?>
-
     <?= $form->field($model, 'vendor_phone1')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'vendor_phone2')->textInput(['maxlength' => true]) ?>
@@ -91,8 +89,12 @@ use yii\widgets\ActiveForm;
         else
             $latitude = $longitude = '';
     ?>
+
+    <?= $form->field($model, 'vendor_governorate')->textInput(['maxlength' => true])->label(false) ?>
     
-    <?= $form->field($model, 'vendor_location', ['template' => '{label}' . $form->field($model, 'vendor_governorate')->textInput(['maxlength' => true])->label(false) . '&nbsp;<input type="text" id="location-text-box" style="width:70%;"/><input type="hidden" id="latitude" name="latitude" value="' . $latitude . '"/><input type="hidden" id="longitude" name="longitude" value="' . $longitude . '"/>{input}{hint}'])->hiddenInput(['maxlength' => true, 'value' => $model->vendor_location]) ?>
+    <?= $form->field($model, 'vendor_governorate')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'vendor_location', ['template' => '{label}' . $form->field($model, 'vendor_area', ['template' => '{input}&nbsp;<input type="text" id="location-text-box" style="width:70%;"/><input type="hidden" id="latitude" name="latitude" value="' . $latitude . '"/><input type="hidden" id="longitude" name="longitude" value="' . $longitude . '"/>'])->dropDownList(ArrayHelper::map($areas, 'id', 'area_name_en'), ['multiple' => true, 'id' => 'area',  'class' => 'selectpicker', 'title' => 'Select Area', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"]) . '{input}{hint}'])->hiddenInput(['maxlength' => true, 'value' => $model->vendor_location]) ?>
     <div id="map-canvas"></div>
     <br>
 

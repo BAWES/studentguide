@@ -87,6 +87,7 @@ class Vendor extends \yii\db\ActiveRecord
             'vendor_address_text_ar' => Yii::t('app', 'Vendor Address (Arabic)'),
             'vendor_account_start_date' => Yii::t('app', 'Vendor Account Start Date'),
             'vendor_account_end_date' => Yii::t('app', 'Vendor Account End Date'),
+            'vendor_governorate'        =>  Yii::t('app', 'Vendor Area Name'),
         ];
     }
 
