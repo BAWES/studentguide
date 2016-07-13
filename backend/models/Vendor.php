@@ -252,7 +252,10 @@ class Vendor extends \yii\db\ActiveRecord
         $start      =   ($action == 1) ? $count - 2 : $count - 3;
         $fileName   =   [];
         for($i = $start; $i <= $count; $i++)
-            $fileName[] = $urlParts[$i];
+        {
+            if(isset($urlParts[$i]))
+                $fileName[] = $urlParts[$i];
+        }
 
         Yii::$app->resourceManager->delete(implode("/", $fileName));
     }
