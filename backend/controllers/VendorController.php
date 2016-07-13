@@ -382,9 +382,13 @@ class VendorController extends Controller
             $model->deleteImage($logo, 1); #Delete old vendor logo
 
         #Delete vendor gallery images from aws
-        $modelGallery                   =   VendorGallery::find()->where(['vendor_id' => $model->vendor_id])->asArray()->all();
+        $modelGallery                   =   VendorGallery::find()->where(['vendor_id' => $model->vendor_id])->all();
         foreach($modelGallery AS $gallery)
-            $model->deleteImage($gallery->photo_url, 2);
+        {
+            if(isset($gallery->photo_url))
+                $model->deleteImage($gallery->photo_url, 2);
+            $gallery->delete();
+        }
 
         $model->delete();
 
