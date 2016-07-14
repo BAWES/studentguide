@@ -31,7 +31,7 @@ class VendorController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['create', 'index', 'view', 'update', 'delete', 'delete_gallery'],
+                        'actions' => ['create', 'index', 'view', 'update', 'delete', 'delete_gallery', 'change_order'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -219,6 +219,12 @@ class VendorController extends Controller
         $category   =   new Category();
         if ($model->load(Yii::$app->request->post()))
         {
+            $isVendorLocation                   =   isset(Yii::$app->request->post('Vendor')['is_vendor_location']) ? Yii::$app->request->post('Vendor')['is_vendor_location'] : 0;
+            if(!$isVendorLocation)
+            {
+                $model->vendor_location         =   '';
+            }
+
             $transaction                        =   Yii::$app->db->beginTransaction();
 
             #Updating last update table for vendor key
@@ -437,5 +443,25 @@ class VendorController extends Controller
             else
                 return json_encode(['status' => 401]);
         }
+    }
+
+    /**
+     * Change vendor gallery image order based on the user input
+     */
+    public function actionChange_order()
+    {
+        $galleries          =   Yii::$app->request->post('order');
+        if($galleries)
+        {
+            foreach($galleries AS $gallery)
+            {
+                $model              =   VendorGallery::findOne(['gallery_id' =>  $gallery['id']]);
+                $model->sort_order  =   $gallery['sort_order'] ;
+                $model->update();
+            }
+            echo json_encode(['status' => 200, 'message' => 'Gallery order was updated']);
+        }
+        else
+            echo json_encode(['status' => 404, 'message' => 'Gallery is missing']);
     }
 }

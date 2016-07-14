@@ -23,6 +23,12 @@ use Yii;
  * @property string $vendor_address_text_ar
  * @property string $vendor_account_start_date
  * @property string $vendor_account_end_date
+ * @property number $vendor_category
+ * @property number $vendor_area
+ * @property string $vendor_gallery
+ * @property number $is_vendor_location
+ * @property array  $categoryList
+ * @property number $category_id
  *
  * @property VendorAreaLink[] $vendorAreaLinks
  * @property VendorCategoryLink[] $vendorCategoryLinks
@@ -31,9 +37,10 @@ use Yii;
  */
 class Vendor extends \yii\db\ActiveRecord
 {
-    public $vendor_category, $vendor_area, $vendor_gallery;
+    public $vendor_category, $vendor_area, $vendor_gallery, $is_vendor_location;
     public $categoryList = [];
     public static $category_id = 10;
+    
     /**
      * @inheritdoc
      */
@@ -57,8 +64,9 @@ class Vendor extends \yii\db\ActiveRecord
             [['vendor_social_instagram', 'vendor_social_twitter', 'vendor_youtube_video'], 'url'],
             [['vendor_social_instagram', 'vendor_social_twitter'], 'string', 'max' => 1024],
             [['vendor_location'], 'string', 'max' => 128],
-            [['vendor_governorate'], 'string', 'max' => 128],
+            [['vendor_area_name_en', 'vendor_area_name_ar'], 'string', 'max' => 125],
             ['sort_order', 'number'],
+            ['is_vendor_location', 'number'],
             ['vendor_website', 'url', 'defaultScheme' => 'http'],
             ['vendor_website', 'string', 'max' => '256'],
         ];
@@ -70,24 +78,24 @@ class Vendor extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'vendor_id' => Yii::t('app', 'Vendor ID'),
-            'vendor_logo' => Yii::t('app', 'Vendor Logo'),
-            'vendor_name_en' => Yii::t('app', 'Vendor Name (English)'),
-            'vendor_name_ar' => Yii::t('app', 'Vendor Name (Arabic)'),
-            'vendor_description_en' => Yii::t('app', 'Vendor Description (English)'),
-            'vendor_description_ar' => Yii::t('app', 'Vendor Description (Arabic)'),
-            'vendor_phone1' => Yii::t('app', 'Vendor Phone1'),
-            'vendor_phone2' => Yii::t('app', 'Vendor Phone2'),
-            'vendor_youtube_video' => Yii::t('app', 'Vendor Youtube Video'),
-            'vendor_social_instagram' => Yii::t('app', 'Vendor Social Instagram'),
-            'vendor_social_twitter' => Yii::t('app', 'Vendor Social Twitter'),
-            'vendor_location' => Yii::t('app', 'Vendor Location'),
-            'vendor_governorate' => Yii::t('app', 'Vendor Governorate'),
-            'vendor_address_text_en' => Yii::t('app', 'Vendor Address (English)'),
-            'vendor_address_text_ar' => Yii::t('app', 'Vendor Address (Arabic)'),
-            'vendor_account_start_date' => Yii::t('app', 'Vendor Account Start Date'),
-            'vendor_account_end_date' => Yii::t('app', 'Vendor Account End Date'),
-            'vendor_governorate'        =>  Yii::t('app', 'Vendor Area Name'),
+            'vendor_id'                 =>  Yii::t('app', 'Vendor ID'),
+            'vendor_logo'               =>  Yii::t('app', 'Vendor Logo'),
+            'vendor_name_en'            =>  Yii::t('app', 'Vendor Name (English)'),
+            'vendor_name_ar'            =>  Yii::t('app', 'Vendor Name (Arabic)'),
+            'vendor_description_en'     =>  Yii::t('app', 'Vendor Description (English)'),
+            'vendor_description_ar'     =>  Yii::t('app', 'Vendor Description (Arabic)'),
+            'vendor_phone1'             =>  Yii::t('app', 'Vendor Phone1'),
+            'vendor_phone2'             =>  Yii::t('app', 'Vendor Phone2'),
+            'vendor_youtube_video'      =>  Yii::t('app', 'Vendor Youtube Video'),
+            'vendor_social_instagram'   =>  Yii::t('app', 'Vendor Social Instagram'),
+            'vendor_social_twitter'     =>  Yii::t('app', 'Vendor Social Twitter'),
+            'vendor_location'           =>  Yii::t('app', 'Vendor Location'),
+            'vendor_address_text_en'    =>  Yii::t('app', 'Vendor Address (English)'),
+            'vendor_address_text_ar'    =>  Yii::t('app', 'Vendor Address (Arabic)'),
+            'vendor_account_start_date' =>  Yii::t('app', 'Vendor Account Start Date'),
+            'vendor_account_end_date'   =>  Yii::t('app', 'Vendor Account End Date'),
+            'vendor_area_name_en'       =>  Yii::t('app', 'Vendor Area Name (English)'),
+            'vendor_area_name_ar'       =>  Yii::t('app', 'Vendor Area Name (Arabic)'),
         ];
     }
 
@@ -217,16 +225,17 @@ class Vendor extends \yii\db\ActiveRecord
             ->select(['gallery_id', 'photo_url'])
             ->join("join", "{{%vendor_gallery}}", "{{%vendor_gallery}}.vendor_id = {{%vendor}}.vendor_id")
             ->where(['{{%vendor}}.vendor_id' => $id])
+            ->orderBy(['{{%vendor_gallery}}.sort_order' => SORT_ASC, 'gallery_id' => SORT_DESC])
             ->asArray()
             ->all();
 
-        $template   =   '';
+        $template       =   '';
         if($galleries)
         {
-            $template   =   "<div class='row'>";
+            $template   =   "<div id='sortable1' class='col-md-11 connectedSortable'>";
             foreach($galleries AS $gallery)
             {
-                $template       .=  "<div class = 'col-sm-6 col-md-3'><div class = 'thumbnail'><img class='vendor_gallery' src='" .$gallery['photo_url'] . "'/>";
+                $template       .=  "<div data-attr-id='" . $gallery['gallery_id'] . "' class = 'ui-state-default col-sm-6 col-md-3'><div class = 'thumbnail'><img class='vendor_gallery' src='" .$gallery['photo_url'] . "'/>";
                 if($action)
                     $template   .=  "<div class='caption'><a id='" . $gallery['gallery_id'] ."' class='btn btn-warning pull-right gallery_action' href='#'>Remove</a></div>";
                 $template       .=  "</div></div>";

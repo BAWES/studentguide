@@ -61,6 +61,14 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 </div>
 <?php 
-
     $this->registerCss('#ui-datepicker-div{z-index:999 !important;}input.input-mini{padding: 0 6px 0 28px !important;');
+    $this->registerJs('
+        $(window).scroll(function(){
+            if($(".daterangepicker").is(":visible"))
+            {
+                $(".range_inputs .cancelBtn").trigger("click");
+                $("input[name=\'VendorViewSearch[number_of_views]\']").focus();
+            }
+        });
+    ');
 ?>

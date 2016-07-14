@@ -33,6 +33,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'vendor_description_en')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'vendor_description_ar')->textarea(['rows' => 6]) ?>
+    
     <?php 
         $toolTip = [];
         $i = 0;
@@ -63,11 +64,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'vendor_gallery[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
+
     <?php 
         if(!$model->isNewRecord)
         {
+            echo "<p class=hint>Note: Drag and drop images for changing the sort order</p>";
             $vendorGalleries = $model->getGalleries($model->vendor_id, 1);
-            echo ($vendorGalleries) ? $vendorGalleries : '';
+            echo ($vendorGalleries) ? ($vendorGalleries . "<div style='clear:both;'></div>") : '';
         }
     ?>
 
@@ -90,13 +93,28 @@ use yii\widgets\ActiveForm;
             $latitude = $longitude = '';
     ?>
 
-    <?= $form->field($model, 'vendor_governorate')->textInput(['maxlength' => true])->label(false) ?>
+    <?= $form->field($model, 'vendor_area_name_en')->textInput(['maxlength' => true]) ?>
     
-    <?= $form->field($model, 'vendor_governorate')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'vendor_area_name_ar')->textInput(['maxlength' => true]) ?>
     
-    <?= $form->field($model, 'vendor_location', ['template' => '{label}' . $form->field($model, 'vendor_area', ['template' => '{input}&nbsp;<input type="text" id="location-text-box" style="width:70%;"/><input type="hidden" id="latitude" name="latitude" value="' . $latitude . '"/><input type="hidden" id="longitude" name="longitude" value="' . $longitude . '"/>'])->dropDownList(ArrayHelper::map($areas, 'id', 'area_name_en'), ['multiple' => true, 'id' => 'area',  'class' => 'selectpicker', 'title' => 'Select Area', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"]) . '{input}{hint}'])->hiddenInput(['maxlength' => true, 'value' => $model->vendor_location]) ?>
-    <div id="map-canvas"></div>
-    <br>
+     <?php 
+        $style = '';
+        if($model->isNewRecord)
+            $model->is_vendor_location = 1;
+        else if($latitude && $longitude)
+            $model->is_vendor_location = 1;
+        else
+            $model->is_vendor_location = 0;
+    ?>
+
+    <?= $form->field($model, 'is_vendor_location')->radioList([1 => 'Yes', 0 => 'No']) ?>
+    
+    <div class='vendorLocation'>
+        <?= $form->field($model, 'vendor_location', ['template' => '{label}' . $form->field($model, 'vendor_area', ['template' => '{input}&nbsp;<input type="text" id="location-text-box" style="width:70%;"/><input type="hidden" id="latitude" name="latitude" value="' . $latitude . '"/><input type="hidden" id="longitude" name="longitude" value="' . $longitude . '"/>'])->dropDownList(ArrayHelper::map($areas, 'id', 'area_name_en'), ['multiple' => true, 'id' => 'area',  'class' => 'selectpicker', 'title' => 'Select Area', "data-selected-text-format" => "count", "data-live-search" => "true", "data-actions-box" => "true"]) . '{input}{hint}'])->hiddenInput(['maxlength' => true, 'value' => $model->vendor_location]) ?>
+        <div id="map-canvas"></div>
+        <br>
+    </div>
+
 
     <?= $form->field($model, 'vendor_address_text_en')->textInput(['maxlength' => true]) ?>
 
@@ -113,12 +131,16 @@ use yii\widgets\ActiveForm;
         <?php 
             if($model->isNewRecord) 
                 echo Html::a('Back', Url::to(['vendor/index', 'id' => $categoryID]), ['class' => 'btn btn-default']);
+            else
+                echo Html::a('Back', Url::to(['vendor/index']), ['class' => 'btn btn-default']);
         ?>
+        
     </div>
     <?php ActiveForm::end(); ?>
 
 </div>
-<div class="notification"></div>
+<div class="notification success"></div>
+
 <?php
     $js = <<<JS
     // get the form id and set the event
@@ -146,13 +168,51 @@ JS;
       plusButton: '<span class=\"i\">&blacktriangleright;</span>', 
       minusButton: '<span class=\"i\">&blacktriangledown;</span>' 
     });");
-    $this->registerCss(".form-group .field-vendor-vendor_governorate{display: inline-block;margin-bottom: 0px;}.checkbox_label{display:inline-block;}.category_drop_down_list{height: 150px;overflow-x:hidden;border: 1px solid #ccc;}.dropdown-menu.inner li a span{display: block;}.notification {display:none; position: fixed;bottom: 1%;right: 1%;background: #ccc;width: 20%;padding: 1%;border-radius: 3px;}#map-canvas {height: 350px;width: 100%;margin:0 auto;}.notification .loading, .notification .success{display:none;}.notification.success{background: #AECE4E;color: #fff;}.notification.error{background: #F35958;color:#fff;}div#ui-datepicker-div{z-index: 999 !important;}#vendor_logo{width: 30%;} .vendor_gallery{height: 120px !important;}");
+    $this->registerCss(".ui-state-default{border:none;background:transparent;}.thumbnail a{color: #fff !important;}.form-group .field-vendor-vendor_governorate{display: inline-block;margin-bottom: 0px;}.checkbox_label{display:inline-block;}.category_drop_down_list{height: 150px;overflow-x:hidden;border: 1px solid #ccc;}.dropdown-menu.inner li a span{display: block;}.notification {display:none; position: fixed;bottom: 1%;right: 1%;background: #ccc;width: 20%;padding: 1%;border-radius: 3px;}#map-canvas {height: 350px;width: 100%;margin:0 auto;}.notification .loading, .notification .success{display:none;}.notification.success{background: #AECE4E;color:#556E0A;font-weight:bold;}.notification.error{background: #F35958;color:#fff;}div#ui-datepicker-div{z-index: 999 !important;}#vendor_logo{width: 30%;} .vendor_gallery{height: 120px !important;}");
     $this->registerCssFile($this->theme->baseUrl . "/plugins/bootstrap-select/css/bootstrap-select.min.css");
     $this->registerJsFile($this->theme->baseUrl . "/plugins/bootstrap-select/js/bootstrap-select.min.js", [
         'depends' =>  \yii\web\JqueryAsset::className(),
     ]);
 
-    $this->registerJs('$("#start_date").datepicker({
+    $this->registerJs('    
+        //Change sort order of the vendor galleries
+        function changeSortOrder()
+        {
+            var vendorGalleries = [];
+            $("#sortable1 .ui-state-default").each(function(index, element){
+                vendorGalleries.push({"id" : $(element).attr("data-attr-id"), "sort_order" : index});
+            });
+            $.ajax({
+                url         :   "' . Url::to(['/vendor/change_order']) . '",
+                type        :   "POST",
+                data        :   {order : vendorGalleries},
+                dataType    :   "json",
+                beforeSend  :   function(){
+                    $(".notification").removeClass("success").html(\'<div><img src="'. $this->theme->baseUrl .'/img/small-loader.gif"/><span>Loading...</span></div>\').fadeIn();
+                },
+                complete    :   function(){
+                    $(".notification").fadeOut();
+                },
+                async       :   false,
+                success     :   function(data){
+                    if(data.status == 200)
+                    {
+                        $(".notification").html(\'<div><i class="fa fa-check fa-fw"></i><span>\' + data.message + \'</span></div>\').addClass("success").fadeIn().delay(3000).fadeOut();
+                    }
+                },
+            })
+            console.log(vendorGalleries);
+        }
+
+        //Drag and drop vendor gallery images
+        $("#sortable1").sortable({
+            connectWith :   ".connectedSortable",
+            update      :   function(event, ui){
+                changeSortOrder();
+            }
+        }).disableSelection();
+
+        $("#start_date").datepicker({
             "dateFormat"   : "dd-mm-yy", 
             "minDate"      : 0,
             "onSelect" : function(dateText){
@@ -231,7 +291,9 @@ JS;
                     document.getElementById("location-text-box").value = "vadavalli";
                 }
                 else
-                    var pos         =   new google.maps.LatLng(11.0168, 76.9558);
+                {
+                    var pos         =   new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                }
 
                 map.setCenter(pos);
                 marker = new google.maps.Marker({

@@ -47,6 +47,7 @@ class VendorSearch extends Vendor
 
         $dataProvider = new ActiveDataProvider([
             'query' => ($vendors) ? $query->where(['in', 'vendor_id', $vendors]) : $query,
+            'sort'  =>  ['defaultOrder' => ['sort_order' => SORT_DESC]],
         ]);
 
         $this->load($params);

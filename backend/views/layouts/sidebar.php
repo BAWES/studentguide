@@ -70,6 +70,12 @@
 						<span class="title">Vendor Statistics</span>
 					</a>
 				</li>
+				<li class="<?php if ($menu_act == 'OfferController') {echo "active"; } else  {echo "noactive";}?>">
+					<a class="link-title" href="<?= Url::to(['/offer/index']) ?>">
+						<i class="fa fa-gift"></i>
+						<span class="title">Offers</span>
+					</a>
+				</li>
 				<li class="<?php if ($menu_act == 'EnquiryController') {echo "active"; } else  {echo "noactive";}?>">
 					<a class="link-title" href="<?= Url::to(['/enquiry/index']) ?>">
 						<i class="fa fa-book"></i>

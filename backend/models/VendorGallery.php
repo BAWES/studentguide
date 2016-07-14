@@ -24,7 +24,7 @@ class VendorGallery extends \common\models\VendorGallery
     {
         return [
             [['vendor_id', 'photo_url', 'photo_added_datetime'], 'required'],
-            [['vendor_id'], 'integer'],
+            [['vendor_id', 'sort_order'], 'integer'],
             [['photo_added_datetime'], 'safe'],
             [['photo_url'], 'string', 'max' => 255],
             [['vendor_id'], 'exist', 'skipOnError' => true, 'targetClass' => Vendor::className(), 'targetAttribute' => ['vendor_id' => 'vendor_id']],
