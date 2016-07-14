@@ -6,6 +6,7 @@ use yii\web\Controller;
 use Yii;
 use yii\helpers\Security;
 use common\models\Lastupdate;
+use common\models\Offer;
 /**
  * Default controller for the `v1` module
  */
@@ -56,5 +57,29 @@ class CategoryController extends BaseController
             return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "testing"), 'data' => ['categories' => $categories, 'key' => $key, 'cache' => $cache]];
         else
             return ['code' => parent::STATUS_FAILURE, 'message' => Yii::t("api", "testing"), 'data' => (Object)[]];
+    }
+
+    /**
+    * Returns the category list
+    * @param string language points the language code
+    * @return json
+    */
+    public function actionOffers($language = "en")
+    {
+        Yii::$app->language     =   $language;
+        $request                =   Yii::$app->request;
+        $model                  =   new Offer();
+
+        $offers     =   $model->find()
+            ->select(['offer_id' => 'id', 'name_en', 'name_ar', 'url', 'image', 'start_date', 'end_date'])
+            ->orderBy('id DESC')
+            ->where(['status' => 1])
+            ->asArray()
+            ->all();   
+        
+        if($offers)
+            return ['code' => parent::STATUS_SUCCESS, 'message' => Yii::t("api", "Offers retrieved successfully"), 'data' => ['offers' => $offers]];
+        else
+            return ['code' => parent::STATUS_FAILURE, 'message' => Yii::t("api", "No offers found"), 'data' => (Object)[]];
     }
 }

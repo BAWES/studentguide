@@ -50,7 +50,7 @@ class BaseController extends ActiveController
 				$model->save();
 			}
 
-			$update 		= 	Lastupdate::find()->select(['category_key', 'vendor_key', 'area_key'])->one();
+			$update 		= 	Lastupdate::find()->select(['category_key', 'vendor_key', 'area_key', 'offer_key'])->one();
 
 			if($update)
 	            return ['code' => self::STATUS_SUCCESS, 'message' => Yii::t("api", "testing"), 'data' => ['keys' => $update, 'terms' => $terms['terms_and_conditions']]];

@@ -60,6 +60,7 @@ return [
                     'controller'    =>  ['v1/category'],
                     'extraPatterns' =>  [
                         'GET index'     =>  'index',
+                        'GET offers'    =>  'offers',
                     ],
                 ],
                 [
