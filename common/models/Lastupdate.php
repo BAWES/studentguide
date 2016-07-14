@@ -13,6 +13,7 @@ use Yii;
  * @property string $category_key
  * @property string $vendor_key
  * @property string $area_key
+ * @property string $offer_key
  */
 class Lastupdate extends \yii\db\ActiveRecord
 {
@@ -34,6 +35,7 @@ class Lastupdate extends \yii\db\ActiveRecord
             'category_key'  => Yii::t('app', 'Category Key'),
             'vendor_key'    => Yii::t('app', 'Vendor Key'),
             'area_key'      => Yii::t('app', 'Area Key'),
+            'offer_key'     => Yii::t('app', 'Offer Key'),
         ];
     }
 
