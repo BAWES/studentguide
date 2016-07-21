@@ -141,6 +141,8 @@ class OfferController extends Controller
                 if($oldImage)
                     $model->deleteImage($oldImage); #Delete old vendor logo
             }
+            else
+                $model->image               =   $oldImage;
 
             if($model->update())
             {
