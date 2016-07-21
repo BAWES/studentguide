@@ -54,7 +54,7 @@ use yii\widgets\ActiveForm;
 	        }
 	        return false;
 	    });
-		$("#offer-start_date").datepicker({
+		/*$("#offer-start_date").datepicker({
             "dateFormat"   : "yy-mm-dd", 
             "minDate"      : 0,
             "onSelect" : function(dateText){
@@ -67,6 +67,6 @@ use yii\widgets\ActiveForm;
             "onSelect" : function(dateText){
                 $("#offer-start_date").datepicker("option", "maxDate", $(this).datepicker("getDate"));
             }
-        });
+        });*/
 	');
 ?>
