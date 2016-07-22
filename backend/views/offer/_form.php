@@ -54,19 +54,19 @@ use yii\widgets\ActiveForm;
 	        }
 	        return false;
 	    });
-		/*$("#offer-start_date").datepicker({
+		$("#offer-start_date").datepicker({
             "dateFormat"   : "yy-mm-dd", 
-            "minDate"      : 0,
+            //"minDate"      : 0,
             "onSelect" : function(dateText){
                 $("#offer-end_date").datepicker("option", "minDate", $(this).datepicker("getDate"));
             }
         }); 
         $("#offer-end_date").datepicker({
             "dateFormat"   : "yy-mm-dd", 
-            "minDate"      : 0,
+            //"minDate"      : 0,
             "onSelect" : function(dateText){
                 $("#offer-start_date").datepicker("option", "maxDate", $(this).datepicker("getDate"));
             }
-        });*/
+        });
 	');
 ?>
