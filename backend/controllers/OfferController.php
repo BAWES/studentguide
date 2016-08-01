@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
+use backend\models\Setting;
 use backend\models\Offer;
 use backend\models\OfferSearch;
 use yii\web\Controller;
@@ -114,7 +115,11 @@ class OfferController extends Controller
         } 
         else {
             return $this->render('create', [
-                'model' => $model,
+                'model'             =>  $model,
+                'offerImageSetting' =>  Setting::find()
+                    ->select(['offer_image_height', 'offer_image_width'])
+                    ->asArray()
+                    ->one(),
             ]);
         }
     }
@@ -161,7 +166,11 @@ class OfferController extends Controller
         } 
         else {
             return $this->render('update', [
-                'model' => $model,
+                'model'             =>  $model,
+                'offerImageSetting' =>  Setting::find()
+                    ->select(['offer_image_height', 'offer_image_width'])
+                    ->asArray()
+                    ->one(),
             ]);
         }
     }

@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'image')->fileInput(['accept' => 'image/*']) ?>
+    <?= $form->field($model, 'image')->fileInput(['accept' => 'image/*'])->hint('Image size: ' . $offerImageSetting['offer_image_width'] . ' * ' . $offerImageSetting['offer_image_height']) ?>
 
     <?php 
         if(!$model->isNewRecord && $model->image)

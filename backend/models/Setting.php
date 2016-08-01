@@ -20,7 +20,7 @@ class Setting extends \common\models\Setting
     public function rules()
     {
         return [
-            [['terms_and_conditions', 'contact_email'], 'required'],
+            [['terms_and_conditions', 'contact_email', 'offer_image_width', 'offer_image_height'], 'required'],
             [['terms_and_conditions'], 'string'],
             [['contact_email'], 'string', 'max' => 255],
             ['contact_email', 'email'],

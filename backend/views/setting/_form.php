@@ -16,6 +16,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'contact_email')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'offer_image_width')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'offer_image_height')->textInput(['maxlength' => true]) ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

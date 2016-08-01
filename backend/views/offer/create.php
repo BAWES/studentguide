@@ -13,7 +13,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="area-create">
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' 			=>	$model,
+        'offerImageSetting'	=>	$offerImageSetting,
     ]) ?>
 
 </div>

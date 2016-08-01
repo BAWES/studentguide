@@ -67,7 +67,7 @@ class CategoryController extends Controller
      * @param string $id
      * @return mixed
      */
-    public function actionView($id)
+    public function actionView($id = '')
     {
         return $this->redirect(['index', 'id' => $id]);
         //return $this->render('')
@@ -121,7 +121,6 @@ class CategoryController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
         if ($model->load(Yii::$app->request->post()) && $model->save())
         {
             $key = Yii::$app->getSecurity()->generatePasswordHash(rand(5,16));

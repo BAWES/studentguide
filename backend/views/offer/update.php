@@ -15,7 +15,8 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 <div class="area-update">
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' 			=> 	$model,
+        'offerImageSetting'	=>	$offerImageSetting,
     ]) ?>
 
 </div>

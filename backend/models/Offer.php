@@ -19,8 +19,17 @@ class Offer extends \common\models\Offer
 	/** 
 	 * @inheritdoc
 	 */
+	private $_width, $_height;
+
 	public function rules()
 	{
+		$offerImageSetting 	=	Setting::find()
+			->select(['offer_image_height', 'offer_image_width'])
+			->asArray()
+			->one();
+		$this->_width 		=	$offerImageSetting['offer_image_width'];
+		$this->_height 		=	$offerImageSetting['offer_image_height'];
+		
 		return [
 			[['name_en', 'name_ar', 'start_date', 'end_date', 'status'], 'required'],
 			['image', 'required', 'on' => 'insert'],
@@ -28,7 +37,7 @@ class Offer extends \common\models\Offer
 			[['name_en', 'name_ar'], 'string', 'max' => 255],
 			['url', 'url', 'defaultScheme' => 'http'],
 			['url', 'string'],
-			['image', 'image', 'extensions' => ['png', 'jpg', 'gif']],
+			['image', 'image', 'extensions' => ['png', 'jpg', 'gif'], 'minWidth' => $this->_width, 'maxWidth' => $this->_width, 'minHeight' => $this->_height, 'maxHeight' => $this->_height],
 		];
 	}
 

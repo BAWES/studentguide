@@ -155,7 +155,7 @@ $this->params['breadcrumbs'][] = $this->title;
         if($model->isNewRecord)
             $model->category_vendors_filterable_by_area = 0;
     ?>
-    <?= $form->field($model, 'category_id')->hiddenInput(); ?>
+    <?= $form->field($model, 'category_id')->hiddenInput()->label(false); ?>
     <?= $form->field($model, 'category_vendors_filterable_by_area')->radioList([1 => 'Yes', 0 => 'No']) ?>
       </div>
       <div class="modal-footer">
