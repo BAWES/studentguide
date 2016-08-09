@@ -1,6 +1,6 @@
 <?php
 return [
     'adminEmail'		=>	'admin@example.com',
-   	'oneSignalAppId'	=>	"784c6a1a-a114-43ec-8942-2b6c70f2386a",
-	'oneSignalRestKey'	=>	"Njc1ZDQ2N2MtMWZhNC00YzI0LWI0NDktYWMwMjZmZmU5MGM3",
+   	'oneSignalAppId'	=>	"ac246d1c-b55f-4390-900d-e91e20cefa3e",
+	'oneSignalRestKey'	=>	"MzdlMGM5YWEtM2FjZC00YzE5LWJjYzEtNDM1ZDU2ODg1NmI5",
 ];

@@ -218,4 +218,68 @@ class SiteController extends Controller
             ]);
         }
     }
+
+        /**
+    * Sending push notification to the app installed users
+    */
+    public function actiontesting()
+    {
+        $model      =   new PushNotification();
+        $request    =   Yii::$app->request;
+        if($request->isPost && isset($request->post()['PushNotification']['message_en']) && isset($request->post()['PushNotification']['message_ar']))
+        {
+            $model              =   new PushNotificationHistory();
+            $model->message_ar  =   "testing english";
+            $model->message_en  =   "testing arabic";
+            $model->datetime    =   date('Y-m-d H:i:s');
+            $model->save();
+
+            #Getting the device tokens of the users who choose english language
+            $deviceTokens['en'] = \yii\helpers\ArrayHelper::getColumn(PushNotification::find()->select(['device_token'])->where(['language' => 'en'])->asArray()->all(), 'device_token');
+
+            #Getting the device tokens of the users who choose arabic language
+            $deviceTokens['ar'] = \yii\helpers\ArrayHelper::getColumn(PushNotification::find()->select(['device_token'])->where(['language' => 'ar'])->asArray()->all(), 'device_token');
+            echo "<pre>";
+            var_dump($deviceTokens);
+            foreach($deviceTokens AS $key => $tokens)
+            {
+                if($tokens)
+                {
+                    if($key == "en")
+                        $content = ['en' => $request->post()['PushNotification']['message_en']];
+                    else
+                        $content = ['en' => $request->post()['PushNotification']['message_ar']];
+
+                    $fields = array(
+                      'app_id'              => Yii::$app->params['oneSignalAppId'],
+                      'include_player_ids'  => $tokens,
+                      'contents'            => $content
+                    );
+                    
+                    $fields = json_encode($fields);
+                    
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, "https://onesignal.com/api/v1/notifications");
+                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json', 'Authorization: Basic ' . Yii::$app->params['oneSignalRestKey']));
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+                    curl_setopt($ch, CURLOPT_POST, TRUE);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+
+                    $response = curl_exec($ch);
+                    curl_close($ch);
+                    var_dump($response);
+                    die;
+                }
+            }
+            $this->redirect(['site/send_notification']);
+        }
+        else
+        {
+            return $this->render('notification', [
+                'model' =>  $model
+            ]);
+        }
+    }
 }
