@@ -169,7 +169,7 @@ class DefaultcategoryController extends Controller
     */
     public function actionView_category()
     {
-        $expression =   new \yii\db\Expression("IFNULL(p.category_name_en, '') AS 'Parent category', IF({{%category}}.category_vendors_filterable_by_area = 0, 'Yes', 'No') AS 'Filterable by vendor area', DATE_FORMAT({{%category}}.category_created_datetime,'%b %d %Y %h:%i %p') AS 'Created datetime', DATE_FORMAT({{%category}}.category_updated_datetime,'%b %d %Y %h:%i %p') AS 'Updated datetime'");
+        $expression =   new \yii\db\Expression("IFNULL(p.category_name_en, '') AS 'Parent category', IF({{%category}}.category_vendors_filterable_by_area = 0, 'Yes', 'No') AS 'Filterable by vendor area', IF({{%category}}.status = 1, 'Active', 'Deactive') AS status, DATE_FORMAT({{%category}}.category_created_datetime,'%b %d %Y %h:%i %p') AS 'Created datetime', DATE_FORMAT({{%category}}.category_updated_datetime,'%b %d %Y %h:%i %p') AS 'Updated datetime'");
         $category   =   Category::find()->select(['"Category Name (English)"' => '{{%category}}.category_name_en', '"Category Name (Arabic)"' => '{{%category}}.category_name_ar', $expression])->join('LEFT JOIN', '{{%category}} AS p', '{{%category}}.parent_category_id = p.category_id')->where(['{{%category}}.category_id' => Yii::$app->request->post('id')])->asArray()->one();
         $table = "<table class='table'>";
         foreach($category AS $key => $value)

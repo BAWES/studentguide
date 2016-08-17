@@ -47,10 +47,11 @@ class CategoryController extends BaseController
         else
         {
             $categories     =   $model->find()
-            ->select(['category_id', 'IFNULL(parent_category_id, 0) as parent_category_id', 'category_name_en', 'category_name_ar', 'category_vendors_filterable_by_area'])
-            ->orderBy('{{%category}}.category_id DESC')
-            ->asArray()
-            ->all();   
+                ->select(['category_id', 'IFNULL(parent_category_id, 0) as parent_category_id', 'category_name_en', 'category_name_ar', 'category_vendors_filterable_by_area'])
+                ->where(['status' => 1])
+                ->orderBy('{{%category}}.category_id DESC')
+                ->asArray()
+                ->all();   
         }
         
         if($categories)

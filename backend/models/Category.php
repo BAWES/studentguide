@@ -38,7 +38,7 @@ class Category extends \common\models\Category
     public function rules()
     {
         return [
-            [['parent_category_id', 'category_vendors_filterable_by_area'], 'integer'],
+            [['parent_category_id', 'category_vendors_filterable_by_area', 'status'], 'integer'],
             [['category_name_en', 'category_name_ar'], 'required'],
             [['category_created_datetime', 'category_updated_datetime'], 'safe'],
             [['category_name_en', 'category_name_ar'], 'string', 'max' => 255],

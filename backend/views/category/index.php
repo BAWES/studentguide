@@ -53,7 +53,6 @@ else
             
         ?>
     </p>
-    <?php if($dataProvider->totalCount) {  ?>
         <?= GridView::widget([
             'dataProvider'  => $dataProvider,
             'filterModel'   => $searchModel,
@@ -82,8 +81,15 @@ else
                     },
                     'filter'    =>  Html::activeDropDownList($searchModel, 'category_vendors_filterable_by_area', [1 => 'Yes', 0 => 'No'], ['prompt' => 'Select Option']),
                 ],
+                [
+                    'attribute' =>  'status',
+                    'value'     =>  function($model){
+                        return $model->status == 1 ? "Active" : "Deactive";
+                    },
+                    'filter'    =>  Html::activeDropDownList($searchModel, 'status', [1 => 'Active', 0 => 'Deactive'], ['prompt' => 'Select Status'])
+                ],
                 ['class'     =>  'yii\grid\ActionColumn'],
             ],
         ]); 
-    } ?>
+     ?>
 </div>

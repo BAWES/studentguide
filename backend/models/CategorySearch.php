@@ -18,7 +18,7 @@ class CategorySearch extends Category
     public function rules()
     {
         return [
-            [['category_id', 'parent_category_id', 'category_vendors_filterable_by_area'], 'integer'],
+            [['category_id', 'parent_category_id', 'category_vendors_filterable_by_area', 'status'], 'integer'],
             [['category_name_en', 'category_name_ar', 'category_created_datetime', 'category_updated_datetime'], 'safe'],
         ];
     }
@@ -60,11 +60,12 @@ class CategorySearch extends Category
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'category_id' => $this->category_id,
-            'parent_category_id' => $this->parent_category_id,
+            'category_id'                         => $this->category_id,
+            'parent_category_id'                  => $this->parent_category_id,
             'category_vendors_filterable_by_area' => $this->category_vendors_filterable_by_area,
-            'category_created_datetime' => $this->category_created_datetime,
-            'category_updated_datetime' => $this->category_updated_datetime,
+            'status'                              => $this->status,
+            'category_created_datetime'           => $this->category_created_datetime,
+            'category_updated_datetime'           => $this->category_updated_datetime,
         ]);
 
         $query->andFilterWhere(['like', 'category_name_en', $this->category_name_en])

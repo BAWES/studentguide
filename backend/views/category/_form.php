@@ -29,6 +29,13 @@ use yii\helpers\ArrayHelper;
     
     <?= $form->field($model, 'category_vendors_filterable_by_area')->radioList([1 => 'Yes', 0 => 'No']) ?>
 
+    <?php
+        if($model->isNewRecord)
+            $model->status = 1;
+    ?>
+    
+    <?= $form->field($model, 'status')->radioList([1 => 'Active', 0 => 'Deactive']) ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
         <?= Html::a('Back', ['category/index', 'id' => $parentCategoryId], ['class' => 'btn btn-default']) ?>

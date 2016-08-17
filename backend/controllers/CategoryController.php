@@ -132,6 +132,7 @@ class CategoryController extends Controller
             return $this->render('update', [
                 'model'             =>  $model,
                 'parentCategoryId'  =>  $model->parent_category_id,
+                'category'          =>  Category::find()->select(['category_id', 'category_name_en'])->where(['category_id' => $model->parent_category_id])->asArray()->one()
             ]);
         }
     }
